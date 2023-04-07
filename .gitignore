@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/ChebsValheimLibrary/ChebsValheimLibrary/libs/
+/ChebsValheimLibrary/packages/
+/ChebsValheimLibrary/ChebsValheimLibrary/obj/
+/ChebsValheimLibrary/ChebsValheimLibrary/bin/
