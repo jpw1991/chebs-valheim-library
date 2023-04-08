@@ -22,7 +22,6 @@ namespace ChebsValheimLibrary.Minions.AI
         private string _status;
         
         private bool _inContact;
-        private float _lerpedValue;
 
         private void Awake()
         {
@@ -106,7 +105,14 @@ namespace ChebsValheimLibrary.Minions.AI
                 {
                     var hitData = new HitData();
                     hitData.m_damage.m_pickaxe = 500;
-                    destructible.m_nview.InvokeRPC("Damage", hitData);
+                    if (destructible.TryGetComponent(out ZNetView netView))
+                    {
+                        netView.InvokeRPC("Damage", hitData);                        
+                    }
+                    else
+                    {
+                        Jotunn.Logger.LogError("MinerAI.TryAttack: destructible has no ZNetView");
+                    }
                     return;
                 }
 

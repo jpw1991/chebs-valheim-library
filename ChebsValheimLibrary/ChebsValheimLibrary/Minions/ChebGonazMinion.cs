@@ -55,8 +55,6 @@ namespace ChebsValheimLibrary.Minions
         }
 
         public bool canBeCommanded = true;
-        
-        public static ConfigEntry<float> RoamRange;
 
         public const string MinionOwnershipZdoKey = "UndeadMinionMaster";
         public const string MinionDropsZdoKey = "UndeadMinionDrops";
@@ -144,11 +142,6 @@ namespace ChebsValheimLibrary.Minions
             _deathCrates.Add(result.transform);
             return result.GetComponent<Container>();
         }
-        #endregion
-
-        #region CleanupAfterLogout
-        private const float NextPlayerOnlineCheckInterval = 15f;
-        private float nextPlayerOnlineCheckAt;
         #endregion
 
         private Vector3 StatusRoaming => Vector3.negativeInfinity;
@@ -396,7 +389,6 @@ namespace ChebsValheimLibrary.Minions
             // after the session ends
             var waitObject = new GameObject(MinionWaitObjectName);
             waitObject.transform.position = waitPos;
-            monsterAI.m_randomMoveRange = 0;
             monsterAI.SetFollowTarget(waitObject);
         }
         #endregion
@@ -439,7 +431,6 @@ namespace ChebsValheimLibrary.Minions
             {
                 Destroy(currentFollowTarget);
             }
-            monsterAI.m_randomMoveRange = RoamRange.Value;
             monsterAI.SetFollowTarget(null);
         }
 
