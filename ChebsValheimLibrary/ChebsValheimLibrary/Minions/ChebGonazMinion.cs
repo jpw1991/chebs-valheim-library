@@ -147,41 +147,39 @@ namespace ChebsValheimLibrary.Minions
         private Vector3 StatusRoaming => Vector3.negativeInfinity;
         private Vector3 StatusFollowing => Vector3.positiveInfinity;
         
-        public static ArmorType DetermineArmorType(int armorBlackIronRequired, int armorIronRequired, int armorBronzeRequired, int armorLeatherRequired)
+        public static ArmorType DetermineArmorType(Inventory inventory, int armorBlackIronRequired, int armorIronRequired, int armorBronzeRequired, int armorLeatherRequired)
         {
-            Player player = Player.m_localPlayer;
-            
-            int blackMetalInInventory = player.GetInventory().CountItems("$item_blackmetal");
+            int blackMetalInInventory = inventory.CountItems("$item_blackmetal");
             if (blackMetalInInventory >= armorBlackIronRequired)
             {
                 return ArmorType.BlackMetal;
             }
             
-            int ironInInventory = player.GetInventory().CountItems("$item_iron");
+            int ironInInventory = inventory.CountItems("$item_iron");
             if (ironInInventory >= armorIronRequired)
             {
                 return ArmorType.Iron;
             }
             
-            int bronzeInInventory = player.GetInventory().CountItems("$item_bronze");
+            int bronzeInInventory = inventory.CountItems("$item_bronze");
             if (bronzeInInventory >= armorBronzeRequired)
             {
                 return ArmorType.Bronze;
             }
             
-            int trollHideInInventory = player.GetInventory().CountItems("$item_trollhide");
+            int trollHideInInventory = inventory.CountItems("$item_trollhide");
             if (trollHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherTroll;
             }
             
-            int wolfHideInInventory = player.GetInventory().CountItems("$item_wolfpelt");
+            int wolfHideInInventory = inventory.CountItems("$item_wolfpelt");
             if (wolfHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherWolf;
             }
             
-            int loxHideInInventory = player.GetInventory().CountItems("$item_loxpelt");
+            int loxHideInInventory = inventory.CountItems("$item_loxpelt");
             if (loxHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherLox;
@@ -197,7 +195,7 @@ namespace ChebsValheimLibrary.Minions
             
             foreach (var leatherItem in leatherItemTypes)
             {
-                var leatherItemsInInventory = player.GetInventory().CountItems(leatherItem);
+                var leatherItemsInInventory = inventory.CountItems(leatherItem);
                 if (leatherItemsInInventory >= armorLeatherRequired)
                 {
                     return ArmorType.Leather;
