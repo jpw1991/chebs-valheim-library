@@ -25,6 +25,37 @@ namespace ChebsValheimLibrary
 {
     public class Base
     {
+        public static readonly System.Version CurrentVersion = new("1.0.0");
+
+        public static bool VersionCheck(System.Version version, out string message)
+        {
+            if (version.Major != CurrentVersion.Major)
+            {
+                message = "Major version difference detected! Please check your ChebsValheimLibrary.dll version! " +
+                          $"Mod expected {version}, but library version is {CurrentVersion}";
+                return false;
+            }
+
+            if (version.Minor != CurrentVersion.Minor)
+            {
+                message = "Minor version difference detected! Please check your ChebsValheimLibrary.dll version! " +
+                          $"Mod expected {version}, but library version is {CurrentVersion}";
+                return false;
+            }
+
+            if (version.Build < CurrentVersion.Build)
+            {
+                message = "Patch version difference detected. The mod expects an older ChebsValheimLibrary.dll " +
+                          "version. This probably won't cause problems." +
+                          $"Mod expected {version}, but library version is {CurrentVersion}";
+                return false;
+            }
+
+            message = "";
+            return true;
+        }
+
+        
         public static GameObject LoadPrefabFromBundle(string prefabName, AssetBundle bundle, bool radeonFriendly)
         {
             var prefab = bundle.LoadAsset<GameObject>(prefabName);
@@ -121,8 +152,11 @@ namespace ChebsValheimLibrary
             };
             minionWornItems.ForEach(minionItem =>
             {
-                GameObject minionItemPrefab = LoadPrefabFromBundle(minionItem.PrefabName, bundle, radeonFriendly);
-                ItemManager.Instance.AddItem(minionItem.GetCustomItemFromPrefab(minionItemPrefab));
+                if (ItemManager.Instance.GetItem(minionItem.ItemName) == null)
+                {
+                    GameObject minionItemPrefab = LoadPrefabFromBundle(minionItem.PrefabName, bundle, radeonFriendly);
+                    ItemManager.Instance.AddItem(minionItem.GetCustomItemFromPrefab(minionItemPrefab));
+                }
             });
         }
     }
