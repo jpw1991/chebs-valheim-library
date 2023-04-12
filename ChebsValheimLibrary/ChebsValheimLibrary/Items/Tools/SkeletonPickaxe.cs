@@ -12,22 +12,22 @@ namespace ChebsValheimLibrary.Items.Tools
         public override string PrefabName => "ChebGonaz_SkeletonPickaxe.prefab";
         public override string NameLocalization => "$item_chebgonaz_skeletonpickaxe_name";
         public override string DescriptionLocalization => "$item_chebgonaz_skeletonpickaxe_desc";
+
+        private static GameObject _prefab;
         
         public override CustomItem GetCustomItemFromPrefab(GameObject prefab)
         {
-            ItemConfig config = new ItemConfig();
+            var config = new ItemConfig();
             config.Name = NameLocalization;
             config.Description = DescriptionLocalization;
+            
+            // keep a reference to prefab for later use
+            _prefab = prefab;
 
             if (prefab.TryGetComponent(out ItemDrop itemDrop))
                 itemDrop.m_itemData.m_shared.m_toolTier = ToolTier;
 
-            CustomItem customItem = new CustomItem(prefab, false, config);
-            if (customItem == null)
-            {
-                Logger.LogError($"GetCustomItemFromPrefab: {PrefabName}'s CustomItem is null!");
-                return null;
-            }
+            var customItem = new CustomItem(prefab, false, config);
             if (customItem.ItemPrefab == null)
             {
                 Logger.LogError($"GetCustomItemFromPrefab: {PrefabName}'s ItemPrefab is null!");
@@ -35,6 +35,18 @@ namespace ChebsValheimLibrary.Items.Tools
             }
 
             return customItem;
+        }
+
+        public static void SyncInternalsWithConfigs(int toolTier)
+        {
+            // This is used for when the config file in one of the mods is updated to sync the static values with
+            // whatever's in the config.
+            //
+            // For example: User sets SkeletonPickaxe's ToolTier in Cheb's Necromancy config to 2. This needs to be
+            // reflected into SkeletonPickaxe.ToolTier. Ideas welcome for how to improve this because I'm not really
+            // sure if this is the right way to go about it. But it works.
+            ToolTier = toolTier;
+            _prefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_toolTier = toolTier;
         }
     }
 }
