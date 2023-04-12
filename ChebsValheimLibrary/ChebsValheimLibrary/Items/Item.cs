@@ -122,16 +122,11 @@ namespace ChebsValheimLibrary.Items
 
         public virtual CustomItem GetCustomItemFromPrefab(GameObject prefab)
         {
-            ItemConfig config = new ItemConfig();
+            var config = new ItemConfig();
             config.Name = NameLocalization;
             config.Description = DescriptionLocalization;
 
-            CustomItem customItem = new CustomItem(prefab, false, config);
-            if (customItem == null)
-            {
-                Logger.LogError($"GetCustomItemFromPrefab: {PrefabName}'s CustomItem is null!");
-                return null;
-            }
+            var customItem = new CustomItem(prefab, false, config);
             if (customItem.ItemPrefab == null)
             {
                 Logger.LogError($"GetCustomItemFromPrefab: {PrefabName}'s ItemPrefab is null!");
