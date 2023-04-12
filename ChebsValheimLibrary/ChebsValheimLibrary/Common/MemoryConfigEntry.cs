@@ -12,6 +12,8 @@ namespace ChebsValheimLibrary.Common
 
         public TT Value => _processedValue;
 
+        public ConfigEntry<T> ConfigEntry => _configEntry;
+
         private readonly ConfigEntry<T> _configEntry;
 
         public MemoryConfigEntry(ConfigEntry<T> configEntry, Func<T, TT> processValueFunc)
@@ -20,14 +22,25 @@ namespace ChebsValheimLibrary.Common
             _processValueFunc = processValueFunc;
             _lastKnownValue = _configEntry.Value;
             _processedValue = _processValueFunc(_lastKnownValue);
+            if (configEntry == null)
+            {
+                Jotunn.Logger.LogError("MemoryConfigEntry: configEntry is null!");
+                return;
+            }
             _configEntry.SettingChanged += OnConfigEntryValueChanged;
         }
         
         private void OnConfigEntryValueChanged(object sender, EventArgs args)
         {
             var value = _configEntry.Value;
+            if (value == null)
+            {
+                Jotunn.Logger.LogError("MemoryConfigEntry.OnConfigEntryValueChanged: value is null!");
+                return;
+            }
             if (!EqualityComparer<T>.Default.Equals(value, _lastKnownValue))
             {
+                Jotunn.Logger.LogInfo($"MemoryConfigEntry.OnConfigEntryValueChanged: value is new! {value}");
                 _lastKnownValue = value;
                 _processedValue = _processValueFunc(value);
             }
