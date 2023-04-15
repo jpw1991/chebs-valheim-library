@@ -12,7 +12,11 @@ namespace ChebsValheimLibrary.Items.Tools
         public override string PrefabName => "ChebGonaz_SkeletonWoodAxe.prefab";
         public override string NameLocalization => "$item_chebgonaz_skeletonaxe_name";
         public override string DescriptionLocalization => "$item_chebgonaz_skeletonaxe_desc";
-        
+
+        public void SetPrefab(GameObject prefab)
+        {
+            _prefab = prefab;
+        }
         private static GameObject _prefab;
         
         public override CustomItem GetCustomItemFromPrefab(GameObject prefab)
@@ -46,6 +50,11 @@ namespace ChebsValheimLibrary.Items.Tools
             // reflected into SkeletonPickaxe.ToolTier. Ideas welcome for how to improve this because I'm not really
             // sure if this is the right way to go about it. But it works.
             ToolTier = toolTier;
+            if (_prefab == null)
+            {
+                Logger.LogError("SkeletonWoodAxe.SyncInternalsWithConfigs: _prefab is null!");
+                return;
+            }
             _prefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_toolTier = toolTier;
         }
     }
