@@ -23,6 +23,8 @@ namespace ChebsValheimLibrary.Minions.AI
         private string _status;
         private bool _inContact;
 
+        private bool _tree;
+
         private void Awake()
         {
             _monsterAI = GetComponent<MonsterAI>();
@@ -55,6 +57,8 @@ namespace ChebsValheimLibrary.Minions.AI
             
             if (closest != null)
             {
+                _tree = false;
+                
                 // prioritize stumps, then logs, then trees
                 Destructible destructible = closest.GetComponentInParent<Destructible>();
                 if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree)
@@ -80,6 +84,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(tree.gameObject);
                     _status = "Moving to tree.";
+                    _tree = true;
                 }
             }
         }
@@ -89,7 +94,7 @@ namespace ChebsValheimLibrary.Minions.AI
             var followTarget = _monsterAI.GetFollowTarget();
             if (followTarget != null)
             {
-                transform.LookAt(followTarget.transform.position + Vector3.down);
+                transform.LookAt(followTarget.transform.position + (_tree ? Vector3.up : Vector3.down));
                 
                 TryAttack();
             }
@@ -109,8 +114,9 @@ namespace ChebsValheimLibrary.Minions.AI
         
         private void TryAttack()
         {
-            if (_monsterAI.GetFollowTarget() != null && _inContact)
-                //&& Vector3.Distance(_monsterAI.GetFollowTarget().transform.position, transform.position) < 5f)
+            if (_monsterAI.GetFollowTarget() != null 
+                && (_inContact 
+                    || Vector3.Distance(_monsterAI.GetFollowTarget().transform.position, transform.position) < 1f))
             {
                 _monsterAI.DoAttack(null, false);
             }
