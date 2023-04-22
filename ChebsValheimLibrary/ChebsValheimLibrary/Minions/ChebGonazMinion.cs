@@ -333,6 +333,11 @@ namespace ChebsValheimLibrary.Minions
             // waitPos == StatusRoam = roam
             if (TryGetComponent(out ZNetView zNetView))
             {
+                if (!zNetView.IsOwner())
+                {
+                    zNetView.ClaimOwnership();
+                }
+                
                 zNetView.GetZDO().Set(MinionWaitPosZdoKey, waitPos);
             }
             else
