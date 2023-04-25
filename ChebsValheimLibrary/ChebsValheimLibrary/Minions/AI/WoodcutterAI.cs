@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using ChebsValheimLibrary.Items.Tools;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,6 +27,7 @@ namespace ChebsValheimLibrary.Minions.AI
         private bool _inContact;
 
         private bool _tree;
+        private bool _chopping;
 
         private void Awake()
         {
@@ -51,6 +55,20 @@ namespace ChebsValheimLibrary.Minions.AI
             if (closest == null)
             {
                 closest = _transforms
+                    .Where(t =>
+                    {
+                        var destructible = t.GetComponentInParent<Destructible>();
+                        if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree
+                                                 && destructible.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                            return true;
+                        var treeLog = t.GetComponentInParent<TreeLog>();
+                        if (treeLog != null && treeLog.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                            return true;
+                        var tree = t.GetComponentInParent<TreeBase>();
+                        if (tree != null && tree.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                            return true;
+                        return false;
+                    })
                     .OrderBy(t => Vector3.Distance(t.position, transform.position))
                     .FirstOrDefault();
             }
@@ -60,7 +78,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 _tree = false;
                 
                 // prioritize stumps, then logs, then trees
-                Destructible destructible = closest.GetComponentInParent<Destructible>();
+                var destructible = closest.GetComponentInParent<Destructible>();
                 if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree)
                 {
                     _transforms.Add(closest);
@@ -69,7 +87,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     return;
                 }
 
-                TreeLog treeLog = closest.GetComponentInParent<TreeLog>();
+                var treeLog = closest.GetComponentInParent<TreeLog>();
                 if (treeLog != null)
                 {
                     _transforms.Add(closest);
@@ -78,7 +96,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     return;
                 }
 
-                TreeBase tree = closest.GetComponentInParent<TreeBase>();
+                var tree = closest.GetComponentInParent<TreeBase>();
                 if (tree != null)
                 {
                     _transforms.Add(closest);
@@ -94,9 +112,12 @@ namespace ChebsValheimLibrary.Minions.AI
             var followTarget = _monsterAI.GetFollowTarget();
             if (followTarget != null)
             {
-                transform.LookAt(followTarget.transform.position + (_tree ? Vector3.up : Vector3.down));
+                var followTargetPos = followTarget.transform.position;
+                var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
+                //transform.LookAt(followTarget.transform.position + (_tree ? Vector3.up : Vector3.down));
+                transform.LookAt(lookAtPos);
                 
-                TryAttack();
+                TryAttack(lookAtPos);
             }
             if (Time.time > nextCheck)
             {
@@ -112,14 +133,76 @@ namespace ChebsValheimLibrary.Minions.AI
             }
         }
         
-        private void TryAttack()
+        private void TryAttack(Vector3 lookAtPos)
         {
-            if (_monsterAI.GetFollowTarget() != null 
-                && (_inContact 
-                    || Vector3.Distance(_monsterAI.GetFollowTarget().transform.position, transform.position) < 1f))
+            // a bunch of dumb stuff can be null as the game is loading, so check before proceeding
+            if (_humanoid == null || _monsterAI == null) return;
+            
+            // if already chopping, abort
+            if (_chopping) return;
+            
+            var followTarget = _monsterAI.GetFollowTarget();
+            if (followTarget != null// && _inContact)
+                 && (_inContact 
+                     || Vector3.Distance(lookAtPos, transform.position) < 1.5f))
             {
-                _monsterAI.DoAttack(null, false);
+                var destructible = followTarget.GetComponentInParent<Destructible>();
+                if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree)
+                {
+                    StartCoroutine(Chop(destructible.m_health, destructible,
+                        () => destructible.m_health));
+                    return;
+                }
+
+                var treeLog = followTarget.GetComponentInParent<TreeLog>();
+                if (treeLog != null)
+                {
+                    StartCoroutine(Chop(treeLog.m_health, treeLog,
+                        () => treeLog.m_health));
+                    return;
+                }
+
+                var tree = followTarget.GetComponentInParent<TreeBase>();
+                if (tree != null)
+                {
+                    StartCoroutine(Chop(tree.m_health, treeLog,
+                        () => tree.m_health));
+                    return;
+                }
             }
+        }
+        
+        IEnumerator Chop(float healthBeforeAttack, IDestructible destructible, Func<float> healthAfterDamaged)
+        {
+            // because of how difficult it is to get a stupid axe to connect with a tree, let's just make sure the
+            // damage gets done
+
+            _chopping = true;
+            _monsterAI.DoAttack(null, false);
+            yield return new WaitForSeconds(2);
+
+            if (healthAfterDamaged.Invoke() < healthBeforeAttack)
+            {
+                // it worked, great
+                _chopping = false;
+                yield break;
+            }
+
+            // it didn't work - make it work
+            var axeItem = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
+            if (axeItem == null)
+            {
+                _chopping = false;
+                Jotunn.Logger.LogError("WoodcutterAI.Chop: Woodcutter has no axe?");
+                yield break;
+            }
+
+            var hitData = new HitData();
+            hitData.m_damage.m_chop = axeItem.m_itemData.m_shared.m_damages.m_chop;
+            hitData.m_toolTier = axeItem.m_itemData.m_shared.m_toolTier;
+            destructible?.Damage(hitData);
+
+            _chopping = false;
         }
 
         private void OnCollisionEnter(Collision collision)

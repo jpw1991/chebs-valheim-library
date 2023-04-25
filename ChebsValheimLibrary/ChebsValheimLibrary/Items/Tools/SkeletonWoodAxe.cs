@@ -7,7 +7,7 @@ namespace ChebsValheimLibrary.Items.Tools
 {
     public class SkeletonWoodAxe : Item
     {
-        public static int ToolTier = 1;
+        public static int ToolTier = 2;
         public override string ItemName => "ChebGonaz_SkeletonWoodAxe";
         public override string PrefabName => "ChebGonaz_SkeletonWoodAxe.prefab";
         public override string NameLocalization => "$item_chebgonaz_skeletonaxe_name";
