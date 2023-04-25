@@ -4,7 +4,7 @@ using Logger = Jotunn.Logger;
 
 namespace ChebsValheimLibrary.Minions
 {
-    public class NukeEm : MonoBehaviour
+    public class NukeTree : MonoBehaviour
     {
         public const float NukeAfter = 20f;
         private IEnumerator Start()
@@ -16,7 +16,7 @@ namespace ChebsValheimLibrary.Minions
             Destroy(this);
         }
 
-        private void Nuke()
+        protected virtual void Nuke()
         {
             //Logger.LogInfo($"Nuking {gameObject.name}");
 

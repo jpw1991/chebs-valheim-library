@@ -62,6 +62,7 @@ namespace ChebsValheimLibrary.Minions.AI
             if (closest != null)
             {
                 _monsterAI.SetFollowTarget(closest.gameObject);
+                if (!closest.TryGetComponent(out NukeRock _)) closest.gameObject.AddComponent<NukeRock>();
             }
         }
 
@@ -105,14 +106,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 {
                     var hitData = new HitData();
                     hitData.m_damage.m_pickaxe = 500;
-                    if (destructible.TryGetComponent(out ZNetView netView))
-                    {
-                        netView.InvokeRPC("Damage", hitData);                        
-                    }
-                    else
-                    {
-                        Jotunn.Logger.LogError("MinerAI.TryAttack: destructible has no ZNetView");
-                    }
+                    destructible.Damage(hitData);
                     return;
                 }
 

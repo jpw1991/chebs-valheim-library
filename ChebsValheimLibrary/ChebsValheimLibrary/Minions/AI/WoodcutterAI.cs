@@ -93,7 +93,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(destructible.gameObject);
                     _status = "Moving to stump.";
-                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
+                    if (!closest.TryGetComponent(out NukeTree _)) closest.gameObject.AddComponent<NukeTree>();
                     return;
                 }
 
@@ -103,7 +103,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(treeLog.gameObject);
                     _status = "Moving to log.";
-                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
+                    if (!closest.TryGetComponent(out NukeTree _)) closest.gameObject.AddComponent<NukeTree>();
                     return;
                 }
 
@@ -113,7 +113,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(tree.gameObject);
                     _status = "Moving to tree.";
-                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
+                    if (!closest.TryGetComponent(out NukeTree _)) closest.gameObject.AddComponent<NukeTree>();
                 }
             }
         }
