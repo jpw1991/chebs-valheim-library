@@ -25,8 +25,6 @@ namespace ChebsValheimLibrary.Minions.AI
 
         private string _status;
         private bool _inContact;
-
-        private bool _tree;
         private bool _chopping;
 
         private void Awake()
@@ -88,8 +86,6 @@ namespace ChebsValheimLibrary.Minions.AI
             
             if (closest != null)
             {
-                _tree = false;
-                
                 // prioritize stumps, then logs, then trees
                 var destructible = closest.GetComponentInParent<Destructible>();
                 if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree)
@@ -97,6 +93,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(destructible.gameObject);
                     _status = "Moving to stump.";
+                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
                     return;
                 }
 
@@ -106,6 +103,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(treeLog.gameObject);
                     _status = "Moving to log.";
+                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
                     return;
                 }
 
@@ -115,12 +113,12 @@ namespace ChebsValheimLibrary.Minions.AI
                     _transforms.Add(closest);
                     _monsterAI.SetFollowTarget(tree.gameObject);
                     _status = "Moving to tree.";
-                    _tree = true;
+                    if (!TryGetComponent(out NukeEm _)) closest.gameObject.AddComponent<NukeEm>();
                 }
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
             if (followTarget != null)
@@ -140,12 +138,13 @@ namespace ChebsValheimLibrary.Minions.AI
                 
                 LookForCuttableObjects();
 
+                // do not use followTarget variable from above here -> we want to check if it changed
                 if (_monsterAI.GetFollowTarget() == null) _status = "Can't find tree.";
 
                 _humanoid.m_name = _status;
             }
         }
-        
+
         private void TryAttack(Vector3 lookAtPos)
         {
             // a bunch of dumb stuff can be null as the game is loading, so check before proceeding
