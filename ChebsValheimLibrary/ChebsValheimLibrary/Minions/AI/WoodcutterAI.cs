@@ -37,6 +37,17 @@ namespace ChebsValheimLibrary.Minions.AI
             _monsterAI.m_randomMoveRange = RoamRange;
         }
 
+        private int EquippedToolsTier()
+        {
+            var result = 2; // 2 = bronze
+            if (_humanoid != null)
+            {
+                var axeItemToolTier = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_toolTier;
+                result = axeItemToolTier ?? result;
+            }
+            return result;
+        }
+
         public void LookForCuttableObjects()
         {
             if (_monsterAI.GetFollowTarget() != null) return;
@@ -54,18 +65,20 @@ namespace ChebsValheimLibrary.Minions.AI
             // to whack, may as well whack a log right next to you, even if another skeleton is already whacking it)
             if (closest == null)
             {
+                var toolTier = EquippedToolsTier();
+                
                 closest = _transforms
                     .Where(t =>
                     {
                         var destructible = t.GetComponentInParent<Destructible>();
                         if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree
-                                                 && destructible.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                                                 && destructible.m_minToolTier <= toolTier)
                             return true;
                         var treeLog = t.GetComponentInParent<TreeLog>();
-                        if (treeLog != null && treeLog.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                        if (treeLog != null && treeLog.m_minToolTier <= toolTier)
                             return true;
                         var tree = t.GetComponentInParent<TreeBase>();
-                        if (tree != null && tree.m_minToolTier <= SkeletonWoodAxe.ToolTier)
+                        if (tree != null && tree.m_minToolTier <= toolTier)
                             return true;
                         return false;
                     })
