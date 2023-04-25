@@ -25,7 +25,7 @@ namespace ChebsValheimLibrary
 {
     public class Base
     {
-        public static readonly System.Version CurrentVersion = new("1.1.4");
+        public static readonly System.Version CurrentVersion = new("1.2.0");
 
         public static bool VersionCheck(System.Version version, out string message)
         {
@@ -157,23 +157,6 @@ namespace ChebsValheimLibrary
                 {
                     GameObject minionItemPrefab = LoadPrefabFromBundle(minionItem.PrefabName, bundle, radeonFriendly);
                     ItemManager.Instance.AddItem(minionItem.GetCustomItemFromPrefab(minionItemPrefab));
-                }
-                else
-                {
-                    // normally LoadPrefabFromBundle would store a preference to the prefab for updating after config
-                    // changes, but it's already loaded so we gotta set it manually.
-                    if (minionItem is SkeletonPickaxe skeletonPickaxe)
-                    {
-                        skeletonPickaxe.SetPrefab(customItem.ItemPrefab);
-                    }
-                    else if (minionItem is SkeletonWoodAxe skeletonWoodAxe)
-                    {
-                        skeletonWoodAxe.SetPrefab(customItem.ItemPrefab);
-                    }
-                    // else
-                    // {
-                    //     Logger.LogInfo($"{minionItem} ({minionItem.GetType()}) is loaded");
-                    // }
                 }
             });
         }
