@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ChebsValheimLibrary.Items.Tools;
 using UnityEngine;
+using Logger = Jotunn.Logger;
 using Random = UnityEngine.Random;
 
 namespace ChebsValheimLibrary.Minions.AI
@@ -121,15 +121,23 @@ namespace ChebsValheimLibrary.Minions.AI
         private void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
+
+            // if following player, suspend all worker logic
             if (followTarget != null)
             {
+                if(followTarget.TryGetComponent(out Player player))
+                {
+                    _status = $"Following {player.GetPlayerName()}";
+                    return;   
+                }
+                
                 var followTargetPos = followTarget.transform.position;
                 var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
-                //transform.LookAt(followTarget.transform.position + (_tree ? Vector3.up : Vector3.down));
                 transform.LookAt(lookAtPos);
                 
                 TryAttack(lookAtPos);
             }
+            
             if (Time.time > nextCheck)
             {
                 nextCheck = Time.time + UpdateDelay
@@ -205,7 +213,7 @@ namespace ChebsValheimLibrary.Minions.AI
             if (axeItem == null)
             {
                 _chopping = false;
-                Jotunn.Logger.LogError("WoodcutterAI.Chop: Woodcutter has no axe?");
+                Logger.LogError("WoodcutterAI.Chop: Woodcutter has no axe?");
                 yield break;
             }
 
