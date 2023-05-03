@@ -62,21 +62,30 @@ namespace ChebsValheimLibrary.Minions.AI
             if (closest != null)
             {
                 _monsterAI.SetFollowTarget(closest.gameObject);
+                if (!closest.TryGetComponent(out NukeRock _)) closest.gameObject.AddComponent<NukeRock>();
             }
         }
-
-        private void Update()
+        
+        private void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
+
+            // if following player, suspend all worker logic
             if (followTarget != null)
             {
-                if (Vector3.Distance(transform.position, followTarget.transform.position) < 5f)
+                if(followTarget.TryGetComponent(out Player player))
                 {
-                    transform.LookAt(followTarget.transform.position);// + Vector3.down * _lerpedValue);
+                    _status = $"Following {player.GetPlayerName()}";
+                    return;   
                 }
+                
+                var followTargetPos = followTarget.transform.position;
+                var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
+                transform.LookAt(lookAtPos);
+                
                 TryAttack();
             }
-
+            
             if (Time.time > nextCheck)
             {
                 nextCheck = Time.time + UpdateDelay
@@ -105,14 +114,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 {
                     var hitData = new HitData();
                     hitData.m_damage.m_pickaxe = 500;
-                    if (destructible.TryGetComponent(out ZNetView netView))
-                    {
-                        netView.InvokeRPC("Damage", hitData);                        
-                    }
-                    else
-                    {
-                        Jotunn.Logger.LogError("MinerAI.TryAttack: destructible has no ZNetView");
-                    }
+                    destructible.Damage(hitData);
                     return;
                 }
 
