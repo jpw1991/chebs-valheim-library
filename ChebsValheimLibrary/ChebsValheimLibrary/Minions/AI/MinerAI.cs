@@ -65,19 +65,27 @@ namespace ChebsValheimLibrary.Minions.AI
                 if (!closest.TryGetComponent(out NukeRock _)) closest.gameObject.AddComponent<NukeRock>();
             }
         }
-
-        private void Update()
+        
+        private void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
+
+            // if following player, suspend all worker logic
             if (followTarget != null)
             {
-                if (Vector3.Distance(transform.position, followTarget.transform.position) < 5f)
+                if(followTarget.TryGetComponent(out Player player))
                 {
-                    transform.LookAt(followTarget.transform.position);// + Vector3.down * _lerpedValue);
+                    _status = $"Following {player.GetPlayerName()}";
+                    return;   
                 }
+                
+                var followTargetPos = followTarget.transform.position;
+                var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
+                transform.LookAt(lookAtPos);
+                
                 TryAttack();
             }
-
+            
             if (Time.time > nextCheck)
             {
                 nextCheck = Time.time + UpdateDelay
