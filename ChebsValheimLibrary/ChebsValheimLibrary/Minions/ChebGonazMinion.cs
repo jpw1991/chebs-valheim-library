@@ -63,6 +63,8 @@ namespace ChebsValheimLibrary.Minions
 
         public int createdOrder;
 
+        private static readonly int VehicleLayer = LayerMask.NameToLayer("vehicle");
+
         public bool ItemsDropped { get; private set; }
 
         #region DeathCrates
@@ -208,13 +210,24 @@ namespace ChebsValheimLibrary.Minions
         private void OnCollisionEnter(Collision collision)
         {
             // ignore collision with player
-
             var character = collision.gameObject.GetComponent<Character>();
             if (character != null
                 && character.m_faction == Character.Faction.Players
                 && character.GetComponent<ChebGonazMinion>() == null) // allow collision between minions
             {
                 Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+                return;
+            }
+            
+            // ignore collision with cart
+            //
+            // detecting based on vehicle layer seems unreliable. Only reliable way seems to be getting the component
+            // which is also probably pretty inefficient
+            //if (collision.gameObject.layer == LayerMask.NameToLayer("vehicle"))
+            if (collision.gameObject.GetComponentInParent<Vagon>() != null)
+            {
+                Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+                return;
             }
         }
 
