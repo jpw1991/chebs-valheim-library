@@ -224,11 +224,11 @@ namespace ChebsValheimLibrary.Minions
             // detecting based on vehicle layer seems unreliable. Only reliable way seems to be getting the component
             // which is also probably pretty inefficient
             //if (collision.gameObject.layer == LayerMask.NameToLayer("vehicle"))
-            if (collision.gameObject.GetComponentInParent<Vagon>() != null)
-            {
-                Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-                return;
-            }
+            // if (collision.gameObject.GetComponentInParent<Vagon>() != null)
+            // {
+            //     Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+            //     return;
+            // }
         }
 
         public void Kill()
