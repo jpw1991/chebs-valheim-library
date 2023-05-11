@@ -215,16 +215,25 @@ namespace ChebsValheimLibrary.Minions
                 && character.m_faction == Character.Faction.Players
                 && character.GetComponent<ChebGonazMinion>() == null) // allow collision between minions
             {
-                Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+                Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
                 return;
             }
             
             // ignore collision with cart
             //
-            // detecting based on vehicle layer seems unreliable. Only reliable way seems to be getting the component
-            // which is also probably pretty inefficient
-            //if (collision.gameObject.layer == LayerMask.NameToLayer("vehicle"))
-            // if (collision.gameObject.GetComponentInParent<Vagon>() != null)
+            // can't find a good way to detect collision with cart except for via its name. So... there it is.
+            // Code review & a better solution most welcome
+            if (collision.gameObject.GetComponentInParent<Vagon>() != null)
+            {
+                Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+                //Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+                return;
+            }
+            // below = failed cart collision detection attempts
+            // Jotunn.Logger.LogInfo($"{collision.gameObject.name}");
+            // if (collision.gameObject.layer == LayerMask.NameToLayer("vehicle")
+            //     ||  (collision.gameObject.layer == LayerMask.NameToLayer("item") && collision.gameObject.GetComponentInParent<Vagon>() != null))
+            // // if (collision.gameObject.GetComponentInParent<Vagon>() != null)
             // {
             //     Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
             //     return;
