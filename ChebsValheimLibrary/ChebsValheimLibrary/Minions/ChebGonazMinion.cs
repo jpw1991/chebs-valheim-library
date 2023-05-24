@@ -231,7 +231,7 @@ namespace ChebsValheimLibrary.Minions
                 var splut = fuel.Split(':');
                 if (splut.Length != 2)
                 {
-                    message = "Error in config for ItemsCost - please revise.";
+                    message = $"[1] Error in config for ItemsCost - please revise: ({fuel})";
                     Logger.LogError(message);
                     return false;
                 }
@@ -239,7 +239,7 @@ namespace ChebsValheimLibrary.Minions
                 var itemRequired = splut[0];
                 if (!int.TryParse(splut[1], out int itemAmountRequired))
                 {
-                    message = "Error in config for ItemsCost - please revise.";
+                    message = $"[2] Error in config for ItemsCost - please revise: ({fuel})";
                     Logger.LogError(message);
                     return false;
                 }
