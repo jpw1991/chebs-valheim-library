@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BepInEx.Configuration;
+using Jotunn;
 
 namespace ChebsValheimLibrary.Common
 {
@@ -24,7 +25,7 @@ namespace ChebsValheimLibrary.Common
             _processedValue = _processValueFunc(_lastKnownValue);
             if (configEntry == null)
             {
-                Jotunn.Logger.LogError("MemoryConfigEntry: configEntry is null!");
+                Logger.LogError("MemoryConfigEntry: configEntry is null!");
                 return;
             }
             _configEntry.SettingChanged += OnConfigEntryValueChanged;
@@ -35,12 +36,12 @@ namespace ChebsValheimLibrary.Common
             var value = _configEntry.Value;
             if (value == null)
             {
-                Jotunn.Logger.LogError("MemoryConfigEntry.OnConfigEntryValueChanged: value is null!");
+                Logger.LogError("MemoryConfigEntry.OnConfigEntryValueChanged: value is null!");
                 return;
             }
             if (!EqualityComparer<T>.Default.Equals(value, _lastKnownValue))
             {
-                Jotunn.Logger.LogInfo($"MemoryConfigEntry.OnConfigEntryValueChanged: value is new! {value}");
+                Logger.LogInfo($"MemoryConfigEntry.OnConfigEntryValueChanged: value is new! {value}");
                 _lastKnownValue = value;
                 _processedValue = _processValueFunc(value);
             }
