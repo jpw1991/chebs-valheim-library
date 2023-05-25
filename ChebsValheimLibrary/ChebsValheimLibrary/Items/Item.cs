@@ -89,7 +89,7 @@ namespace ChebsValheimLibrary.Items
         /// <param name="plugin"></param>
         public virtual void CreateConfigs(BaseUnityPlugin plugin) {}
         /// <summary>
-        /// The default recipe with syntax: <code><Prefab1>:<quantity>[[,<PreFab2>:<quantity>], ...]</code>
+        /// The default recipe with syntax: <code><![CDATA[<Prefab1>:<quantity>[[,<PreFab2>:<quantity>], ...]]]></code>
         /// <example>
         /// <code>Crystal:5,SurtlingCore:5,Tar:25</code>
         /// </example>
