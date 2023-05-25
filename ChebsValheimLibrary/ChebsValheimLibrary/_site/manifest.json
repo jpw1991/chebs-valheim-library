@@ -1,0 +1,1242 @@
+{
+  "homepages": [],
+  "source_base_path": "/home/joshua/repositories/chebs-valheim-library/ChebsValheimLibrary/ChebsValheimLibrary",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "EP/vygN6FRyECe3B/Wa8o6OINFSd725eZH0ATUoH94g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "oTV9er0YsgxQ+vxeHYj9QjVEkVQrotHSYUusQmeDMv4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "O8IL2jYSdouV5JX6u77aNjRQ25q7I1YEowgjb0wYpfE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Base.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Base.html",
+          "hash": "pNlnkIfP1odXyuX5FbEf/rYsgLjuq7TlRTA2xXs8VyE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.ChebsRecipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.ChebsRecipe.html",
+          "hash": "UAx9zHOtG3MW3pA6/A5uX7edvERCmCbZEaObBWGw56c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.InternalName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.InternalName.html",
+          "hash": "dEj/v6R017Umw5ksIIPdYJCqn0C3BGS8P28VMpFZws4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.MemoryConfigEntry-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.MemoryConfigEntry-2.html",
+          "hash": "DihJ5voxNUacsnL4SfIuCfdTwq+tsWgXqIKvo07mG8E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.html",
+          "hash": "/vVat+6GgL1heszrY3j7hkQVHCYzgzSGLED3t5ljcKU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronChest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronChest.html",
+          "hash": "pJGzEg6L8SCbMPEjN3G7or+q4Etb+eZWYnE+Wcn4H6Y="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronHelmet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronHelmet.html",
+          "hash": "nou0ikkX+46wM8W2v/0JipIBKej0KBoyl7kTVrFoe3M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronLegs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronLegs.html",
+          "hash": "Cg083q4lEg++S2nmE1LJhmbRP4ZJpVq47GuFMI2hHjw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIron.html",
+          "hash": "QowW/BV5o3cEh+5IKFXc4UMteQtqEMBNdHvf/7DKkSM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIronPoison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIronPoison.html",
+          "hash": "+gIT3xwk4RrjP1rBLLvGQEpJ14xbBlpRl+G6QL4bcPY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.BlackMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.html",
+          "hash": "Ni2413ZoMJwJGjRuA2OvoqgdtAc4zZCj/fc3LIR2+V8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronze.html",
+          "hash": "XadGZu4jIsL7tDTPTm/m9MJMEnB2dQ1c+W+ZZ9WV7CY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronzePoison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronzePoison.html",
+          "hash": "i97kCCcsJryZ2KAZAUWZ4O6uDA5zdLI4Wrp4wDnP0LE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Bronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Bronze.html",
+          "hash": "lW3az8BlotgB8VE5rTBVZZTJpmESXwtuNPAtT/B9Zvc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIron.html",
+          "hash": "8fmaNtkTAwdqh8Etaf7oWNkhhuwdXAPZTaD6Ai7cyn4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIronPoison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIronPoison.html",
+          "hash": "rHJ4yfIqqG59aFNiYER3IX3fu3q0EgNNMPI7Q4lut64="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Iron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Iron.html",
+          "hash": "6ZHYJ4AbcqcG5F6It+PNxmapVYjcz8Xg9uJOHaKNWsI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherLox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherLox.html",
+          "hash": "qquOfPnMdL4hoX3IR4RXgDjArPwZ2yrUzWpn2qQBV+o="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherTroll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherTroll.html",
+          "hash": "cfd7BEh8u+obRfexW+RXLnb07rVx5SGsPBv8WJuWM+A="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherChestLox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherChestLox.html",
+          "hash": "zGy+//YN/agKf5tQAU3jygWEIOSHAm20KBnBCptzT/U="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherLegsLox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherLegsLox.html",
+          "hash": "MMa0H6cGzk4mk+l2R38NRoNpHf3/cchB5HXChXEKMJ0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherLox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherLox.html",
+          "hash": "Y4Rtts/IFWnKwaU39UhsBsQSYyn8zs74WeZdwW13Sdw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherPoisonLox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherPoisonLox.html",
+          "hash": "fz+5gx2UKI8jiFOwZUwoSDfnM3vuLjXg505ugl7PJLg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Lox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.html",
+          "hash": "TBX3ZOUewFdel3ZpGDDOyv8k02Y/qSLv5pP9iivpWAI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeather.html",
+          "hash": "NSbEGvKq8rJCr+xaI+mUrmYPN7Tgybu+gh2JnbOLSEM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeatherPoison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeatherPoison.html",
+          "hash": "PIoJFCEP21wAoQL9SBe6qoifMIJApefnJpP03ix9buI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherChestTroll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherChestTroll.html",
+          "hash": "2JEojIj/kbmc/vCUh3bIznfCOk59VLh2RpxHzFFYKWU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherLegsTroll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherLegsTroll.html",
+          "hash": "1SdWO40fLABlkkT+NHqQgUlB2vRm/04vA/9lJdX2rFI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherPoisonTroll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherPoisonTroll.html",
+          "hash": "J6PpXgGf1FTE+aI1TVtqa/qy5C1/eroIxwImSimCw1Q="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherTroll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherTroll.html",
+          "hash": "xfJ6JqkQ8lK4WU87rrt+1wAvgkCS5Cg0lu7rfH37j5U="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Troll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.html",
+          "hash": "0HFEo7qQOxu+8C//xPR0FxZ6EOJu8vqREOIfTsSXOC8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.HelmetLeatherWolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.HelmetLeatherWolf.html",
+          "hash": "A4PR6OCyWFPiEzQ2ZJHb3ZlQING4Y/oZ9M/B1UmgTR0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherChestWolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherChestWolf.html",
+          "hash": "SjqufIbRC6qjwgAm0qx7dHQr66XvxvEQM5PVbGkqgb8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherLegsWolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherLegsWolf.html",
+          "hash": "jYFO3dWNBn4m7xCdMgvpGHq2+U0y0WxQpe9TrEHvSVo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherPoisonWolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherPoisonWolf.html",
+          "hash": "slDkCyR9IrD/uCpU5XF2lm0t5U3pS5+1jt1NCBU9u1s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherWolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherWolf.html",
+          "hash": "44sF94ATbJBn1CaJWu7CB/4s9JHeK3I260WFGJyGv3I="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.html",
+          "hash": "dRJv3D9UBAS7QdAmjQH4b4xaNnr8nc/2TG+wgyvqGBY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Leather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.html",
+          "hash": "MEDnZvcu3qDvwCmUL9o2hAfEhq7jw2v/AD0rvqtPlLk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Mage.SkeletonMageCirclet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Mage.SkeletonMageCirclet.html",
+          "hash": "Xp+9iVtqMhRAxYAZjhzGAp5Hvfy00np2yf720UhflSc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Armor.Mage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Armor.Mage.html",
+          "hash": "fzY2e/ZKJMqgSU/Ixz4CfQnQw+XZzbXvV3x2spIPdvY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.CraftingTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.CraftingTable.html",
+          "hash": "wsKNChoCsOGau8WMToZ+kvuw2A/BwcRGF5Lj25N7vqI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Item.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Item.html",
+          "hash": "GpRoT1v1LFBPFNMvon2ogzXMzthhkG4u3lnEZEvlntc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Tools.SkeletonPickaxe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Tools.SkeletonPickaxe.html",
+          "hash": "MoP8K2wYu+5DiD313j/OJJmEzDhta117jysCFwP76EM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Tools.SkeletonWoodAxe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Tools.SkeletonWoodAxe.html",
+          "hash": "9wmMNljmi9FaA3IuQHsMOYSxOqi3qCA6ScqGOW0wM+0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Tools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Tools.html",
+          "hash": "yqlyRBwa3J6ivJvIAPuWI/bgDqR6Pb1M1jhwjYwQqWg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonAxeBlackMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonAxeBlackMetal.html",
+          "hash": "JYkyL2G4X2rEcz74a7/4uc/W5JNWJHsE4WBJPl8eMWA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonMaceBlackMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonMaceBlackMetal.html",
+          "hash": "cA121+wpZERYze1bWPPL9bJosYjs6cxJchvXPk815ko="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonSwordBlackMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonSwordBlackMetal.html",
+          "hash": "NnN41ycIwbhhT3P+iVj95kXJGX5z/B18X5oAimCYtG8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.BlackMetal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.html",
+          "hash": "nhNKCIzSHCNMC+225DUkybSLD75D/tP99KSOK2NQLZo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow.html",
+          "hash": "ALjnecUuDbPZ0cBkItP19x++8n/R3dcvB0tm2MLnS/A="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow2.html",
+          "hash": "pM5t99QawjVgEpLq/P31GRHmltmgZ7fhUhs0Irfu8RQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow3.html",
+          "hash": "KKF4Me1Kzg9Bn8Qd6bT0mtqQnjNRwRZcWIK00vI9dMo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFire.html",
+          "hash": "xjFXZGUsZ6qP3QSvBnvmaiJUIS4/s3FJjRUWJADeY6s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFrost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFrost.html",
+          "hash": "zSf6fWg9hpg2kCRI3r1VG8X0fLLodS3G34MGLFwcmV4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowPoison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowPoison.html",
+          "hash": "fRPa19fvucvx44lh2qYl0X+LApvIt+fSfl2FHPPhVaU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowSilver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowSilver.html",
+          "hash": "lXkbm8G7XoUVPIIcplaaPFmePMqw2UppPyJ9xjquI8M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bows.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.html",
+          "hash": "ijU/nF3GaXUgcFaY8i83WTcjGILOLGocxgKjJpXNNls="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonAxeBronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonAxeBronze.html",
+          "hash": "MC7sdOOmOBnDXMWyFtOWznosATjuDiHiqW25lobiRHc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonMaceBronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonMaceBronze.html",
+          "hash": "4j6z/co1GTyyvmTsk5MOEVgdwnGnTCkMBq8o3uKKda8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonSwordBronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonSwordBronze.html",
+          "hash": "aYp0zzZnsS/7Kr2P4tUAmE9ZjJ8if27+UmL7Rz+y5kc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Bronze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.html",
+          "hash": "x43iHPyDs4TSr5BQSmfixpgu6Iee22JWXDdV7fPbC2M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonAxe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonAxe.html",
+          "hash": "CEMi5QtVUitq7ECXFoHcRa7diwQtL+F8EH+qV/lO8YI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonMaceIron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonMaceIron.html",
+          "hash": "eCIJ9mgP7zNM3/ElzMJOcp0WkIppwmNvHbpSAjeXqfs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonSwordIron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonSwordIron.html",
+          "hash": "QBoOgC8tfaq4b812ZPknhVYJ7m+ARPQO/NQlf4LTzdE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Iron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.html",
+          "hash": "OfNLSGrOrMN4meOio6RsuOO0Mzbiy/sbfCD+Q5Q+eQs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel1.html",
+          "hash": "ahPzXSb1zOYHDfCyxS207KBLI24rjmvDoGiTjPStCZc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel2.html",
+          "hash": "5w44zqbxfTZC61VzbytykM5rQWZ64cflr1Wn/kdw/7M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel3.html",
+          "hash": "4z5RmScMqBN9JYhNQ8K2JTB4bEOwoeZLmF5eZAd3E84="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Mage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.html",
+          "hash": "DYHkjRbAjP/wEWK1Rc5ytXIw1oS1p02LN1K0n5hAGNk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Needle.SkeletonMaceNeedle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Needle.SkeletonMaceNeedle.html",
+          "hash": "rtbICmuy7LMtZkJHljneL7B+/Z+azCu1kYQiep1iDNI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Needle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Needle.html",
+          "hash": "LXPk5RPSCuy5yUL/N9jERzdyOqySe2nsPeXCWLll3Tg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace.html",
+          "hash": "oxZ8nuMujxmyEERbdIpkPapHdNmy6cB2duKyJwzAb6g="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace2.html",
+          "hash": "zjz2NqPTsVs5v/psaVODlqreqwj4Vg19NBKh9asWfSg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace3.html",
+          "hash": "foTgFH6gg+bmipbRJb48u2Qk5YLjz6Kmb3nHTzrGDgs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Poison.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.html",
+          "hash": "9db4mfNi07Y6r9Rk8Q+BTk8ctjxaNb9Gn4efqB8qa/Q="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Wood.SkeletonClub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Wood.SkeletonClub.html",
+          "hash": "HuIyZVMbd3SBSReftDMMde+KzARNhr9lYr7YdWH0BrQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.Weapons.Wood.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Wood.html",
+          "hash": "kHmexMkIWfXLxuoH5nkM0DGZ0PoJAIRlZZukCFanzGc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Items.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Items.html",
+          "hash": "zblleT7zdkLYSvT773PEd3laqtxyh58rAjmUdjeejwA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.AI.MinerAI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.AI.MinerAI.html",
+          "hash": "BElnjI7B6O70tK/rUS8NprF5jhujYjKPcC9BTJKPLk8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html",
+          "hash": "t/EZ3Th1LXLc0lpatgQenV09pbqzqIt0KdZCJgKm5UE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.AI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.AI.html",
+          "hash": "ekW/Ks1WN7sESZz4ay8P2aok5ouc4b23/GcUHtK20LE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.ChebGonazMinion.ArmorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.ArmorType.html",
+          "hash": "lwbnI4ZqlKLxva9PzVm6AiVh2PxgoqyjnYuhhZL9Ln4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.ChebGonazMinion.CleanupType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.CleanupType.html",
+          "hash": "bXYC2Nn9rL/O3HRyL7/qSI42MlccWwny39JfQcwxcEc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.ChebGonazMinion.DropType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.DropType.html",
+          "hash": "Xm6QBH+V+UZ1Z4iJjdBA/LynEW4Quiv4ium6kDTlGXM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.ChebGonazMinion.State.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.State.html",
+          "hash": "mQeEtH4yL+0dUTUh/mPPiIjJyOB3sJnnlXM+5zsr5Ds="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.ChebGonazMinion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.html",
+          "hash": "h4XR9m7kHkcYkKR9Qp4qNzfelN+soX3B30GsM7SKJJA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.FreshMinion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.FreshMinion.html",
+          "hash": "Gn/m81NzMBFTbnclu0Tv6e1o1cDChv5RhvBO3VVhWlw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.NukeRock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.NukeRock.html",
+          "hash": "ZrkElK9kRwJOTStBouc8hvR0PW1lLQy40BBXIaRCBPc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.NukeTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.NukeTree.html",
+          "hash": "Gfjmgui6BtpOmRyHpoOpPocfKCOADJtDWoG9tOu1UzQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Minions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Minions.html",
+          "hash": "QQd4mMOVSuBb7KLn7Gp+eH37ZLrDM0NafYWvSkT6ojY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Structures.Structure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Structures.Structure.html",
+          "hash": "dlzAkbwLSrksnMQzJXqqHtRyE71/nf47rZ3+WKWWtSQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Structures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Structures.html",
+          "hash": "kF1t0RXNYlUSbSP3z1uR4LwcGiN2jJ2S+hzUL7vDi1w="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.html",
+          "hash": "+pUQlFa92M0T/WSDcPsW6D9Ghe9egy1+sIkWBubfnIg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "fbLtlIxDoYgIl5DcJQmfR906PxhZYBjKa9i3Ts3X5LY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Oa9PuD4E1hvZnCkVjUgzNBX6S00Zo5YilamTERTZo54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 93,
+          "skipped_file_count": 93
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

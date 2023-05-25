@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using ChebsValheimLibrary.Common;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace ChebsValheimLibrary.Minions
     /// </item>
     /// </list>
     /// </summary>
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class ChebGonazMinion : MonoBehaviour
     {
         // we add this component to the creatures we create in the mod
@@ -848,7 +850,7 @@ namespace ChebsValheimLibrary.Minions
         /// <example>
         /// An example of a Neckro Gatherer minion finding nearby containers.
         /// <code>
-        /// var closestContainer = FindClosest<Container>(transform, DropoffPointRadius.Value, pieceMask,
+        /// var closestContainer = FindClosest&lt;Container&gt;(transform, DropoffPointRadius.Value, pieceMask,
         ///     c => c.m_piece != null
         ///     && c.m_piece.IsPlacedByPlayer() 
         ///     && allowedContainers.Contains(c.m_piece.m_nview.GetPrefabName())
