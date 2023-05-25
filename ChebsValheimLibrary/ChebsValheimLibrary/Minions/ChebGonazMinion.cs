@@ -1,15 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BepInEx;
-using BepInEx.Configuration;
 using ChebsValheimLibrary.Common;
-using Jotunn.Managers;
 using UnityEngine;
 using Logger = Jotunn.Logger;
 
 namespace ChebsValheimLibrary.Minions
 {
+    /// <summary>
+    /// The ChebGonazMinion class is the basis for all minions. It serves multiple purposes:
+    /// <list type="bullet">
+    /// <item>
+    /// <description>Identification: To determine whether a creature was created by the mod.</description>
+    /// </item>
+    /// <item>
+    /// <description>Wait/Follow/Roam functionality</description>
+    /// </item>
+    /// <item>
+    /// <description>Ownership functionality</description>
+    /// </item>
+    /// <item>
+    /// <description>Helper methods/functions eg. FindClosest, FindNearby</description>
+    /// </item>
+    /// </list>
+    /// </summary>
     public class ChebGonazMinion : MonoBehaviour
     {
         // we add this component to the creatures we create in the mod
@@ -21,27 +35,70 @@ namespace ChebsValheimLibrary.Minions
         // that the mod has created. The component is lost between sessions
         // so it must be checked for in Awake and re-added (see harmony patching).
 
+        /// <summary>
+        /// Cleanup enum to determine what happens to a minion.
+        /// <list type="bullet">
+        /// <item>
+        /// <description>None: Default - take no special action.</description>
+        /// </item>
+        /// <item>
+        /// <description>Time: Minions destroyed after an elapsed time.</description>
+        /// </item>
+        /// <item>
+        /// <description>Logout: Minions owned by a player are destroyed when the player logs out.</description>
+        /// </item>
+        /// </list>
+        /// </summary>
         public enum CleanupType
         {
-            None,
-            Time,
-            Logout,
+            None,   // no cleanup -> minions remain forever
+            Time,   // minions destroyed after a time
+            Logout, // minions destroyed on player log out
         }
 
+        /// <summary>
+        /// Action to take regarding refunding of resources used to create a minion when it dies.
+        /// <list type="bullet">
+        /// <item>
+        /// <description>Nothing: Generate no CharacterDrop at all.</description>
+        /// </item>
+        /// <item>
+        /// <description>JustResources: Just save the armor type eg. iron ingots.</description>
+        /// </item>
+        /// <item>
+        /// <description>Everything: Drop everything that was used to create the minion eg. bones, meat, iron ingots.</description>
+        /// </item>
+        /// </list>
+        /// </summary>
         public enum DropType
         {
-            Nothing,
-            JustResources,
-            Everything,
+            Nothing,       // generate no CharacterDrop at all
+            JustResources, // just save the armor type eg. iron ingots
+            Everything,    // drop everything that was used to create the minion eg. bones, meat, iron ingots
         }
-
+        /// <summary>
+        /// <list type="bullet">
+        /// <item>
+        /// <description>Waiting: Minion follows an empty gameobject and thus remains rooted in place.</description>
+        /// </item>
+        /// <item>
+        /// <description>Roaming: Default Valheim MonsterAI behaviour for when no follow object is set.</description>
+        /// </item>
+        /// <item>
+        /// <description>Following: Default valheim MonsterAI behaviour for when a follow object is set.</description>
+        /// </item>
+        /// </list>
+        /// </summary>
         public enum State
         {
-            Waiting,
-            Roaming,
-            Following,
+            Waiting,   // minion follows an empty gameobject and thus remains rooted in place
+            Roaming,   // default valheim MonsterAI behaviour for when no follow is set
+            Following, // default valheim MonsterAI behaviour for when follow is set
         }
 
+        /// <summary>
+        /// The armor type the minion is equipped with.
+        /// </summary>
         public enum ArmorType
         {
             None,
@@ -54,22 +111,52 @@ namespace ChebsValheimLibrary.Minions
             BlackMetal,
         }
 
+        /// <summary>
+        /// Whether the minion can be commanded with E.
+        /// </summary>
         public bool canBeCommanded = true;
-
+        /// <summary>
+        /// This ZDO entry contains the owner player's name as a string. It won't respond to the commands of other
+        /// players.
+        /// </summary>
         public const string MinionOwnershipZdoKey = "UndeadMinionMaster";
+        /// <summary>
+        /// This ZDO entry contains a list of items and their amounts that the minion will drop on death. This is
+        /// parsed on the minion's Awake and added to its CharacterDrop component.
+        /// </summary>
         public const string MinionDropsZdoKey = "UndeadMinionDrops";
+        /// <summary>
+        /// This ZDO entry contains the location of where the minion has been told to wait.
+        /// </summary>
         public const string MinionWaitPosZdoKey = "UndeadMinionWaitPosition";
+        /// <summary>
+        /// The name given to wait objects.
+        /// </summary>
         public const string MinionWaitObjectName = "UndeadMinionWaitPositionObject";
 
+        /// <summary>
+        /// The order in which minions have been created. This is useful if a limit is set, so that when the limit is
+        /// reached the oldest minions are killed first.
+        /// </summary>
         public int createdOrder;
 
         private static readonly int VehicleLayer = LayerMask.NameToLayer("vehicle");
 
+        /// <summary>
+        /// Whether this minion has already dropped its items or not.
+        /// </summary>
         public bool ItemsDropped { get; private set; }
 
         #region DeathCrates
         private static List<Transform> _deathCrates = new();
 
+        /// <summary>
+        /// Attempt to deposit the minion's character drop into any nearby crates within range.
+        /// </summary>
+        /// <param name="characterDrop">The drop to read from.</param>
+        /// <param name="range">The range within which to search.</param>
+        /// <returns>Returns true if a nearby crate has been found and the items successfully deposited. False if
+        /// items remain in the inventory.</returns>
         public bool DepositIntoNearbyDeathCrate(CharacterDrop characterDrop, float range=15f)
         {
             // return:
@@ -136,6 +223,10 @@ namespace ChebsValheimLibrary.Minions
             return ItemsDropped;
         }
         
+        /// <summary>
+        /// Creates a death crate to deposit items into.
+        /// </summary>
+        /// <returns>Return the container.</returns>
         private Container CreateDeathCrate()
         {
             // use vanilla cargo crate -> same as a karve/longboat drops
@@ -149,39 +240,48 @@ namespace ChebsValheimLibrary.Minions
         private Vector3 StatusRoaming => Vector3.negativeInfinity;
         private Vector3 StatusFollowing => Vector3.positiveInfinity;
         
+        /// <summary>
+        /// Determines whether the inventory provided has enough materials for an armor type.
+        /// </summary>
+        /// <param name="inventory">The inventory to read from.</param>
+        /// <param name="armorBlackIronRequired"></param>
+        /// <param name="armorIronRequired"></param>
+        /// <param name="armorBronzeRequired"></param>
+        /// <param name="armorLeatherRequired"></param>
+        /// <returns>Returns the armor type.</returns>
         public static ArmorType DetermineArmorType(Inventory inventory, int armorBlackIronRequired, int armorIronRequired, int armorBronzeRequired, int armorLeatherRequired)
         {
-            int blackMetalInInventory = inventory.CountItems("$item_blackmetal");
+            var blackMetalInInventory = inventory.CountItems("$item_blackmetal");
             if (blackMetalInInventory >= armorBlackIronRequired)
             {
                 return ArmorType.BlackMetal;
             }
             
-            int ironInInventory = inventory.CountItems("$item_iron");
+            var ironInInventory = inventory.CountItems("$item_iron");
             if (ironInInventory >= armorIronRequired)
             {
                 return ArmorType.Iron;
             }
             
-            int bronzeInInventory = inventory.CountItems("$item_bronze");
+            var bronzeInInventory = inventory.CountItems("$item_bronze");
             if (bronzeInInventory >= armorBronzeRequired)
             {
                 return ArmorType.Bronze;
             }
             
-            int trollHideInInventory = inventory.CountItems("$item_trollhide");
+            var trollHideInInventory = inventory.CountItems("$item_trollhide");
             if (trollHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherTroll;
             }
             
-            int wolfHideInInventory = inventory.CountItems("$item_wolfpelt");
+            var wolfHideInInventory = inventory.CountItems("$item_wolfpelt");
             if (wolfHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherWolf;
             }
             
-            int loxHideInInventory = inventory.CountItems("$item_loxpelt");
+            var loxHideInInventory = inventory.CountItems("$item_loxpelt");
             if (loxHideInInventory >= armorLeatherRequired)
             {
                 return ArmorType.LeatherLox;
@@ -207,6 +307,14 @@ namespace ChebsValheimLibrary.Minions
             return ArmorType.None;
         }
         
+        #region CanSpawn
+        /// <summary>
+        /// Checks if inventory has enough requirements to create the minion.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
+        /// <param name="message">Message containing a reason for failure eg. not enough this, or that.</param>
+        /// <returns>Returns true if minion can be spawned, otherwise false.</returns>
         public static bool CanSpawn(MemoryConfigEntry<string, List<string>> itemsCost, Inventory inventory,
             out string message)
         {
@@ -214,6 +322,13 @@ namespace ChebsValheimLibrary.Minions
             return CanSpawn(itemCostsList, inventory, out message);
         }
 
+        /// <summary>
+        /// Checks if inventory has enough requirements to create the minion.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
+        /// <param name="message">Message containing a reason for failure eg. not enough this, or that.</param>
+        /// <returns>Returns true if minion can be spawned, otherwise false.</returns>
         public static bool CanSpawn(string itemsCost, Inventory inventory,
             out string message)
         {
@@ -221,6 +336,13 @@ namespace ChebsValheimLibrary.Minions
             return CanSpawn(itemCostsList, inventory, out message);
         }
         
+        /// <summary>
+        /// Checks if inventory has enough requirements to create the minion.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
+        /// <param name="message">Message containing a reason for failure eg. not enough this, or that.</param>
+        /// <returns>Returns true if minion can be spawned, otherwise false.</returns>
         public static bool CanSpawn(List<string> itemsCost, Inventory inventory,
             out string message)
         {
@@ -237,7 +359,7 @@ namespace ChebsValheimLibrary.Minions
                 }
 
                 var itemRequired = splut[0];
-                if (!int.TryParse(splut[1], out int itemAmountRequired))
+                if (!int.TryParse(splut[1], out var itemAmountRequired))
                 {
                     message = $"[2] Error in config for ItemsCost - please revise: ({fuel})";
                     Logger.LogError(message);
@@ -259,19 +381,36 @@ namespace ChebsValheimLibrary.Minions
             
             return true;
         }
-
+        #endregion
+        
+        #region ConsumeRequirements
+        /// <summary>
+        /// Consume the requirements from the inventory provided.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
         public static void ConsumeRequirements(MemoryConfigEntry<string, List<string>> itemsCost, Inventory inventory)
         {
             var itemCostsList = itemsCost.Value;
             ConsumeRequirements(itemCostsList, inventory);
         }
 
+        /// <summary>
+        /// Consume the requirements from the inventory provided.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
         public static void ConsumeRequirements(string itemsCost, Inventory inventory)
         {
             var itemCostsList = itemsCost?.Split(',').ToList();
             ConsumeRequirements(itemCostsList, inventory);
         }
         
+        /// <summary>
+        /// Consume the requirements from the inventory provided.
+        /// </summary>
+        /// <param name="itemsCost"></param>
+        /// <param name="inventory"></param>
         protected static void ConsumeRequirements(List<string> itemsCost, Inventory inventory)
         {
             foreach (var fuel in itemsCost)
@@ -284,7 +423,7 @@ namespace ChebsValheimLibrary.Minions
                 }
 
                 var itemRequired = splut[0];
-                if (!int.TryParse(splut[1], out int itemAmountRequired))
+                if (!int.TryParse(splut[1], out var itemAmountRequired))
                 {
                     Logger.LogError("Error in config for ItemsCost - please revise.");
                     return;
@@ -316,28 +455,52 @@ namespace ChebsValheimLibrary.Minions
                 }
             }
         }
-
-        protected CharacterDrop GenerateDeathDrops(ConfigEntry<DropType> dropOnDeath,
-            MemoryConfigEntry<string, List<string>> itemsCost)
+        #endregion
+        
+        #region GenerateDeathDrops
+        /// <summary>
+        /// Generate death drops.
+        /// </summary>
+        /// <param name="characterDrop"></param>
+        /// <param name="itemsCost"></param>
+        protected static void GenerateDeathDrops(CharacterDrop characterDrop, MemoryConfigEntry<string, List<string>> itemsCost)
         {
-            if (dropOnDeath.Value == DropType.Nothing) return null;
+            var itemCostsList = itemsCost.Value;
+            GenerateDeathDrops(characterDrop, itemCostsList);
+        }
 
-            var characterDrop = gameObject.AddComponent<CharacterDrop>();
-
-            foreach (var fuel in itemsCost.Value)
+        /// <summary>
+        /// Generate death drops.
+        /// </summary>
+        /// <param name="characterDrop"></param>
+        /// <param name="itemsCost"></param>
+        protected static void GenerateDeathDrops(CharacterDrop characterDrop, string itemsCost)
+        {
+            var itemCostsList = itemsCost?.Split(',').ToList();
+            GenerateDeathDrops(characterDrop, itemCostsList);
+        }
+        
+        /// <summary>
+        /// Generate death drops.
+        /// </summary>
+        /// <param name="characterDrop"></param>
+        /// <param name="itemsCost"></param>
+        protected static void GenerateDeathDrops(CharacterDrop characterDrop, List<string> itemsCost)
+        {
+            foreach (var fuel in itemsCost)
             {
                 var splut = fuel.Split(':');
                 if (splut.Length != 2)
                 {
                     Logger.LogError("Error in config for ItemsCost - please revise.");
-                    return null;
+                    return;
                 }
 
                 var itemRequired = splut[0];
-                if (!int.TryParse(splut[1], out int itemAmountRequired))
+                if (!int.TryParse(splut[1], out var itemAmountRequired))
                 {
                     Logger.LogError("Error in config for ItemsCost - please revise.");
-                    return null;
+                    return;
                 }
                 
                 var acceptedItems = itemRequired.Split('|');
@@ -347,7 +510,7 @@ namespace ChebsValheimLibrary.Minions
                     if (requiredItemPrefab == null)
                     {
                         Logger.LogError($"Error processing config for ItemsCost: {acceptedItem} doesn't exist.");
-                        return null;
+                        return;
                     }
 
                     characterDrop.m_drops.Add(new CharacterDrop.Drop
@@ -362,10 +525,9 @@ namespace ChebsValheimLibrary.Minions
                     break; // just take the first one in the list for now
                 }
             }
-
-            return characterDrop;
         }
         
+        #endregion
         private static Tuple<int, string, List<string>> CountItems(string item, Inventory inventory)
         {
             var acceptedItemsFound = 0;
@@ -423,6 +585,9 @@ namespace ChebsValheimLibrary.Minions
             // }
         }
 
+        /// <summary>
+        /// Kill the minion.
+        /// </summary>
         public void Kill()
         {
             if (TryGetComponent(out Character character))
@@ -436,6 +601,12 @@ namespace ChebsValheimLibrary.Minions
         }
 
         #region MinionMasterZDO
+        /// <summary>
+        /// Set/get the minion's master. Takes/returns a player's name.
+        /// <example>
+        /// <code>if (humanMinion.UndeadMinionMaster == "") humanMinion.UndeadMinionMaster = player.GetPlayerName();</code>
+        /// </example>
+        /// </summary>
         public string UndeadMinionMaster
         {
             get => TryGetComponent(out ZNetView zNetView) ? zNetView.GetZDO().GetString(MinionOwnershipZdoKey) : "";
@@ -452,6 +623,11 @@ namespace ChebsValheimLibrary.Minions
             }
         }
 
+        /// <summary>
+        /// Check if minion belongs to player.
+        /// </summary>
+        /// <param name="playerName"></param>
+        /// <returns>True if belongs to player, otherwise false.</returns>
         public bool BelongsToPlayer(string playerName)
         {
             return TryGetComponent(out ZNetView zNetView) 
@@ -462,6 +638,10 @@ namespace ChebsValheimLibrary.Minions
         }
         #endregion
         #region DropsZDO
+        /// <summary>
+        /// Save the contents of a CharacterDrop to the ZDO.
+        /// </summary>
+        /// <param name="characterDrop"></param>
         public void RecordDrops(CharacterDrop characterDrop)
         {
             // the component won't be remembered by the game on logout because
@@ -482,6 +662,9 @@ namespace ChebsValheimLibrary.Minions
             }
         }
 
+        /// <summary>
+        /// Reads drops from ZDO and add them back to the CharacterDrop.
+        /// </summary>
         public void RestoreDrops()
         {
             // the component won't be remembered by the game on logout because
@@ -506,10 +689,10 @@ namespace ChebsValheimLibrary.Minions
                 var dropsList = new List<string>(minionDropsZdoValue.Split(','));
                 dropsList.ForEach(dropString =>
                 {
-                    string[] splut = dropString.Split(':');
+                    var splut = dropString.Split(':');
 
-                    string prefabName = splut[0];
-                    int amount = int.Parse(splut[1]);
+                    var prefabName = splut[0];
+                    var amount = int.Parse(splut[1]);
                     
                     AddOrUpdateDrop(characterDrop, prefabName, amount);
                 });
@@ -522,6 +705,9 @@ namespace ChebsValheimLibrary.Minions
         #endregion
         #region WaitPositionZDO
 
+        /// <summary>
+        /// Get/set the minion's waiting position.
+        /// </summary>
         public State Status
         {
             get
@@ -562,15 +748,19 @@ namespace ChebsValheimLibrary.Minions
             return StatusRoaming;
         }
 
+        /// <summary>
+        /// Read the minion's state from the ZDO and take the correct action based off what's written there: either roam,
+        /// follow, or wait.
+        /// </summary>
         public void RoamFollowOrWait()
         {
-            Vector3 waitPos = GetWaitPosition();
+            var waitPos = GetWaitPosition();
             // we cant compare negative infinity with == because unity's == returns true for vectors that are almost
             // equal.
             if (waitPos.Equals(StatusFollowing))
             {
                 // Try to find player that minion belongs to. If found, follow. Otherwise roam
-                Player player = Player.GetAllPlayers().Find(p => BelongsToPlayer(p.GetPlayerName()));
+                var player = Player.GetAllPlayers().Find(p => BelongsToPlayer(p.GetPlayerName()));
                 if (player == null)
                 {
                     Logger.LogError($"{name} should be following but has no associated player. Roaming instead.");
@@ -601,6 +791,10 @@ namespace ChebsValheimLibrary.Minions
         }
         #endregion
 
+        /// <summary>
+        /// Instruct the minion to follow an object. Records state as following.
+        /// </summary>
+        /// <param name="followObject"></param>
         public void Follow(GameObject followObject)
         {
             if (!TryGetComponent(out MonsterAI monsterAI))
@@ -619,12 +813,19 @@ namespace ChebsValheimLibrary.Minions
             monsterAI.SetFollowTarget(followObject);
         }
 
+        /// <summary>
+        /// Instruct the minion to wait at a position. Records state as waiting and stores wait position.
+        /// </summary>
+        /// <param name="waitPosition"></param>
         public void Wait(Vector3 waitPosition)
         {
             RecordWaitPosition(waitPosition);
             RoamFollowOrWait();
         }
 
+        /// <summary>
+        /// Instruct minion to roam. Records state as roaming.
+        /// </summary>
         public void Roam()
         {
             RecordWaitPosition(StatusRoaming);
@@ -634,7 +835,7 @@ namespace ChebsValheimLibrary.Minions
                 return;
             }
             // clear out current wait object if it exists
-            GameObject currentFollowTarget = monsterAI.GetFollowTarget();
+            var currentFollowTarget = monsterAI.GetFollowTarget();
             if (currentFollowTarget != null && currentFollowTarget.name == MinionWaitObjectName)
             {
                 Destroy(currentFollowTarget);
@@ -642,6 +843,27 @@ namespace ChebsValheimLibrary.Minions
             monsterAI.SetFollowTarget(null);
         }
 
+        /// <summary>
+        /// Find the closest object of a type and return it
+        /// <example>
+        /// An example of a Neckro Gatherer minion finding nearby containers.
+        /// <code>
+        /// var closestContainer = FindClosest<Container>(transform, DropoffPointRadius.Value, pieceMask,
+        ///     c => c.m_piece != null
+        ///     && c.m_piece.IsPlacedByPlayer() 
+        ///     && allowedContainers.Contains(c.m_piece.m_nview.GetPrefabName())
+        ///     && c.GetInventory() != null
+        ///     && c.GetInventory().GetEmptySlots() > 0, true);
+        /// </code>
+        /// </example>
+        /// </summary>
+        /// <param name="targetTransform"></param>
+        /// <param name="radius"></param>
+        /// <param name="mask"></param>
+        /// <param name="where"></param>
+        /// <param name="interactable"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T FindClosest<T>(Transform targetTransform, float radius, int mask, Func<T, bool> where, bool interactable) where T : Component
         {
             return Physics.OverlapSphere(targetTransform.position, radius, mask)
@@ -653,6 +875,16 @@ namespace ChebsValheimLibrary.Minions
                 .FirstOrDefault(); // return closest
         }
         
+        /// <summary>
+        /// Similar to FindNearby, but returns all objects of a type as a list.
+        /// </summary>
+        /// <param name="targetTransform"></param>
+        /// <param name="radius"></param>
+        /// <param name="mask"></param>
+        /// <param name="where"></param>
+        /// <param name="interactable"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static List<T> FindNearby<T>(Transform targetTransform, float radius, int mask, Func<T, bool> where, bool interactable) where T : Component
         {
             return Physics.OverlapSphere(targetTransform.position, radius, mask)
@@ -664,6 +896,12 @@ namespace ChebsValheimLibrary.Minions
                 .ToList();
         }
 
+        /// <summary>
+        /// Update an existing character drop to add an item and amount.
+        /// </summary>
+        /// <param name="characterDrop"></param>
+        /// <param name="prefabName"></param>
+        /// <param name="amount"></param>
         public static void AddOrUpdateDrop(CharacterDrop characterDrop, string prefabName, int amount)
         {
             var existing = characterDrop.m_drops.FirstOrDefault(drop => drop.m_prefab.name.Equals(prefabName));

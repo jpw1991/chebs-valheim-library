@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Logger = Jotunn.Logger;
 
 namespace ChebsValheimLibrary.Minions
 {

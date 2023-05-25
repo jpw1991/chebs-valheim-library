@@ -25,7 +25,7 @@ namespace ChebsValheimLibrary
 {
     public class Base
     {
-        public static readonly System.Version CurrentVersion = new("1.2.2");
+        public static readonly System.Version CurrentVersion = new("1.2.3");
 
         public static bool VersionCheck(System.Version version, out string message)
         {
