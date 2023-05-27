@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{1E536FEC-8273-41BD-A291-89E47BF776B9}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>ChebsValheimLibrary</RootNamespace>
+        <AssemblyName>ChebsValheimLibrary</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup>
+        <PackageVersion>1.2.3.0</PackageVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="assembly_guiutils">
+          <HintPath>libs\assembly_guiutils_publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="assembly_postprocessing">
+          <HintPath>libs\assembly_postprocessing_publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="assembly_utils">
+          <HintPath>libs\assembly_utils_publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="assembly_valheim">
+          <HintPath>libs\assembly_valheim_publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="BepInEx">
+          <HintPath>libs\BepInEx.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="UnityEngine">
+          <HintPath>libs\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+          <HintPath>libs\UnityEngine.AssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+          <HintPath>libs\UnityEngine.ParticleSystemModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Physics2DModule">
+          <HintPath>libs\UnityEngine.Physics2DModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>libs\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Base.cs" />
+        <Compile Include="Common\ChebsRecipe.cs" />
+        <Compile Include="Common\InternalName.cs" />
+        <Compile Include="Common\MemoryConfigEntry.cs" />
+        <Compile Include="Items\Armor\BlackMetal\BlackIronChest.cs" />
+        <Compile Include="Items\Armor\BlackMetal\BlackIronHelmet.cs" />
+        <Compile Include="Items\Armor\BlackMetal\BlackIronLegs.cs" />
+        <Compile Include="Items\Armor\BlackMetal\SkeletonHelmetBlackIron.cs" />
+        <Compile Include="Items\Armor\BlackMetal\SkeletonHelmetBlackIronPoison.cs" />
+        <Compile Include="Items\Armor\Bronze\SkeletonHelmetBronze.cs" />
+        <Compile Include="Items\Armor\Bronze\SkeletonHelmetBronzePoison.cs" />
+        <Compile Include="Items\Armor\Iron\SkeletonHelmetIron.cs" />
+        <Compile Include="Items\Armor\Iron\SkeletonHelmetIronPoison.cs" />
+        <Compile Include="Items\Armor\Leather\Lox\HelmetLeatherLox.cs" />
+        <Compile Include="Items\Armor\Leather\Lox\SkeletonArmorLeatherChestLox.cs" />
+        <Compile Include="Items\Armor\Leather\Lox\SkeletonArmorLeatherLegsLox.cs" />
+        <Compile Include="Items\Armor\Leather\Lox\SkeletonHelmetLeatherLox.cs" />
+        <Compile Include="Items\Armor\Leather\Lox\SkeletonHelmetLeatherPoisonLox.cs" />
+        <Compile Include="Items\Armor\Leather\SkeletonHelmetLeather.cs" />
+        <Compile Include="Items\Armor\Leather\SkeletonHelmetLeatherPoison.cs" />
+        <Compile Include="Items\Armor\Leather\Troll\HelmetLeatherTroll.cs" />
+        <Compile Include="Items\Armor\Leather\Troll\SkeletonArmorLeatherChestTroll.cs" />
+        <Compile Include="Items\Armor\Leather\Troll\SkeletonArmorLeatherLegsTroll.cs" />
+        <Compile Include="Items\Armor\Leather\Troll\SkeletonHelmetLeatherPoisonTroll.cs" />
+        <Compile Include="Items\Armor\Leather\Troll\SkeletonHelmetLeatherTroll.cs" />
+        <Compile Include="Items\Armor\Leather\Wolf\HelmetLeatherWolf.cs" />
+        <Compile Include="Items\Armor\Leather\Wolf\SkeletonArmorLeatherChestWolf.cs" />
+        <Compile Include="Items\Armor\Leather\Wolf\SkeletonArmorLeatherLegsWolf.cs" />
+        <Compile Include="Items\Armor\Leather\Wolf\SkeletonHelmetLeatherPoisonWolf.cs" />
+        <Compile Include="Items\Armor\Leather\Wolf\SkeletonHelmetLeatherWolf.cs" />
+        <Compile Include="Items\Armor\Mage\SkeletonMageCirclet.cs" />
+        <Compile Include="Items\Item.cs" />
+        <Compile Include="Items\Tools\SkeletonPickaxe.cs" />
+        <Compile Include="Items\Tools\SkeletonWoodAxe.cs" />
+        <Compile Include="Items\Weapons\BlackMetal\SkeletonAxeBlackMetal.cs" />
+        <Compile Include="Items\Weapons\BlackMetal\SkeletonMaceBlackMetal.cs" />
+        <Compile Include="Items\Weapons\BlackMetal\SkeletonSwordBlackMetal.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBow.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBow2.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBow3.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBowFire.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBowFrost.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBowPoison.cs" />
+        <Compile Include="Items\Weapons\Bows\SkeletonBowSilver.cs" />
+        <Compile Include="Items\Weapons\Bronze\SkeletonAxeBronze.cs" />
+        <Compile Include="Items\Weapons\Bronze\SkeletonMaceBronze.cs" />
+        <Compile Include="Items\Weapons\Bronze\SkeletonSwordBronze.cs" />
+        <Compile Include="Items\Weapons\Iron\SkeletonAxe.cs" />
+        <Compile Include="Items\Weapons\Iron\SkeletonMaceIron.cs" />
+        <Compile Include="Items\Weapons\Iron\SkeletonSwordIron.cs" />
+        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel1.cs" />
+        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel2.cs" />
+        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel3.cs" />
+        <Compile Include="Items\Weapons\Needle\SkeletonMaceNeedle.cs" />
+        <Compile Include="Items\Weapons\Poison\SkeletonMace.cs" />
+        <Compile Include="Items\Weapons\Poison\SkeletonMace2.cs" />
+        <Compile Include="Items\Weapons\Poison\SkeletonMace3.cs" />
+        <Compile Include="Items\Weapons\Wood\SkeletonClub.cs" />
+        <Compile Include="Minions\AI\MinerAI.cs" />
+        <Compile Include="Minions\AI\WoodcutterAI.cs" />
+        <Compile Include="Minions\FreshMinion.cs" />
+        <Compile Include="Minions\ChebGonazMinion.cs" />
+        <Compile Include="Minions\NukeTree.cs" />
+        <Compile Include="Minions\NukeRock.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Structures\Structure.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="api\index.md" />
+      <Content Include="ChebsValheimLibrary.nuspec" />
+      <Content Include="index.md" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="docfx.console" Version="2.59.4">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="HarmonyX" Version="2.9.0" />
+      <PackageReference Include="JotunnLib" Version="2.11.3" />
+      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+      <PackageReference Include="MonoMod" Version="21.9.19.1" />
+      <PackageReference Include="MonoMod.RuntimeDetour" Version="22.1.29.1" />
+      <PackageReference Include="MonoMod.Utils" Version="22.1.29.1" />
+      <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.6.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
