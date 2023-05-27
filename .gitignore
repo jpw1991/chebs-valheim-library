@@ -62,3 +62,4 @@ crashlytics-build.properties
 /ChebsValheimLibrary/packages/
 /ChebsValheimLibrary/ChebsValheimLibrary/obj/
 /ChebsValheimLibrary/ChebsValheimLibrary/bin/
+*.md.backup
