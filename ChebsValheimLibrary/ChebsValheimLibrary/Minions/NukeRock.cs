@@ -1,5 +1,8 @@
 namespace ChebsValheimLibrary.Minions
 {
+    /// <summary>
+    /// A component that can be added to a rock in order to destroy it after a period.
+    /// </summary>
     public class NukeRock : NukeTree
     {
         protected override void Nuke()

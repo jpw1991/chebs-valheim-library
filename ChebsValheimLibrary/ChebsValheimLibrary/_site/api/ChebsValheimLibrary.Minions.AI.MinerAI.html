@@ -73,7 +73,9 @@
   
   <h1 id="ChebsValheimLibrary_Minions_AI_MinerAI" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI" class="text-break">Class MinerAI
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Adding this to a minion turns it into a Miner. It will seek out rocks and whack them - but only in roaming
+mode. If set to wait/follow, it will behave like any other minion.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -397,10 +399,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI_LookRadius.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI.LookRadius%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L13">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L31">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_MinerAI_LookRadius" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.LookRadius">LookRadius</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far it is able to spot rocks from.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -426,10 +429,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI_RoamRange.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI.RoamRange%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L12">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L27">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_MinerAI_RoamRange" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.RoamRange">RoamRange</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The minion&apos;s roam range -&gt; how far it wanders when set to roaming mode in search of rocks.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -455,10 +459,16 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI_RockInternalIDsList.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI.RockInternalIDsList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L11">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L23">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_MinerAI_RockInternalIDsList" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.RockInternalIDsList">RockInternalIDsList</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is the list of rocks for the minion to seek out. Usually specified via config file. It should be a
+comma delimited list of prefab names.
+<example>
+Here is the list I use for Cheb&apos;s Necromancy and Cheb&apos;s Mercenaries:<p>
+<pre><code>rock1_mistlands,rock1_mountain,rock1_mountain_frac,rock2_heath,rock2_heath_frac,rock2_mountain,rock2_mountain_frac,Rock_3,Rock_3_frac,rock3_mountain,rock3_mountain_frac,rock3_silver,rock3_silver_frac,Rock_4,Rock_4_plains,rock4_coast,rock4_coast_frac,rock4_copper,rock4_copper_frac,rock4_forest,rock4_forest_frac,rock4_heath,rock4_heath_frac,Rock_7,Rock_destructible,rock_mistlands1,rock_mistlands1_frac,rock_mistlands2,RockDolmen_1,RockDolmen_2,RockDolmen_3,silvervein,silvervein_frac,MineRock_Tin,MineRock_Obsidian</code></pre>
+<p></example></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -484,10 +494,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI_UpdateDelay.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI.UpdateDelay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L14">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L35">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_MinerAI_UpdateDelay" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.UpdateDelay">UpdateDelay</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How often it performs searches. Low values are worse for performance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -515,11 +526,17 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI_LookForMineableObjects.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI.LookForMineableObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L35">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L65">View Source</a>
   </span>
   <a id="ChebsValheimLibrary_Minions_AI_MinerAI_LookForMineableObjects_" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.LookForMineableObjects*"></a>
   <h4 id="ChebsValheimLibrary_Minions_AI_MinerAI_LookForMineableObjects" data-uid="ChebsValheimLibrary.Minions.AI.MinerAI.LookForMineableObjects">LookForMineableObjects()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Look for any nearby rocks and if one is spotted, set it as follow target. You shouldn&apos;t need to call this
+because it is already called during the FixedUpdate.</p>
+<p>Getting miners to properly reach things is a challenge. They get stuck on all kinds of stuff. To remedy this
+the found object has the NukeRock component added to it. This will blow the entire rock up after an elapsed
+period of time to ensure that even if the miner can&apos;t figure out how to get to something, it will still
+destroy it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -536,7 +553,7 @@
                     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_MinerAI.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.MinerAI%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/MinerAI.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

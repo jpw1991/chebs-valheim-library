@@ -80,3 +80,15 @@ A library which contains shared classes and things required by all my mods. You'
 ```
 
 5. If you fire up the game and go to your minions, it should now be possible to command them to follow, wait, or roam with E.
+
+## Special Thanks
+
+Some people really helped me out with coding this stuff. I'd just like to thank them:
+
+- Developers
+	+ [**Dracbjorn**](https://github.com/Dracbjorn) - Extensive work on the configuration files & parsing (including server-sync); general help & testing.
+	+ [**CW-Jesse**](https://github.com/CW-Jesse) - Refinements and improvements on networking code and minion AI; general help & testing.
+	+ [**WalterWillis**](https://github.com/WalterWillis) - Improvements to Treasure Pylon & Testing.
+- Advice & Generic help
+    + **Hugo the Dwarf** and **Pfhoenix** for advice and help for fixing the [frozen minions problem](https://github.com/jpw1991/chebs-necromancy/issues/75).
+	+ **redseiko** for helpful advice on the Valheim modding Discord.

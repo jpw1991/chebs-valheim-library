@@ -15,7 +15,7 @@
           "hash": "3yCVDt4fmZP7OYYpgRUX9HCaM7oJX49OA7LyzzXbEFY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,10 +48,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "i/p+VMORg5KoMtauAmAMaRob/Mvsj5yoJqy0GHgAf1w="
+          "hash": "IBt5PuDBJUvg9AFF7VenrTG/umMTY2Nye4jBt6n7Me4="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -996,10 +996,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.AI.MinerAI.html",
-          "hash": "BElnjI7B6O70tK/rUS8NprF5jhujYjKPcC9BTJKPLk8="
+          "hash": "qTwUO77W8Huwfk83vidTNaX/qOIfdOnYPEiQ00hd9bE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1008,10 +1008,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html",
-          "hash": "t/EZ3Th1LXLc0lpatgQenV09pbqzqIt0KdZCJgKm5UE="
+          "hash": "/JXxnPBcwybNbknlTk/1hBttbs4GXTDSSH3Ute5n5pI="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1020,10 +1020,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.AI.html",
-          "hash": "ekW/Ks1WN7sESZz4ay8P2aok5ouc4b23/GcUHtK20LE="
+          "hash": "Yj8mGarO9FD7odD7NzMk1IiOj8/n+ASC4Yw7S3UBloE="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1104,10 +1104,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.NukeRock.html",
-          "hash": "ZrkElK9kRwJOTStBouc8hvR0PW1lLQy40BBXIaRCBPc="
+          "hash": "67Ibi4DiYpS5t4ZlS1bp/H5plKT0zPs5phOMTBtB8Dc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1116,10 +1116,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.NukeTree.html",
-          "hash": "Gfjmgui6BtpOmRyHpoOpPocfKCOADJtDWoG9tOu1UzQ="
+          "hash": "g65ydZuIX2F1M2eXBXNDP+V2kB9J+GYQ5TnayBBswYo="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1128,10 +1128,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.html",
-          "hash": "QQd4mMOVSuBb7KLn7Gp+eH37ZLrDM0NafYWvSkT6ojY="
+          "hash": "LInzP6D+wjK9zqJ0w5NZfDqA+VeuipKrg46JtXhdOu0="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1214,7 +1214,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 93,
-          "skipped_file_count": 93
+          "skipped_file_count": 89
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

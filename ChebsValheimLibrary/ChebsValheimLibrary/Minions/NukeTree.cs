@@ -3,8 +3,14 @@ using UnityEngine;
 
 namespace ChebsValheimLibrary.Minions
 {
+    /// <summary>
+    /// A component that can be added to a tree in order to destroy it after a period.
+    /// </summary>
     public class NukeTree : MonoBehaviour
     {
+        /// <summary>
+        /// How long to wait before nuking the tree.
+        /// </summary>
         public const float NukeAfter = 20f;
         private IEnumerator Start()
         {
