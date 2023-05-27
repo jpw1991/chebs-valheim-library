@@ -6,11 +6,32 @@ using Random = UnityEngine.Random;
 
 namespace ChebsValheimLibrary.Minions.AI
 {
+    /// <summary>
+    /// Adding this to a minion turns it into a Miner. It will seek out rocks and whack them - but only in roaming
+    /// mode. If set to wait/follow, it will behave like any other minion.
+    /// </summary>
     public class MinerAI : MonoBehaviour
     {
+        /// <summary>
+        /// This is the list of rocks for the minion to seek out. Usually specified via config file. It should be a
+        /// comma delimited list of prefab names.
+        /// <example>
+        /// Here is the list I use for Cheb's Necromancy and Cheb's Mercenaries:
+        /// <code>rock1_mistlands,rock1_mountain,rock1_mountain_frac,rock2_heath,rock2_heath_frac,rock2_mountain,rock2_mountain_frac,Rock_3,Rock_3_frac,rock3_mountain,rock3_mountain_frac,rock3_silver,rock3_silver_frac,Rock_4,Rock_4_plains,rock4_coast,rock4_coast_frac,rock4_copper,rock4_copper_frac,rock4_forest,rock4_forest_frac,rock4_heath,rock4_heath_frac,Rock_7,Rock_destructible,rock_mistlands1,rock_mistlands1_frac,rock_mistlands2,RockDolmen_1,RockDolmen_2,RockDolmen_3,silvervein,silvervein_frac,MineRock_Tin,MineRock_Obsidian</code>
+        /// </example>
+        /// </summary>
         public static string RockInternalIDsList = "";
+        /// <summary>
+        /// The minion's roam range -> how far it wanders when set to roaming mode in search of rocks.
+        /// </summary>
         public static float RoamRange = 0f;
+        /// <summary>
+        /// How far it is able to spot rocks from.
+        /// </summary>
         public static float LookRadius = 0f;
+        /// <summary>
+        /// How often it performs searches. Low values are worse for performance.
+        /// </summary>
         public static float UpdateDelay = 0f;
         
         private float nextCheck;
@@ -32,6 +53,15 @@ namespace ChebsValheimLibrary.Minions.AI
             _monsterAI.m_randomMoveRange = RoamRange;
         }
 
+        /// <summary>
+        /// Look for any nearby rocks and if one is spotted, set it as follow target. You shouldn't need to call this
+        /// because it is already called during the FixedUpdate.
+        ///
+        /// Getting miners to properly reach things is a challenge. They get stuck on all kinds of stuff. To remedy this
+        /// the found object has the NukeRock component added to it. This will blow the entire rock up after an elapsed
+        /// period of time to ensure that even if the miner can't figure out how to get to something, it will still
+        /// destroy it.
+        /// </summary>
         public void LookForMineableObjects()
         {
             if (_monsterAI.GetFollowTarget() != null) return;

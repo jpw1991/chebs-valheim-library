@@ -8,10 +8,23 @@ using Random = UnityEngine.Random;
 
 namespace ChebsValheimLibrary.Minions.AI
 {
+    /// <summary>
+    /// Adding this to a minion turns it into a Woodcutter. It will seek out trees and whack them - but only in roaming
+    /// mode. If set to wait/follow, it will behave like any other minion.
+    /// </summary>
     public class WoodcutterAI : MonoBehaviour
     {
+        /// <summary>
+        /// The minion's roam range -> how far it wanders when set to roaming mode in search of trees.
+        /// </summary>
         public static float RoamRange = 0f;
+        /// <summary>
+        /// How far it is able to spot trees from.
+        /// </summary>
         public static float LookRadius = 0f;
+        /// <summary>
+        /// How often it performs searches. Low values are worse for performance.
+        /// </summary>
         public static float UpdateDelay = 0f;
         
         private float nextCheck;
@@ -46,6 +59,15 @@ namespace ChebsValheimLibrary.Minions.AI
             return result;
         }
 
+        /// <summary>
+        /// Look for any nearby trees and if one is spotted, set it as follow target. You shouldn't need to call this
+        /// because it is already called during the FixedUpdate.
+        ///
+        /// Getting woodcutters to properly reach things is a challenge. They get stuck on all kinds of stuff. To remedy this
+        /// the found object has the NukeTree component added to it. This will blow the entire tree up after an elapsed
+        /// period of time to ensure that even if the woodcuter can't figure out how to get to something, it will still
+        /// destroy it.
+        /// </summary>
         public void LookForCuttableObjects()
         {
             if (_monsterAI.GetFollowTarget() != null) return;

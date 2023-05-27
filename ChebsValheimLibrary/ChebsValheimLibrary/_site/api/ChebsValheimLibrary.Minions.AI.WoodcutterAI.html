@@ -73,7 +73,9 @@
   
   <h1 id="ChebsValheimLibrary_Minions_AI_WoodcutterAI" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI" class="text-break">Class WoodcutterAI
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Adding this to a minion turns it into a Woodcutter. It will seek out trees and whack them - but only in roaming
+mode. If set to wait/follow, it will behave like any other minion.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -397,10 +399,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookRadius.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookRadius%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L14">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L24">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookRadius" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookRadius">LookRadius</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far it is able to spot trees from.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -426,10 +429,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_WoodcutterAI_RoamRange.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.WoodcutterAI.RoamRange%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L13">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L20">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_WoodcutterAI_RoamRange" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI.RoamRange">RoamRange</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The minion&apos;s roam range -&gt; how far it wanders when set to roaming mode in search of trees.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -455,10 +459,11 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_WoodcutterAI_UpdateDelay.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.WoodcutterAI.UpdateDelay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L15">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L28">View Source</a>
   </span>
   <h4 id="ChebsValheimLibrary_Minions_AI_WoodcutterAI_UpdateDelay" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI.UpdateDelay">UpdateDelay</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How often it performs searches. Low values are worse for performance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -486,11 +491,17 @@
     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookForCuttableObjects.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookForCuttableObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L49">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L71">View Source</a>
   </span>
   <a id="ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookForCuttableObjects_" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookForCuttableObjects*"></a>
   <h4 id="ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookForCuttableObjects" data-uid="ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookForCuttableObjects">LookForCuttableObjects()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Look for any nearby trees and if one is spotted, set it as follow target. You shouldn&apos;t need to call this
+because it is already called during the FixedUpdate.</p>
+<p>Getting woodcutters to properly reach things is a challenge. They get stuck on all kinds of stuff. To remedy this
+the found object has the NukeTree component added to it. This will blow the entire tree up after an elapsed
+period of time to ensure that even if the woodcuter can&apos;t figure out how to get to something, it will still
+destroy it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -507,7 +518,7 @@
                     <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Minions_AI_WoodcutterAI.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Minions.AI.WoodcutterAI%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/Minions/AI/WoodcutterAI.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
