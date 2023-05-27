@@ -14,7 +14,15 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup>
-        <PackageVersion>1.2.3.0</PackageVersion>
+        <Title>ChebsValheimLibrary</Title>
+        <Description>A library which contains shared classes and things required by all my mods.</Description>
+        <Version>1.2.3</Version>
+        <ReleaseNotes>Initial</ReleaseNotes>
+        <Authors>Joshua Paul Woods</Authors>
+        <Owners>Joshua Paul Woods</Owners>
+        <Copyright>your copyrights</Copyright>
+        <PackageOutputPath>bin\Package</PackageOutputPath>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -149,7 +157,6 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="api\index.md" />
-      <Content Include="ChebsValheimLibrary.nuspec" />
       <Content Include="index.md" />
     </ItemGroup>
     <ItemGroup>
