@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Release")]
 [assembly: AssemblyCompany("Cheb Gonaz")]
 [assembly: AssemblyProduct("Cheb's Valheim Library")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright © Joshua Paul Woods 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("en")]
 
