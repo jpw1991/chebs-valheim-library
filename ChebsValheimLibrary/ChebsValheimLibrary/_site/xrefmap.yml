@@ -4440,6 +4440,12 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.Structures.Structure.EnemiesNearby
   nameWithType: Structure.EnemiesNearby
+- uid: ChebsValheimLibrary.Structures.Structure.PlayerDetectionDistance
+  name: PlayerDetectionDistance
+  href: api/ChebsValheimLibrary.Structures.Structure.html#ChebsValheimLibrary_Structures_Structure_PlayerDetectionDistance
+  commentId: F:ChebsValheimLibrary.Structures.Structure.PlayerDetectionDistance
+  fullName: ChebsValheimLibrary.Structures.Structure.PlayerDetectionDistance
+  nameWithType: Structure.PlayerDetectionDistance
 - uid: ChebsValheimLibrary.Structures.Structure.UpdateRecipe
   name: UpdateRecipe()
   href: api/ChebsValheimLibrary.Structures.Structure.html#ChebsValheimLibrary_Structures_Structure_UpdateRecipe

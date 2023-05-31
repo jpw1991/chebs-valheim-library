@@ -1140,10 +1140,10 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Structures.Structure.html",
-          "hash": "jFc21Kcs6P08QKXFEeXEcl2huoUDRdIYBiAFklT3HYI="
+          "hash": "30qybTm5nB7oJsN4Hv24wj8PSWgvOYdru48HzachugM="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1155,7 +1155,7 @@
           "hash": "kF1t0RXNYlUSbSP3z1uR4LwcGiN2jJ2S+hzUL7vDi1w="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1214,7 +1214,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 93,
-          "skipped_file_count": 93
+          "skipped_file_count": 92
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

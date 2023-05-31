@@ -11,6 +11,10 @@ namespace ChebsValheimLibrary.Structures
     public class Structure : MonoBehaviour
     {
         /// <summary>
+        /// The distance from which players are seen by structures.
+        /// </summary>
+        public const float PlayerDetectionDistance = 150f;
+        /// <summary>
         /// The ChebsRecipe object associated with the structure.
         /// </summary>
         public static ChebsRecipe ChebsRecipeConfig;
