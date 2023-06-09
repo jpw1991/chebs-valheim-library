@@ -58,7 +58,15 @@ A library which contains shared classes and things required by all my mods. You'
     }
 ```
 
-4. Create a harmony patch to apply the component to your minions when the game is loading up:
+4. Apply the component to the prefab after you load it from the asset bundle:
+
+```cs
+var prefab = Base.LoadPrefabFromBundle(prefabName, chebgonazAssetBundle, RadeonFriendly.Value);
+prefab.AddComponent<YourMinion>();
+CreatureManager.Instance.AddCreature(new CustomCreature(prefab, true));
+```
+
+5. Or create a harmony patch to apply the component to your minions when the game is loading up:
 
 ```cs
     [HarmonyPatch(typeof(MonsterAI))]
@@ -79,7 +87,7 @@ A library which contains shared classes and things required by all my mods. You'
     }
 ```
 
-5. If you fire up the game and go to your minions, it should now be possible to command them to follow, wait, or roam with E.
+6. If you fire up the game and go to your minions, it should now be possible to command them to follow, wait, or roam with E.
 
 ## Special Thanks
 
