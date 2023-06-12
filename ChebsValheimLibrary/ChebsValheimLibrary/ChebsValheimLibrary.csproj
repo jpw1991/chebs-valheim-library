@@ -46,21 +46,6 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="assembly_guiutils">
-          <HintPath>libs\assembly_guiutils_publicized.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_postprocessing">
-          <HintPath>libs\assembly_postprocessing_publicized.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_utils">
-          <HintPath>libs\assembly_utils_publicized.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_valheim">
-          <HintPath>libs\assembly_valheim_publicized.dll</HintPath>
-        </Reference>
-        <Reference Include="BepInEx">
-          <HintPath>libs\BepInEx.dll</HintPath>
-        </Reference>
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -68,23 +53,17 @@
         <Reference Include="System.Data.DataSetExtensions" />
         <Reference Include="System.Xml" />
         <Reference Include="System.Xml.Linq" />
-        <Reference Include="UnityEngine">
-          <HintPath>libs\UnityEngine.dll</HintPath>
+        <Reference Include="assembly_guiutils" Publicize="true">
+          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>libs\UnityEngine.AssetBundleModule.dll</HintPath>
+        <Reference Include="assembly_postprocessing" Publicize="true">
+          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_postprocessing.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-          <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
+        <Reference Include="assembly_utils" Publicize="true">
+          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.ParticleSystemModule">
-          <HintPath>libs\UnityEngine.ParticleSystemModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.Physics2DModule">
-          <HintPath>libs\UnityEngine.Physics2DModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>libs\UnityEngine.PhysicsModule.dll</HintPath>
+        <Reference Include="assembly_valheim" Publicize="true">
+          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -160,6 +139,10 @@
       <Content Include="index.md" />
     </ItemGroup>
     <ItemGroup>
+      <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="docfx.console" Version="2.59.4">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
