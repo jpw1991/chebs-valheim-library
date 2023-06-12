@@ -241,7 +241,7 @@ namespace ChebsValheimLibrary.Minions.AI
 
             var hitData = new HitData();
             hitData.m_damage.m_chop = axeItem.m_itemData.m_shared.m_damages.m_chop;
-            hitData.m_toolTier = axeItem.m_itemData.m_shared.m_toolTier;
+            hitData.m_toolTier = (short)axeItem.m_itemData.m_shared.m_toolTier;
             destructible?.Damage(hitData);
 
             _chopping = false;
