@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Add your introductions here! </title>
+    <title>Assembly Publicization </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Add your introductions here! ">
+    <meta name="title" content="Assembly Publicization ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -60,9 +60,56 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="add-your-introductions-here">Add your introductions here!</h1>
+<h1 id="assembly-publicization">Assembly Publicization</h1>
 
-</article>
+<p>I find the best way to publicize Valheim assemblies is to do it directly on referencing it from the Valheim directory. This means it&#39;ll dynamically publicize whatever is in the Valheim install folder and it&#39;s overall less to manage.</p>
+<p>To do this, I recommend the <a href="https://github.com/BepInEx/BepInEx.AssemblyPublicizer">BepInEx.AssemblyPublicizer.MSBuild</a> nuget package. Then when you preference the DLL, use <code>Publicize=&quot;true&quot;</code>. Here&#39;s a full example:</p>
+<pre><code class="lang-xml">    &lt;Reference Include=&quot;assembly_valheim&quot; Publicize=&quot;true&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+</code></pre><h2 id="full-example">Full Example</h2>
+<p>Here&#39;s a full example of the <code>CWJesse.BetterFPS.csproj.user</code> file with this working to dynamically reference and publicize the Valheim assembly. I chose this file as an example because it&#39;s smaller than in my projects.</p>
+<details><summary>CWJesse.BetterFPS.csproj.user</summary>
+<project sdk="Microsoft.NET.Sdk">
+  <propertygroup>
+    <targetframework>net472</targetframework>
+    <implicitusings>disable</implicitusings>
+    <nullable>disable</nullable>
+    <version>0.0.0</version>
+  </propertygroup>
+  <itemgroup>
+    <reference include="0Harmony">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\BepInEx\core\0Harmony.dll</hintpath>
+    </reference>
+    <reference include="assembly_valheim" publicize="true">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</hintpath>
+    </reference>
+    <reference include="BepInEx">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll</hintpath>
+    </reference>
+    <reference include="UnityEngine">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</hintpath>
+    </reference>
+    <reference include="UnityEngine.AnimationModule">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AnimationModule.dll</hintpath>
+    </reference>
+    <reference include="UnityEngine.CoreModule">
+      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</hintpath>
+    </reference>
+  </itemgroup>
+
+  <itemgroup>
+    <packagereference include="BepInEx.AssemblyPublicizer.MSBuild" version="0.4.1">
+      <privateassets>all</privateassets>
+      <includeassets>runtime; build; native; contentfiles; analyzers; buildtransitive</includeassets>
+    </packagereference>
+  </itemgroup>
+
+  <target name="PostBuild" aftertargets="PostBuildEvent">
+    <exec command="REM copy /Y /V &quot;CWJesse.BetterFPS.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins\CWJesse.BetterFPS.dll&quot;"></exec>
+  </target>
+</project>
+</details></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -70,7 +117,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/articles/publicization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
