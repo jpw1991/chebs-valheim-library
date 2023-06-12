@@ -20,12 +20,13 @@ using ChebsValheimLibrary.Items.Weapons.Wood;
 using Jotunn.Managers;
 using UnityEngine;
 using Logger = Jotunn.Logger;
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace ChebsValheimLibrary
 {
     public class Base
     {
-        public static readonly System.Version CurrentVersion = new("1.2.4");
+        public static readonly System.Version CurrentVersion = new("2.0.0");
 
         public static bool VersionCheck(System.Version version, out string message)
         {

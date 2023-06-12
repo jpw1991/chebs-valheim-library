@@ -119,7 +119,13 @@
        ...
     }
 </code></pre><ol>
-<li>Create a harmony patch to apply the component to your minions when the game is loading up:</li>
+<li>Apply the component to the prefab after you load it from the asset bundle:</li>
+</ol>
+<pre><code class="lang-cs">var prefab = Base.LoadPrefabFromBundle(prefabName, chebgonazAssetBundle, RadeonFriendly.Value);
+prefab.AddComponent&lt;YourMinion&gt;();
+CreatureManager.Instance.AddCreature(new CustomCreature(prefab, true));
+</code></pre><ol>
+<li>Or create a harmony patch to apply the component to your minions when the game is loading up:</li>
 </ol>
 <pre><code class="lang-cs">    [HarmonyPatch(typeof(MonsterAI))]
     class MonsterAIPatch
@@ -163,7 +169,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/5-update-for-test-branch/ChebsValheimLibrary/ChebsValheimLibrary/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
