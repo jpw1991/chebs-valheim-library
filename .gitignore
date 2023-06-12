@@ -380,3 +380,4 @@ Environment.props
 /ChebsValheimLibrary/ChebsValheimLibrary/obj/
 /ChebsValheimLibrary/ChebsValheimLibrary/bin/
 *.md.backup
+/ChebsValheimLibrary/ChebsValheimLibrary/log.txt
