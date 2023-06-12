@@ -14,7 +14,7 @@ To do this, I recommend the [BepInEx.AssemblyPublicizer.MSBuild](https://github.
 
 Here's a full example of the `CWJesse.BetterFPS.csproj.user` file with this working to dynamically reference and publicize the Valheim assembly. I chose this file as an example because it's smaller than in my projects.
 
-<details><summary>CWJesse.BetterFPS.csproj.user</summary>
+```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -54,4 +54,4 @@ Here's a full example of the `CWJesse.BetterFPS.csproj.user` file with this work
     <Exec Command="REM copy /Y /V &quot;CWJesse.BetterFPS.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins\CWJesse.BetterFPS.dll&quot;" />
   </Target>
 </Project>
-</details>
+```
