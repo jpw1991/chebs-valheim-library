@@ -20,7 +20,7 @@
         <ReleaseNotes>Initial</ReleaseNotes>
         <Authors>Joshua Paul Woods</Authors>
         <Owners>Joshua Paul Woods</Owners>
-        <Copyright>your copyrights</Copyright>
+        <Copyright>Public Domain</Copyright>
         <PackageOutputPath>bin\Package</PackageOutputPath>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
