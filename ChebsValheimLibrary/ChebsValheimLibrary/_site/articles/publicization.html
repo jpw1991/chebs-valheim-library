@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
     
     
@@ -57,7 +57,14 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="assembly-publicization">Assembly Publicization</h1>
@@ -69,47 +76,46 @@
     &lt;/Reference&gt;
 </code></pre><h2 id="full-example">Full Example</h2>
 <p>Here&#39;s a full example of the <code>CWJesse.BetterFPS.csproj.user</code> file with this working to dynamically reference and publicize the Valheim assembly. I chose this file as an example because it&#39;s smaller than in my projects.</p>
-<details><summary>CWJesse.BetterFPS.csproj.user</summary>
-<project sdk="Microsoft.NET.Sdk">
-  <propertygroup>
-    <targetframework>net472</targetframework>
-    <implicitusings>disable</implicitusings>
-    <nullable>disable</nullable>
-    <version>0.0.0</version>
-  </propertygroup>
-  <itemgroup>
-    <reference include="0Harmony">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\BepInEx\core\0Harmony.dll</hintpath>
-    </reference>
-    <reference include="assembly_valheim" publicize="true">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</hintpath>
-    </reference>
-    <reference include="BepInEx">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll</hintpath>
-    </reference>
-    <reference include="UnityEngine">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</hintpath>
-    </reference>
-    <reference include="UnityEngine.AnimationModule">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AnimationModule.dll</hintpath>
-    </reference>
-    <reference include="UnityEngine.CoreModule">
-      <hintpath>.......local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</hintpath>
-    </reference>
-  </itemgroup>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
+    &lt;ImplicitUsings&gt;disable&lt;/ImplicitUsings&gt;
+    &lt;Nullable&gt;disable&lt;/Nullable&gt;
+    &lt;Version&gt;0.0.0&lt;/Version&gt;
+  &lt;/PropertyGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Reference Include=&quot;0Harmony&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\0Harmony.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+    &lt;Reference Include=&quot;assembly_valheim&quot; Publicize=&quot;true&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+    &lt;Reference Include=&quot;BepInEx&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+    &lt;Reference Include=&quot;UnityEngine&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+    &lt;Reference Include=&quot;UnityEngine.AnimationModule&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AnimationModule.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+    &lt;Reference Include=&quot;UnityEngine.CoreModule&quot;&gt;
+      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
+    &lt;/Reference&gt;
+  &lt;/ItemGroup&gt;
 
-  <itemgroup>
-    <packagereference include="BepInEx.AssemblyPublicizer.MSBuild" version="0.4.1">
-      <privateassets>all</privateassets>
-      <includeassets>runtime; build; native; contentfiles; analyzers; buildtransitive</includeassets>
-    </packagereference>
-  </itemgroup>
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;BepInEx.AssemblyPublicizer.MSBuild&quot; Version=&quot;0.4.1&quot;&gt;
+      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+    &lt;/PackageReference&gt;
+  &lt;/ItemGroup&gt;
 
-  <target name="PostBuild" aftertargets="PostBuildEvent">
-    <exec command="REM copy /Y /V &quot;CWJesse.BetterFPS.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins\CWJesse.BetterFPS.dll&quot;"></exec>
-  </target>
-</project>
-</details></article>
+  &lt;Target Name=&quot;PostBuild&quot; AfterTargets=&quot;PostBuildEvent&quot;&gt;
+    &lt;Exec Command=&quot;REM copy /Y /V &amp;quot;CWJesse.BetterFPS.dll&amp;quot; &amp;quot;C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins\CWJesse.BetterFPS.dll&amp;quot;&quot; /&gt;
+  &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
