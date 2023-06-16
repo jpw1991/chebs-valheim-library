@@ -1,6 +1,6 @@
 # Thunderstore GitHub Deployment
 
-To make your GitHub releases automatically upload to the Thunderstore, you can set up a `deploy.yml` inside `.github/workflows/deploy` and fill it with the following contents (adjust file names to your needs). It uses the [GreenTF/upload-thunderstore-package](https://github.com/GreenTF/upload-thunderstore-package) image.
+To make your GitHub releases automatically upload to the Thunderstore, you can set up a `deploy.yml` inside `.github/workflows/` and fill it with the following contents (adjust file names to your needs). It uses the [GreenTF/upload-thunderstore-package](https://github.com/GreenTF/upload-thunderstore-package) image.
 
 How this works is when you make a release, it will take the first zip file of the release and send it to Thunderstore. You need to set up a repository [secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) called `TS_KEY` which has your Thunderstore team key in it.
 
