@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Assembly Publicization </title>
+    <title>Thunderstore GitHub Deployment </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Assembly Publicization ">
+    <meta name="title" content="Thunderstore GitHub Deployment ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,54 +67,55 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="assembly-publicization">Assembly Publicization</h1>
+<h1 id="thunderstore-github-deployment">Thunderstore GitHub Deployment</h1>
 
-<p>I find the best way to publicize Valheim assemblies is to do it directly on referencing it from the Valheim directory. This means it&#39;ll dynamically publicize whatever is in the Valheim install folder and it&#39;s overall less to manage.</p>
-<p>To do this, I recommend the <a href="https://github.com/BepInEx/BepInEx.AssemblyPublicizer">BepInEx.AssemblyPublicizer.MSBuild</a> nuget package. Then when you reference the DLL, use <code>Publicize=&quot;true&quot;</code>. Here&#39;s a full example:</p>
-<pre><code class="lang-xml">    &lt;Reference Include=&quot;assembly_valheim&quot; Publicize=&quot;true&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-</code></pre><h2 id="full-example">Full Example</h2>
-<p>Here&#39;s a full example of the <code>CWJesse.BetterFPS.csproj.user</code> file with this working to dynamically reference and publicize the Valheim assembly. I chose this file as an example because it&#39;s smaller than in my projects.</p>
-<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
-  &lt;PropertyGroup&gt;
-    &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
-    &lt;ImplicitUsings&gt;disable&lt;/ImplicitUsings&gt;
-    &lt;Nullable&gt;disable&lt;/Nullable&gt;
-    &lt;Version&gt;0.0.0&lt;/Version&gt;
-  &lt;/PropertyGroup&gt;
-  &lt;ItemGroup&gt;
-    &lt;Reference Include=&quot;0Harmony&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\0Harmony.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-    &lt;Reference Include=&quot;assembly_valheim&quot; Publicize=&quot;true&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-    &lt;Reference Include=&quot;BepInEx&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-    &lt;Reference Include=&quot;UnityEngine&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-    &lt;Reference Include=&quot;UnityEngine.AnimationModule&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AnimationModule.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-    &lt;Reference Include=&quot;UnityEngine.CoreModule&quot;&gt;
-      &lt;HintPath&gt;..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
-    &lt;/Reference&gt;
-  &lt;/ItemGroup&gt;
+<p>To make your GitHub releases automatically upload to the Thunderstore, you can set up a <code>deploy.yml</code> inside <code>.github/workflows/deploy</code> and fill it with the following contents (adjust file names to your needs). It uses the <a href="https://github.com/GreenTF/upload-thunderstore-package">GreenTF/upload-thunderstore-package</a> image.</p>
+<p>How this works is when you make a release, it will take the first zip file of the release and send it to Thunderstore. You need to set up a repository <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">secret</a> called <code>TS_KEY</code> which has your Thunderstore team key in it.</p>
+<p>Here&#39;s my yaml for Cheb&#39;s Necromancy:</p>
+<pre><code class="lang-yml">name: Publish package
 
-  &lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;BepInEx.AssemblyPublicizer.MSBuild&quot; Version=&quot;0.4.1&quot;&gt;
-      &lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
-      &lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
-    &lt;/PackageReference&gt;
-  &lt;/ItemGroup&gt;
+on:
+  release:
+    types: [published] # run when a new release is published
 
-  &lt;Target Name=&quot;PostBuild&quot; AfterTargets=&quot;PostBuildEvent&quot;&gt;
-    &lt;Exec Command=&quot;REM copy /Y /V &amp;quot;CWJesse.BetterFPS.dll&amp;quot; &amp;quot;C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx\plugins\CWJesse.BetterFPS.dll&amp;quot;&quot; /&gt;
-  &lt;/Target&gt;
-&lt;/Project&gt;
+env:
+  name: ChebsNecromancy
+  jsonf: manifest.json
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get clean version
+        run: |
+          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) &gt;&gt; $GITHUB_ENV
+      - name: Check that version matches
+        run: |
+          if [[ &quot;$(jq -r &#39;.version_number&#39; $(find ./ -name ${{env.jsonf}}))&quot; != &quot;${{ env.cleanVersion }}&quot; ]]; then
+            echo &quot;::debug::${{env.cleanVersion}}&quot;
+            echo &quot;::debug::$(cat $(find ./ -name ${{env.jsonf}}))&quot;
+            echo &quot;::error::Version in ${{env.jsonf}} does not match tag version&quot;
+            exit 1
+          fi
+  publish:
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v3
+      - run: wget https://github.com/jpw1991/chebs-necromancy/releases/download/${{ github.ref_name }}/ChebsNecromancy.${{ github.ref_name }}.zip
+      - name: Upload Thunderstore Package
+        uses: GreenTF/upload-thunderstore-package@v4
+        with:
+          community: valheim
+          namespace: ChebGonaz
+          name: ${{ env.name }}
+          version: ${{ github.ref_name }} # This is the tag that was created in the release
+          description: Cheb&#39;s Necromancy adds Necromancy to Valheim via craftable wands and structures. Minions will follow you, guard your base, and perform menial tasks.
+          token: ${{ secrets.TS_KEY }} 
+          deps: &quot;ValheimModding-Jotunn@2.11.2&quot; # dependencies separated by spaces
+          categories: &quot;Mods&quot; # categories separated by spaces
+          file: ChebsNecromancy.${{ github.ref_name }}.zip
 </code></pre></article>
           </div>
           
@@ -123,7 +124,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/articles/publicization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/ChebsValheimLibrary/articles/thunderstoredeployment.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
