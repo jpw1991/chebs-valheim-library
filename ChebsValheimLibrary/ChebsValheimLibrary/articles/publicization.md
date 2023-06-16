@@ -2,7 +2,7 @@
 
 I find the best way to publicize Valheim assemblies is to do it directly on referencing it from the Valheim directory. This means it'll dynamically publicize whatever is in the Valheim install folder and it's overall less to manage.
 
-To do this, I recommend the [BepInEx.AssemblyPublicizer.MSBuild](https://github.com/BepInEx/BepInEx.AssemblyPublicizer) nuget package. Then when you preference the DLL, use `Publicize="true"`. Here's a full example:
+To do this, I recommend the [BepInEx.AssemblyPublicizer.MSBuild](https://github.com/BepInEx/BepInEx.AssemblyPublicizer) nuget package. Then when you reference the DLL, use `Publicize="true"`. Here's a full example:
 
 ```xml
     <Reference Include="assembly_valheim" Publicize="true">
