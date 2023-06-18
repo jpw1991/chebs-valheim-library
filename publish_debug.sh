@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RELEASEDIR=ChebsValheimLibrary/ChebsValheimLibrary/bin/Release
+RELEASEDIR=ChebsValheimLibrary/bin/Release
 LIB=$RELEASEDIR/ChebsValheimLibrary.dll
 PLUGINS=/home/joshua/.local/share/Steam/steamapps/common/Valheim/BepInEx/plugins
 

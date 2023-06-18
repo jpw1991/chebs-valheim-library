@@ -46,16 +46,16 @@ if __name__ == '__main__':
         sys.exit(1)
 
     file_pattern_replacements = [
-        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary/Properties/AssemblyInfo.cs',
+        FilePatternReplacement('ChebsValheimLibrary/Properties/AssemblyInfo.cs',
                                'AssemblyVersion\\([".0-9]+\\)',
                                f'AssemblyVersion("{version}.0")'),
-        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary/Properties/AssemblyInfo.cs',
+        FilePatternReplacement('ChebsValheimLibrary/Properties/AssemblyInfo.cs',
                                'AssemblyFileVersion\\([".0-9]+\\)',
                                f'AssemblyFileVersion("{version}.0")'),
-        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary/Base.cs',
+        FilePatternReplacement('ChebsValheimLibrary/Base.cs',
                                'CurrentVersion = new\\([".0-9]+\\)',
                                f'CurrentVersion = new("{version}")'),
-        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary/ChebsValheimLibrary.csproj',
+        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary.csproj',
                                '<Version>[".0-9]+',
                                f"<Version>{version}"),
     ]
