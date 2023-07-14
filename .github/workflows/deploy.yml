@@ -33,6 +33,6 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Install BepInEx
-        uses: |
+        run: |
           wget -O "${{ env.bepinexdl }}"
           unzip bepinex.zip -d ~/BepInEx
