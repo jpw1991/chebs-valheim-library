@@ -29,10 +29,22 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Install BepInEx
+      - name: Delete old Valheim directory
         run: |
+          rm -rdf /home/runner/.steam/steam/steamapps/common/Valheim
+
+      - name: Install SteamCMD
+        uses: CyberAndrii/setup-steamcmd@v1
+      
+      - name: Install Valheim
+        run: steamcmd +force_install_dir /home/runner/.steam/steam/steamapps/common/Valheim +login anonymous +app_update 896660 validate +exit
+
+      - name: Install BepInEX
+        run: |
+          mv /home/runner/.steam/steam/steamapps/common/Valheim/valheim_server_Data/ /home/runner/.steam/steam/steamapps/common/Valheim/valheim_Data/
           wget -O "${{ env.bepinexdl }}"
           unzip bepinex.zip -d ~/BepInEx
+          mv ~/BepInEx/BepInExPack_Valheim/* /home/runner/.steam/steam/steamapps/common/Valheim/
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
