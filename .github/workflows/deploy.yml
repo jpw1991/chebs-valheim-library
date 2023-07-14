@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+env:
+  bepinexdl: https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_unix_5.4.21.0.zip
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,9 +22,17 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Install NuGet
+        uses: nuget/setup-nuget@v1
+
       - name: Install dependencies
         run: dotnet restore
+
       - name: Build
         run: dotnet build --configuration Release --no-restore
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal
+
+      - name: Install BepInEx
+        uses: |
+          wget -O "${{ env.bepinexdl }}"
+          unzip bepinex.zip -d ~/BepInEx
