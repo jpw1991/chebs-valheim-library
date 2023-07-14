@@ -35,6 +35,8 @@ jobs:
 
       - name: Install SteamCMD
         uses: CyberAndrii/setup-steamcmd@v1
+        with:
+          steamcmd-version: '64bit'
       
       - name: Install Valheim
         run: steamcmd +force_install_dir /home/runner/.steam/steam/steamapps/common/Valheim +login anonymous +app_update 896660 validate +exit
