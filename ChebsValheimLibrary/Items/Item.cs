@@ -31,7 +31,8 @@ namespace ChebsValheimLibrary.Items
         [InternalName("piece_cauldron")] Cauldron,
         [InternalName("forge")] Forge,
         [InternalName("piece_artisanstation")] ArtisanTable,
-        [InternalName("piece_stonecutter")] StoneCutter
+        [InternalName("piece_stonecutter")] StoneCutter,
+        [InternalName("blackforge")] BlackForge
     }
     
     /// <summary>

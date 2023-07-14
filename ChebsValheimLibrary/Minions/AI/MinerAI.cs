@@ -143,7 +143,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 if (destructible != null)
                 {
                     var hitData = new HitData();
-                    hitData.m_damage.m_pickaxe = 500;
+                    hitData.m_damage.m_pickaxe = 25;
                     destructible.Damage(hitData);
                     return;
                 }
@@ -151,14 +151,14 @@ namespace ChebsValheimLibrary.Minions.AI
                 var mineRock5 = followTarget.GetComponentInParent<MineRock5>();
                 if (mineRock5 != null)
                 {
-                    // destroy all fragments
+                    // damage all fragments
                     for (int i = 0; i < mineRock5.m_hitAreas.Count; i++)
                     {
                         var hitArea = mineRock5.m_hitAreas[i];
                         if (hitArea.m_health > 0f)
                         {
                             var hitData = new HitData();
-                            hitData.m_damage.m_damage = hitArea.m_health;
+                            hitData.m_damage.m_damage = 25;
                             hitData.m_point = hitArea.m_collider.bounds.center;
                             hitData.m_toolTier = 100;
                             mineRock5.DamageArea(i, hitData);

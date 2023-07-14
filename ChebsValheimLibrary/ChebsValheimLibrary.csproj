@@ -16,7 +16,7 @@
     <PropertyGroup>
         <Title>ChebsValheimLibrary</Title>
         <Description>A library which contains shared classes and things required by all my mods.</Description>
-        <Version>2.0.0</Version>
+        <Version>2.1.0</Version>
         <ReleaseNotes>Initial</ReleaseNotes>
         <Authors>Joshua Paul Woods</Authors>
         <Owners>Joshua Paul Woods</Owners>
@@ -71,6 +71,7 @@
         <Compile Include="Common\ChebsRecipe.cs" />
         <Compile Include="Common\InternalName.cs" />
         <Compile Include="Common\MemoryConfigEntry.cs" />
+        <Compile Include="Common\Weather.cs" />
         <Compile Include="Items\Armor\BlackMetal\BlackIronChest.cs" />
         <Compile Include="Items\Armor\BlackMetal\BlackIronHelmet.cs" />
         <Compile Include="Items\Armor\BlackMetal\BlackIronLegs.cs" />
@@ -129,8 +130,9 @@
         <Compile Include="Minions\AI\WoodcutterAI.cs" />
         <Compile Include="Minions\FreshMinion.cs" />
         <Compile Include="Minions\ChebGonazMinion.cs" />
-        <Compile Include="Minions\NukeTree.cs" />
+        <Compile Include="Minions\MinionText.cs" />
         <Compile Include="Minions\NukeRock.cs" />
+        <Compile Include="Minions\NukeTree.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Structures\Structure.cs" />
     </ItemGroup>

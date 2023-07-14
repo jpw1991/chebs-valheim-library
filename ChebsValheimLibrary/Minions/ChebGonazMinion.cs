@@ -113,6 +113,9 @@ namespace ChebsValheimLibrary.Minions
             BlackMetal,
         }
 
+        protected GameObject minionTextGameObject;
+        //protected MinionText minionText;
+
         /// <summary>
         /// Whether the minion can be commanded with E.
         /// </summary>
@@ -925,5 +928,33 @@ namespace ChebsValheimLibrary.Minions
                 });
             }
         }
+
+        public virtual void Awake()
+        {
+            
+        }
+        
+        // protected virtual void Awake()
+        // {
+        //     minionTextGameObject = new GameObject();
+        //     minionText = minionTextGameObject.AddComponent<MinionText>();
+        //     minionTextGameObject.transform.SetParent(transform);
+        //     minionText.Text = "big fat test";
+        //     minionTextGameObject.transform.localScale = Vector3.one / 2;
+        // }
+
+        // protected void LateUpdate()
+        // {
+        //     if (minionTextGameObject != null)
+        //     {
+        //         var player = Player.m_localPlayer;
+        //         var render =
+        //             Vector3.Distance(transform.position, player.transform.position) < MinionText.RenderDistance;
+        //         minionTextGameObject.SetActive(render);
+        //         // if (!render) return;
+        //         //
+        //         // minionTextGameObject.transform.position = transform.position + Vector3.up * MinionText.VerticalOffset;
+        //     }
+        // }
     }
 }

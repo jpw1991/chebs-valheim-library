@@ -337,6 +337,168 @@ references:
   fullName.vb: ChebsValheimLibrary.Common.MemoryConfigEntry(Of T, TT).Value
   nameWithType: MemoryConfigEntry<T, TT>.Value
   nameWithType.vb: MemoryConfigEntry(Of T, TT).Value
+- uid: ChebsValheimLibrary.Common.Weather
+  name: Weather
+  href: api/ChebsValheimLibrary.Common.Weather.html
+  commentId: T:ChebsValheimLibrary.Common.Weather
+  fullName: ChebsValheimLibrary.Common.Weather
+  nameWithType: Weather
+- uid: ChebsValheimLibrary.Common.Weather.Env
+  name: Weather.Env
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html
+  commentId: T:ChebsValheimLibrary.Common.Weather.Env
+  fullName: ChebsValheimLibrary.Common.Weather.Env
+  nameWithType: Weather.Env
+- uid: ChebsValheimLibrary.Common.Weather.Env.Ashrain
+  name: Ashrain
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Ashrain
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Ashrain
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Ashrain
+  nameWithType: Weather.Env.Ashrain
+- uid: ChebsValheimLibrary.Common.Weather.Env.Bonemass
+  name: Bonemass
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Bonemass
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Bonemass
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Bonemass
+  nameWithType: Weather.Env.Bonemass
+- uid: ChebsValheimLibrary.Common.Weather.Env.Clear
+  name: Clear
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Clear
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Clear
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Clear
+  nameWithType: Weather.Env.Clear
+- uid: ChebsValheimLibrary.Common.Weather.Env.Crypt
+  name: Crypt
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Crypt
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Crypt
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Crypt
+  nameWithType: Weather.Env.Crypt
+- uid: ChebsValheimLibrary.Common.Weather.Env.DarklandsDark
+  name: DarklandsDark
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_DarklandsDark
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.DarklandsDark
+  fullName: ChebsValheimLibrary.Common.Weather.Env.DarklandsDark
+  nameWithType: Weather.Env.DarklandsDark
+- uid: ChebsValheimLibrary.Common.Weather.Env.DeepForest
+  name: DeepForest
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_DeepForest
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.DeepForest
+  fullName: ChebsValheimLibrary.Common.Weather.Env.DeepForest
+  nameWithType: Weather.Env.DeepForest
+- uid: ChebsValheimLibrary.Common.Weather.Env.Eikthyr
+  name: Eikthyr
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Eikthyr
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Eikthyr
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Eikthyr
+  nameWithType: Weather.Env.Eikthyr
+- uid: ChebsValheimLibrary.Common.Weather.Env.GDKing
+  name: GDKing
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_GDKing
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.GDKing
+  fullName: ChebsValheimLibrary.Common.Weather.Env.GDKing
+  nameWithType: Weather.Env.GDKing
+- uid: ChebsValheimLibrary.Common.Weather.Env.GoblinKing
+  name: GoblinKing
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_GoblinKing
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.GoblinKing
+  fullName: ChebsValheimLibrary.Common.Weather.Env.GoblinKing
+  nameWithType: Weather.Env.GoblinKing
+- uid: ChebsValheimLibrary.Common.Weather.Env.HeathClear
+  name: HeathClear
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_HeathClear
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.HeathClear
+  fullName: ChebsValheimLibrary.Common.Weather.Env.HeathClear
+  nameWithType: Weather.Env.HeathClear
+- uid: ChebsValheimLibrary.Common.Weather.Env.LightRain
+  name: LightRain
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_LightRain
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.LightRain
+  fullName: ChebsValheimLibrary.Common.Weather.Env.LightRain
+  nameWithType: Weather.Env.LightRain
+- uid: ChebsValheimLibrary.Common.Weather.Env.Mist
+  name: Mist
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Mist
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Mist
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Mist
+  nameWithType: Weather.Env.Mist
+- uid: ChebsValheimLibrary.Common.Weather.Env.Misty
+  name: Misty
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Misty
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Misty
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Misty
+  nameWithType: Weather.Env.Misty
+- uid: ChebsValheimLibrary.Common.Weather.Env.Moder
+  name: Moder
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Moder
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Moder
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Moder
+  nameWithType: Weather.Env.Moder
+- uid: ChebsValheimLibrary.Common.Weather.Env.Nofogts
+  name: Nofogts
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Nofogts
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Nofogts
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Nofogts
+  nameWithType: Weather.Env.Nofogts
+- uid: ChebsValheimLibrary.Common.Weather.Env.None
+  name: None
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_None
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.None
+  fullName: ChebsValheimLibrary.Common.Weather.Env.None
+  nameWithType: Weather.Env.None
+- uid: ChebsValheimLibrary.Common.Weather.Env.Rain
+  name: Rain
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Rain
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Rain
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Rain
+  nameWithType: Weather.Env.Rain
+- uid: ChebsValheimLibrary.Common.Weather.Env.Snow
+  name: Snow
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_Snow
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.Snow
+  fullName: ChebsValheimLibrary.Common.Weather.Env.Snow
+  nameWithType: Weather.Env.Snow
+- uid: ChebsValheimLibrary.Common.Weather.Env.SnowStorm
+  name: SnowStorm
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_SnowStorm
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.SnowStorm
+  fullName: ChebsValheimLibrary.Common.Weather.Env.SnowStorm
+  nameWithType: Weather.Env.SnowStorm
+- uid: ChebsValheimLibrary.Common.Weather.Env.SunkenCrypt
+  name: SunkenCrypt
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_SunkenCrypt
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.SunkenCrypt
+  fullName: ChebsValheimLibrary.Common.Weather.Env.SunkenCrypt
+  nameWithType: Weather.Env.SunkenCrypt
+- uid: ChebsValheimLibrary.Common.Weather.Env.SwampRain
+  name: SwampRain
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_SwampRain
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.SwampRain
+  fullName: ChebsValheimLibrary.Common.Weather.Env.SwampRain
+  nameWithType: Weather.Env.SwampRain
+- uid: ChebsValheimLibrary.Common.Weather.Env.ThunderStorm
+  name: ThunderStorm
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_ThunderStorm
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.ThunderStorm
+  fullName: ChebsValheimLibrary.Common.Weather.Env.ThunderStorm
+  nameWithType: Weather.Env.ThunderStorm
+- uid: ChebsValheimLibrary.Common.Weather.Env.TwilightClear
+  name: TwilightClear
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_TwilightClear
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.TwilightClear
+  fullName: ChebsValheimLibrary.Common.Weather.Env.TwilightClear
+  nameWithType: Weather.Env.TwilightClear
+- uid: ChebsValheimLibrary.Common.Weather.Env.TwilightSnow
+  name: TwilightSnow
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_TwilightSnow
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.TwilightSnow
+  fullName: ChebsValheimLibrary.Common.Weather.Env.TwilightSnow
+  nameWithType: Weather.Env.TwilightSnow
+- uid: ChebsValheimLibrary.Common.Weather.Env.TwilightSnowStorm
+  name: TwilightSnowStorm
+  href: api/ChebsValheimLibrary.Common.Weather.Env.html#ChebsValheimLibrary_Common_Weather_Env_TwilightSnowStorm
+  commentId: F:ChebsValheimLibrary.Common.Weather.Env.TwilightSnowStorm
+  fullName: ChebsValheimLibrary.Common.Weather.Env.TwilightSnowStorm
+  nameWithType: Weather.Env.TwilightSnowStorm
 - uid: ChebsValheimLibrary.Items
   name: ChebsValheimLibrary.Items
   href: api/ChebsValheimLibrary.Items.html
@@ -2008,6 +2170,12 @@ references:
   commentId: F:ChebsValheimLibrary.Items.CraftingTable.ArtisanTable
   fullName: ChebsValheimLibrary.Items.CraftingTable.ArtisanTable
   nameWithType: CraftingTable.ArtisanTable
+- uid: ChebsValheimLibrary.Items.CraftingTable.BlackForge
+  name: BlackForge
+  href: api/ChebsValheimLibrary.Items.CraftingTable.html#ChebsValheimLibrary_Items_CraftingTable_BlackForge
+  commentId: F:ChebsValheimLibrary.Items.CraftingTable.BlackForge
+  fullName: ChebsValheimLibrary.Items.CraftingTable.BlackForge
+  nameWithType: CraftingTable.BlackForge
 - uid: ChebsValheimLibrary.Items.CraftingTable.Cauldron
   name: Cauldron
   href: api/ChebsValheimLibrary.Items.CraftingTable.html#ChebsValheimLibrary_Items_CraftingTable_Cauldron
@@ -3925,6 +4093,19 @@ references:
   commentId: F:ChebsValheimLibrary.Minions.ChebGonazMinion.ArmorType.None
   fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.ArmorType.None
   nameWithType: ChebGonazMinion.ArmorType.None
+- uid: ChebsValheimLibrary.Minions.ChebGonazMinion.Awake
+  name: Awake()
+  href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_Awake
+  commentId: M:ChebsValheimLibrary.Minions.ChebGonazMinion.Awake
+  fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.Awake()
+  nameWithType: ChebGonazMinion.Awake()
+- uid: ChebsValheimLibrary.Minions.ChebGonazMinion.Awake*
+  name: Awake
+  href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_Awake_
+  commentId: Overload:ChebsValheimLibrary.Minions.ChebGonazMinion.Awake
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.Awake
+  nameWithType: ChebGonazMinion.Awake
 - uid: ChebsValheimLibrary.Minions.ChebGonazMinion.BelongsToPlayer(System.String)
   name: BelongsToPlayer(String)
   href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_BelongsToPlayer_System_String_
@@ -4216,6 +4397,12 @@ references:
   commentId: F:ChebsValheimLibrary.Minions.ChebGonazMinion.MinionOwnershipZdoKey
   fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.MinionOwnershipZdoKey
   nameWithType: ChebGonazMinion.MinionOwnershipZdoKey
+- uid: ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
+  name: minionTextGameObject
+  href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_minionTextGameObject
+  commentId: F:ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
+  fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
+  nameWithType: ChebGonazMinion.minionTextGameObject
 - uid: ChebsValheimLibrary.Minions.ChebGonazMinion.MinionWaitObjectName
   name: MinionWaitObjectName
   href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_MinionWaitObjectName
