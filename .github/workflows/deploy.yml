@@ -28,7 +28,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dotnet tool update --global dotnet-nuget
           dotnet restore
           nuget restore
           dotnet tool restore
