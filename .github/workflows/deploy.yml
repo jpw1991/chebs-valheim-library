@@ -27,7 +27,9 @@ jobs:
         uses: nuget/setup-nuget@v1
 
       - name: Install dependencies
-        run: dotnet restore
+        run: |
+          dotnet restore
+          nuget restore
 
       - name: Delete old Valheim directory
         run: |
