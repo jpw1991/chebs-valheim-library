@@ -50,7 +50,7 @@ jobs:
           mv /home/runner/.steam/steam/steamapps/common/Valheim/valheim_server_Data/ /home/runner/.steam/steam/steamapps/common/Valheim/valheim_Data/
           wget -O BepInEx.zip ${{ env.bepinexdl }}
           unzip BepInEx.zip -d ~/BepInEx
-          mv ~/BepInEx/BepInExPack_Valheim/* /home/runner/.steam/steam/steamapps/common/Valheim/
+          mv ~/BepInEx/* /home/runner/.steam/steam/steamapps/common/Valheim/
 
       - name: Build
         run: dotnet build --configuration Release --no-restore
