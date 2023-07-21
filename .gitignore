@@ -375,9 +375,9 @@ Environment.props
 */Package/plugins/*
 
 # other
-/ChebsValheimLibrary/ChebsValheimLibrary/libs/
+/ChebsValheimLibrary/libs/
 /ChebsValheimLibrary/packages/
-/ChebsValheimLibrary/ChebsValheimLibrary/obj/
-/ChebsValheimLibrary/ChebsValheimLibrary/bin/
+/ChebsValheimLibrary/obj/
+/ChebsValheimLibrary/bin/
 *.md.backup
-/ChebsValheimLibrary/ChebsValheimLibrary/log.txt
+/ChebsValheimLibrary/log.txt

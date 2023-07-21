@@ -119,31 +119,65 @@ namespace ChebsValheimLibrary.Items
         /// <param name="craftingStationLevel">The crafting station level required to craft the item.</param>
         public virtual void UpdateRecipe(ConfigEntry<CraftingTable> craftingStationRequired, ConfigEntry<string> craftingCost, ConfigEntry<int> craftingStationLevel)
         {
-            var recipe = ItemManager.Instance.GetItem(ItemName).Recipe;
-
-            var craftingStationName =
-                ((InternalName)typeof(CraftingTable).GetMember(craftingStationRequired.Value.ToString())[0]
-                    .GetCustomAttributes(typeof(InternalName)).First()).Name;
-
-            recipe.Recipe.m_minStationLevel = craftingStationLevel.Value;
-            
-            var sub = ZNetScene.instance.GetPrefab(craftingStationName);
-            recipe.Recipe.m_craftingStation = sub.GetComponent<CraftingStation>();
-            var newRequirements = new List<Piece.Requirement>();
-            foreach (string material in craftingCost.Value.Split(','))
+            var recipe = ItemManager.Instance?.GetItem(ItemName)?.Recipe?.Recipe;
+            if (recipe == null)
             {
+                Logger.LogError($"Failed to update recipe for {ItemName} because ItemManager returned null for {ItemName}.");
+                return;
+            }
+            
+            if (craftingStationRequired == null)
+            {
+                Logger.LogError($"Failed to update recipe for {ItemName} because CraftingStationRequired is null.");
+                return;
+            }
+            
+            if (craftingCost == null)
+            {
+                Logger.LogError($"Failed to update recipe for {ItemName} because CraftingCost is null.");
+                return;
+            }
+            
+            if (craftingStationLevel == null)
+            {
+                Logger.LogError($"Failed to update recipe for {ItemName} because CraftingStationLevel is null.");
+                return;
+            }
+
+            var craftingStationName = InternalName.GetName(craftingStationRequired.Value);
+            recipe.m_minStationLevel = craftingStationLevel.Value;
+            
+            var sub = PrefabManager.Instance?.GetPrefab(craftingStationName); //ZNetScene.instance?.GetPrefab(craftingStationName);
+            if (sub == null)
+            {
+                Logger.LogError($"Failed to update recipe for {ItemName} because of failure to get {craftingStationName} from ZNetScene.instance.");
+                return;
+            }
+            
+            recipe.m_craftingStation = sub.GetComponent<CraftingStation>();
+            
+            var newRequirements = new List<Piece.Requirement>();
+            foreach (var material in craftingCost.Value.Split(','))
+            {
+                //Logger.LogInfo($"info = {material}");
                 var materialSplit = material.Split(':');
                 var materialName = materialSplit[0];
                 var materialAmount = int.Parse(materialSplit[1]);
+                var materialPrefab = PrefabManager.Instance?.GetPrefab(materialName);
+                if (materialPrefab == null)
+                {
+                    Logger.LogError($"Failed to update recipe for {ItemName} because of failure to get {materialName}'s prefab from ZNetScene.instance.");
+                    continue;
+                }
                 newRequirements.Add(new Piece.Requirement()
                 {
                     m_amount = materialAmount,
                     m_amountPerLevel = materialAmount * 2,
-                    m_resItem = ZNetScene.instance.GetPrefab(materialName).GetComponent<ItemDrop>(),
+                    m_resItem = materialPrefab.GetComponent<ItemDrop>(),
                 });
             }
-
-            recipe.Recipe.m_resources = newRequirements.ToArray();
+            
+            recipe.m_resources = newRequirements.ToArray();
         }
         
         /// <summary>
