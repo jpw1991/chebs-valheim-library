@@ -54,16 +54,16 @@
         <Reference Include="System.Xml" />
         <Reference Include="System.Xml.Linq" />
         <Reference Include="assembly_guiutils" Publicize="true">
-          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
         </Reference>
         <Reference Include="assembly_postprocessing" Publicize="true">
-          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_postprocessing.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_postprocessing.dll</HintPath>
         </Reference>
         <Reference Include="assembly_utils" Publicize="true">
-          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
         </Reference>
         <Reference Include="assembly_valheim" Publicize="true">
-          <HintPath>..\..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>

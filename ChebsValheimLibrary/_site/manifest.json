@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "/home/joshua/repositories/chebs-valheim-library/ChebsValheimLibrary/ChebsValheimLibrary",
+  "source_base_path": "/home/joshua/repositories/chebs-valheim-library-2/ChebsValheimLibrary",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -12,7 +12,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "3yCVDt4fmZP7OYYpgRUX9HCaM7oJX49OA7LyzzXbEFY="
+          "hash": "pcx29QyE9kgC794rSr1JuRxqgY6pd0nDC4f/zhHgpFY="
         }
       },
       "is_incremental": false,
@@ -24,7 +24,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "oTV9er0YsgxQ+vxeHYj9QjVEkVQrotHSYUusQmeDMv4="
+          "hash": "Kqwu+2/7cE96NPtXdeUNf1FQ5W5WdKeX7nKyo69NsBk="
         }
       },
       "is_incremental": false,
@@ -36,7 +36,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/publicization.html",
-          "hash": "BlEZdgGEaqJFYKYjz3t28hN6rUUsjXbAI/GzDesLJ/0="
+          "hash": "9NJsWo9Y748nC5b7rLorlw67KMc28yV20OflPHv9MUI="
         }
       },
       "is_incremental": false,
@@ -48,7 +48,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/thunderstoredeployment.html",
-          "hash": "5DfZoeuXJ0b/EfhiIoYaQmtdkObT5DwVr0pH0d4ELPw="
+          "hash": "0YGF0dM5JTjbxOOSE0tjJP5sn3qlGbk454aw+czKr30="
         }
       },
       "is_incremental": false,
@@ -72,7 +72,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "XikjzXiSCSBAt8hndaqO4wTKGsfVsYgrs2OTNYRR9CQ="
+          "hash": "PPcR6/9PdZ9Y6/KKoJ+rCgevmT8a+BDoU9hCCdwRWKE="
         }
       },
       "is_incremental": false,
@@ -84,7 +84,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Base.html",
-          "hash": "OBi61OkhndJ1OWRbUCUq6lx4Ui83EAndQNEJcZsckqg="
+          "hash": "VAbm9oCF0GfwYIetAsd6M05OC7qbAekei2X9+u/TWiI="
         }
       },
       "is_incremental": false,
@@ -96,7 +96,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Common.ChebsRecipe.html",
-          "hash": "mIFAjhSXVHKDBIOGgQbPyzpqrlKPxUxzlRQW42dckt8="
+          "hash": "DaarmYowMrtI+6Gb8sbvzmN1fRHHVCxjTQrISAQqm/0="
         }
       },
       "is_incremental": false,
@@ -108,7 +108,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Common.InternalName.html",
-          "hash": "bIUg4nHaitujnn8FSnydI9tm8SXiyW53Gc1ocGHEKvw="
+          "hash": "waCvBGbwUKeVMokmPq8kIn690Myd1ABRkpiVebdd5uw="
         }
       },
       "is_incremental": false,
@@ -120,7 +120,31 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Common.MemoryConfigEntry-2.html",
-          "hash": "Gd0ilHNGGco9pjUJ+LhS4kpX/TW6klPRdczB3PJ8M6c="
+          "hash": "p0yB3ozswZU2Gavb/8CU3tdG7JzqZiblOiJ2ITjgfx4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.Weather.Env.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.Weather.Env.html",
+          "hash": "IcmQ68AjmaR6+bBLeESrrt7rBfC0l57uTit5DhOtccU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ChebsValheimLibrary.Common.Weather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ChebsValheimLibrary.Common.Weather.html",
+          "hash": "8UOmYWAKEtvjYGy7piCUs6hYhwwnIIHYlBhamDTchYs="
         }
       },
       "is_incremental": false,
@@ -132,7 +156,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Common.html",
-          "hash": "/vVat+6GgL1heszrY3j7hkQVHCYzgzSGLED3t5ljcKU="
+          "hash": "uwQsYQygOfScSNJ9Z6UJTQYuUL/DN9rMnBPKxxshmNA="
         }
       },
       "is_incremental": false,
@@ -144,7 +168,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronChest.html",
-          "hash": "+jhgDfRM775ePPVUdYR5Ispw/pMdE0rhgOR8wYwRvuY="
+          "hash": "rw9+jbINvOP3wIfWTyNjX7+lCBpujHIQ7aKBAQ1rpsU="
         }
       },
       "is_incremental": false,
@@ -156,7 +180,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronHelmet.html",
-          "hash": "qT8Mj5GhKpVojkiUiDdiYcmWQqDkQUyt5YO4Iati+Ko="
+          "hash": "vKkq2t/CtjNQoCWXCgRp1cj97oOuk+eg5AL9PU6UxmA="
         }
       },
       "is_incremental": false,
@@ -168,7 +192,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.BlackIronLegs.html",
-          "hash": "IGdDMxtz0V39S2QfScKoDz2Y2F+jxZC1iIksPffUfSI="
+          "hash": "D1YgA0045pXl134fPkjo6chg2Z2mkfy+sDO+G41rdYw="
         }
       },
       "is_incremental": false,
@@ -180,7 +204,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIron.html",
-          "hash": "onvZKCmeuv0qZVAsOxcs7W/Su1b7q102fHzxEW22UzQ="
+          "hash": "6A2ZHM9Bg2SMAJWK/l7t2WuUTqdCpGut5nFO4+WmnS0="
         }
       },
       "is_incremental": false,
@@ -192,7 +216,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.BlackMetal.SkeletonHelmetBlackIronPoison.html",
-          "hash": "PxTzDQ9vCgUPpWDAMeU+E3Yd6gDhBPbds5Sk9miu6kQ="
+          "hash": "O63yNHYzijSXVhxxmsMuLivcC8huntFvKRaUs46E8Bk="
         }
       },
       "is_incremental": false,
@@ -216,7 +240,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronze.html",
-          "hash": "6sDS4BXQI0+rFBXRC6JVG8doYiWuBRfccp3YRyhgFM8="
+          "hash": "xhxd1ldoiZ25xED/ppBoMzL/TiBI/jRVBVKByak3zp4="
         }
       },
       "is_incremental": false,
@@ -228,7 +252,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Bronze.SkeletonHelmetBronzePoison.html",
-          "hash": "TSZIyGEIygSu+fJOl7XLmLPMCT+J1wGU7ZLzGbYvuQY="
+          "hash": "AF8MzN46gZjISz6EfayuC0cj4E8HCXhIYdQgXP6tugc="
         }
       },
       "is_incremental": false,
@@ -252,7 +276,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIron.html",
-          "hash": "g+mN0Z+BmrzVcctVcyju/gnwBaP4cWFenil/1UkPB4s="
+          "hash": "PjjUjlXFVaS8KWEXe1SxKaHAmajl2PVQgp8f+Jae1dw="
         }
       },
       "is_incremental": false,
@@ -264,7 +288,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Iron.SkeletonHelmetIronPoison.html",
-          "hash": "Osvjj3kGVsrLMP5dgPO2vZp5YBON47L1yaoaoAtPn6Q="
+          "hash": "ZvG5z6BFAdA4roINkECdGb1pUhy24luxtIPKDrTAeOg="
         }
       },
       "is_incremental": false,
@@ -288,7 +312,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherLox.html",
-          "hash": "xTbkpPkFrM8dt0aI7ArhG6iHfTD18X9X8KDjxw9Qltk="
+          "hash": "CmXZZU+e1CWPhGNBum8DBBJWxKvX9vebkrhj4DXTwA8="
         }
       },
       "is_incremental": false,
@@ -300,7 +324,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.HelmetLeatherTroll.html",
-          "hash": "96mYY3c8x4gqauSE413CqU1PbZLhSV4L9FXaK/Meofk="
+          "hash": "UxjD3WmRV/uucqEqYJ2nZO/N+OOV/7M9h3N8G9z6LYE="
         }
       },
       "is_incremental": false,
@@ -312,7 +336,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherChestLox.html",
-          "hash": "dLQP7xPVM+vX1hJyfVhXMcPn1aWLx75KuqY+95IQkX0="
+          "hash": "eGIhdsTyLlOb8YlWqujrmxRSwnooAWOWRu0dLpBLeXc="
         }
       },
       "is_incremental": false,
@@ -324,7 +348,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonArmorLeatherLegsLox.html",
-          "hash": "A/+wDDoy7WRbSAh7Mn1T2/9wZ+DloYXl77UiVKi0CYQ="
+          "hash": "RMMJo8MaLVtVee9VfKh+IpeI0C+A6m3dCpmt8pLA020="
         }
       },
       "is_incremental": false,
@@ -336,7 +360,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherLox.html",
-          "hash": "qYSlVMMVRmANU/tMSE4TGN0VRt9a1Q9S3hkx4BxlKDY="
+          "hash": "HfMjEC7015/T39rcvfzRqCheqP11cg8pcxGxj7Q9l3U="
         }
       },
       "is_incremental": false,
@@ -348,7 +372,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Lox.SkeletonHelmetLeatherPoisonLox.html",
-          "hash": "+szm4bN9kXkEuzcgX6kILY0w0G1/T+LX8d5jBNopVu8="
+          "hash": "s/OsPOCd3KLtLd6rXun6kZ1V4kpNufZ2fvWoCEfR4do="
         }
       },
       "is_incremental": false,
@@ -372,7 +396,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeather.html",
-          "hash": "mAQTwRHv6O+DpXalp7ZsgAFHyGBTxFmvVpivpeCdeoY="
+          "hash": "97FsC8NDAg+cuf881/sav7JJm2Np5ioF9QF9ArlOLLI="
         }
       },
       "is_incremental": false,
@@ -384,7 +408,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.SkeletonHelmetLeatherPoison.html",
-          "hash": "9eOr/IgrHPL8ZrNgZHkYu/mhXBaeBMdZwmlHCUPoZ7Q="
+          "hash": "B7TBAe82/E6We9K/JaidpjiN+rBorCmHyClgzTxf0rQ="
         }
       },
       "is_incremental": false,
@@ -396,7 +420,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherChestTroll.html",
-          "hash": "O9GByg/2tUeNSl+sHcoRJLE+ZDIbx3fRPHVyLDd6yX4="
+          "hash": "Wdm6IX1xfXiM6NeMk9dJ48QdURIfME1GZEPuijdFItc="
         }
       },
       "is_incremental": false,
@@ -408,7 +432,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonArmorLeatherLegsTroll.html",
-          "hash": "acCcAnNDC2sd/f7+gZHB+XpgtcqEuygyEbvw0UJyt24="
+          "hash": "aVDgKtuw3D093k6T3+WGLW7S7KZdwWHDMqL0WBxcJK0="
         }
       },
       "is_incremental": false,
@@ -420,7 +444,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherPoisonTroll.html",
-          "hash": "BddrqFt0Z/Vb5gRTrEi4DxSdlvryUH772pkNToLThh0="
+          "hash": "8tgjk4RVGnliWWlShe/IHnPDgnmUjPW84FWF7tvTo44="
         }
       },
       "is_incremental": false,
@@ -432,7 +456,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Troll.SkeletonHelmetLeatherTroll.html",
-          "hash": "6U9DXSq8H7yCfiwzA0s58g/hEy1JMyGVFeegfUY1k4U="
+          "hash": "wc5zjnf1pOe+3I64Ue93hx6VPqHQHFGfx/Vc0xbDSgM="
         }
       },
       "is_incremental": false,
@@ -456,7 +480,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.HelmetLeatherWolf.html",
-          "hash": "N4lrav+iVylrvLykB/QFuu8FWh51nQHXdlKQTmhCo7M="
+          "hash": "4zVY/yGD1DT+1cjrtbWbYJ9Ai/DFav+KubiLnJZ9624="
         }
       },
       "is_incremental": false,
@@ -468,7 +492,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherChestWolf.html",
-          "hash": "voPM+hWQM47H6DGrkR7BHHBe/qdOT1Mkhh7hAGQCVJE="
+          "hash": "20YOSkyqf3ejGhekV6QXzLt6C8wjXciX5psu1JtDS8k="
         }
       },
       "is_incremental": false,
@@ -480,7 +504,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonArmorLeatherLegsWolf.html",
-          "hash": "Rol17Das5XgbO3rGhXqW8KNapDOfv2RRKD2/DZjeOeI="
+          "hash": "o4Hijq3gprhVb2PtsEJ3DgacZ8AWNgAzbRauLPJBf98="
         }
       },
       "is_incremental": false,
@@ -492,7 +516,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherPoisonWolf.html",
-          "hash": "1gcKzw01bu4ENGCnsORGIL7EYT49axzePW8ZopplZRA="
+          "hash": "wLKY5uJrhH9UXtORvzUy0R9i/WNq8X9EShlxhJVXDCM="
         }
       },
       "is_incremental": false,
@@ -504,7 +528,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Leather.Wolf.SkeletonHelmetLeatherWolf.html",
-          "hash": "4nR1UTZAmwlNh2bK60VC0KK86CBtkBoXhdWCVXQL5kI="
+          "hash": "Zue8Hhtqfmcc8prgN4DHzzaGiIEsIxuyUHXOpxCFZIc="
         }
       },
       "is_incremental": false,
@@ -540,7 +564,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Armor.Mage.SkeletonMageCirclet.html",
-          "hash": "/71rJSPmiVeVxp/7jeqmLboaJg2rPXGvPBylm4JHVKE="
+          "hash": "IWkXDvma0URhRu/JRlX8kltWkcSXJysf/7hdBkaoi9M="
         }
       },
       "is_incremental": false,
@@ -564,7 +588,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.CraftingTable.html",
-          "hash": "wsKNChoCsOGau8WMToZ+kvuw2A/BwcRGF5Lj25N7vqI="
+          "hash": "YI5SyeG7pkTGohKSUU+UW5X8VjhwvSFfLkOWNeekKrQ="
         }
       },
       "is_incremental": false,
@@ -576,7 +600,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Item.html",
-          "hash": "Zigd7Fbk/N/MYFUlhTgYRYUGfPnSA2JqZG+PrwE1Cus="
+          "hash": "u7SNmpUCGyO+1OKuPxE7Lq15+cJiq3YMQpMY4WugG80="
         }
       },
       "is_incremental": false,
@@ -588,7 +612,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Tools.SkeletonPickaxe.html",
-          "hash": "zd2dixzuNzykOGZlF2Ww/lZSfOGT+NwEmCEWResk+7s="
+          "hash": "jVxgEgUcmYlmi3BSqiegek4J+TxoA7tCnfD3DAf6XLs="
         }
       },
       "is_incremental": false,
@@ -600,7 +624,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Tools.SkeletonWoodAxe.html",
-          "hash": "cUtKA/wpHVfz628prGzArYT/dOSpCOg1jTWb1Erj8OI="
+          "hash": "IakPeWFIsmWtU6MHgHYmysaGyruatYjTkY+MaCIOcgE="
         }
       },
       "is_incremental": false,
@@ -624,7 +648,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonAxeBlackMetal.html",
-          "hash": "O8DfomgCrQrOPUuxhia9Rp9yCFJFwX/3Krbqa0E1GUo="
+          "hash": "04eWdOmn08wdhzcRl7iWre9xcfCSzhFfaGGck5xC3TI="
         }
       },
       "is_incremental": false,
@@ -636,7 +660,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonMaceBlackMetal.html",
-          "hash": "nobfpbkMpbpdM2r3aB947Y79GeD7g4yX1nZjtdqNRzU="
+          "hash": "FsTumyl1ACcekMzKjFTvNr60lCFQP6LX49ivcL6l/Jg="
         }
       },
       "is_incremental": false,
@@ -648,7 +672,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.BlackMetal.SkeletonSwordBlackMetal.html",
-          "hash": "HwPXt8hg8ONRackd45cbmE6CQfWPsaAEtGCe6hmdEMw="
+          "hash": "hVNPH776US+N0ZQkpo+p5mZXhcSq0ls1pYys6x4+gJ0="
         }
       },
       "is_incremental": false,
@@ -672,7 +696,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow.html",
-          "hash": "Lq75JQuoCzrT916GRl2DoZITW99/RT7ynu9sy8ppXpM="
+          "hash": "ul5SSg3Zp/25ouQ1S/vz+2nbe6HH2RYTiYgmnG5zUd0="
         }
       },
       "is_incremental": false,
@@ -684,7 +708,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow2.html",
-          "hash": "7FGvMMvDoQfKO+f9GpFodacjCZYzJ/4y0X0R4YZQnZQ="
+          "hash": "mH8nyAOBjH8rbVP+LR9lOf3IEerFP+RrKwXxj1FxE+E="
         }
       },
       "is_incremental": false,
@@ -696,7 +720,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBow3.html",
-          "hash": "1tC8W37oApXWtLfj/nK3IoCG2CjVufelWSxYq7gcoHc="
+          "hash": "AzkF6OGf8kkF6XWDuzMLJgbeP+KRvi8Y7xhG2h1oYpA="
         }
       },
       "is_incremental": false,
@@ -708,7 +732,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFire.html",
-          "hash": "g1rw6h9ihyNVjfxUx9/sk0SK+KVFLiEafpVY6H63PSw="
+          "hash": "LvOq2kuJv6pDgFR6LvyV1miyo8n5CrqP46ZGmafnZW4="
         }
       },
       "is_incremental": false,
@@ -720,7 +744,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowFrost.html",
-          "hash": "ar8PmyjqGiOZV1YXzm1o/i86/i05hNCEPX5rgQvF8Bc="
+          "hash": "hWP6MgfmnVeO7xlNPfabs6H56GzqpdXOxTHw47wfV4c="
         }
       },
       "is_incremental": false,
@@ -732,7 +756,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowPoison.html",
-          "hash": "FuX7fEabLdv257NJ53JeV/R4M9Try1QRXI3xc0Mv5QY="
+          "hash": "JsmMoYPmNzKNeCGF1vefTnWSuILzu8ux0SonUyN54Pg="
         }
       },
       "is_incremental": false,
@@ -744,7 +768,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bows.SkeletonBowSilver.html",
-          "hash": "pvjrzuett6HPEBeHcgVg9QAugNtoWnTbxEEcUO9HNnM="
+          "hash": "5jJRFKz+N4vccQ6zlus3QqGy1ELiHtt0BjZbWer1GeA="
         }
       },
       "is_incremental": false,
@@ -768,7 +792,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonAxeBronze.html",
-          "hash": "uUFdP4tvYeUVJufeEBI9CB01pX0Nc+hRLp4zT7e/CX4="
+          "hash": "mxgerwwsMh8Tp0V4lQclm0sKfPMjdUEfLcVsOiRWb+A="
         }
       },
       "is_incremental": false,
@@ -780,7 +804,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonMaceBronze.html",
-          "hash": "FRcsDg6DrB4PLiQbUYNvW8PWnc3jQ72i2XOaswf0V88="
+          "hash": "CeDbxoPqSJkLhKcRwXf+1FclRYHiMslZNs5YgAXbB3E="
         }
       },
       "is_incremental": false,
@@ -792,7 +816,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Bronze.SkeletonSwordBronze.html",
-          "hash": "0QS9qNon7VowzgJyf5+qotWyjpoS5vbpion5KUJUSK4="
+          "hash": "TMPKGECRb6eSefCr9Aj4O30GYA/trdh19uhQN8VvYVg="
         }
       },
       "is_incremental": false,
@@ -816,7 +840,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonAxe.html",
-          "hash": "aWuGvddXTCo8L/s7QQ68anXuUC3QGpTcfm8aVZWMSQs="
+          "hash": "p2RAzwLozBMgwoG2uT/XdtEM6KoN7svlPyx8Q8i3s2w="
         }
       },
       "is_incremental": false,
@@ -828,7 +852,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonMaceIron.html",
-          "hash": "GA7XHAc9NElyC8zGveKY09CFfkpk4OhMHXU9PwnnVlA="
+          "hash": "Jqxk/PW7k+fQw63DTzFcwyGviS6p++e9uBCwwXsknQg="
         }
       },
       "is_incremental": false,
@@ -840,7 +864,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Iron.SkeletonSwordIron.html",
-          "hash": "YwGL9RywIJuJX1OkCZX8lQlW9D2syWRYYYtpDHq2UB0="
+          "hash": "kP6AkGQrbO54ST03ObHNS6tN5oQ+YVfUnk45ktS+GHM="
         }
       },
       "is_incremental": false,
@@ -864,7 +888,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel1.html",
-          "hash": "SiXWM46jAQBBbufBLGPvJ6wKSCbuUHHz9DiguQfK9Ts="
+          "hash": "qU+Bp6B90L6ZwwGCgMmS4Rvmp/Akxp1C0YsOPUIwEi4="
         }
       },
       "is_incremental": false,
@@ -876,7 +900,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel2.html",
-          "hash": "t1J6BeVYeYgQFQr1orneTlXiAwcFa9X6aybKfaNS7fg="
+          "hash": "OznBPaxGN0Vg65J6NKbdcA5gOR8/DVi0iHtdxj6iEg4="
         }
       },
       "is_incremental": false,
@@ -888,7 +912,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Mage.SkeletonFireballLevel3.html",
-          "hash": "W9KJdicxA1FdDRBZOkHAfl+SV0VXjnYJ8lyBb+wRx0g="
+          "hash": "Mq2Tl6f0ztraLzC6fimrhCsUwNz61/SDot6XR4prx4M="
         }
       },
       "is_incremental": false,
@@ -912,7 +936,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Needle.SkeletonMaceNeedle.html",
-          "hash": "gCjb0JD20vikkKrnZWteSr7uQBWVbn6MVzLsTCzEGlM="
+          "hash": "j1U1S+DUFvnLHBJspHEMAvYuB74e4brfUs7CRn3Dtr4="
         }
       },
       "is_incremental": false,
@@ -936,7 +960,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace.html",
-          "hash": "TDo9dl0pkQSevvyrG3n/Tfsi04sbgxOlOXnwquEzp+I="
+          "hash": "eMy84Pk0dsT4+39CBQcWaCjxVq9Zqedqrukf876ciSw="
         }
       },
       "is_incremental": false,
@@ -948,7 +972,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace2.html",
-          "hash": "J0WuP3gUE7ezprnhb/nnC3u++p3llN9bRrkujXRM5rA="
+          "hash": "kKQ7wj7Cj8dg2PXbAIL3tIjeYeHS4xM0tbS4ZNZG5vA="
         }
       },
       "is_incremental": false,
@@ -960,7 +984,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Poison.SkeletonMace3.html",
-          "hash": "GHH+QzMB9b4GwQePMDq1cv9ZKLJhYw7F54K98t+Fmmo="
+          "hash": "bkoNU0dSdj/w4i3f0XSwggwAYE4P+f7Qj0Wf2nJITHA="
         }
       },
       "is_incremental": false,
@@ -984,7 +1008,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Items.Weapons.Wood.SkeletonClub.html",
-          "hash": "ochtMOUbYTRXhgtO/m+kEsxswwH4piKq1fAz7VEfhjY="
+          "hash": "/mzQVIG/aDwP/OwdjV0F7Lk3s2s2Pmo7TA1JTcP1qAo="
         }
       },
       "is_incremental": false,
@@ -1020,7 +1044,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.AI.MinerAI.html",
-          "hash": "FHaF5mQT5SEC17aeOoeMgJC2tR7DydFmwU/h2CMnOqM="
+          "hash": "ku+0vPeoaOZ8u48c8y43AyJ8hHBTK2i6BzPhxy7E1D8="
         }
       },
       "is_incremental": false,
@@ -1032,7 +1056,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html",
-          "hash": "3PTSCjS0kh8J0zvPSzE/5y/gIt79NwtjUbpvIFdzwoo="
+          "hash": "7LfpgDNmbFmO0D0SyLMQ7upF/ew5UEDry0mAWA05GDo="
         }
       },
       "is_incremental": false,
@@ -1056,7 +1080,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.ArmorType.html",
-          "hash": "lwbnI4ZqlKLxva9PzVm6AiVh2PxgoqyjnYuhhZL9Ln4="
+          "hash": "o2cxDiWPhuY1LxKd0zHrZXIQO4aslih0/B1//4SG45g="
         }
       },
       "is_incremental": false,
@@ -1068,7 +1092,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.CleanupType.html",
-          "hash": "bXYC2Nn9rL/O3HRyL7/qSI42MlccWwny39JfQcwxcEc="
+          "hash": "c1tAjyLffG5zAaB0bt3Bcp9gPOoRemqfGSmNFdc5v54="
         }
       },
       "is_incremental": false,
@@ -1080,7 +1104,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.DropType.html",
-          "hash": "Xm6QBH+V+UZ1Z4iJjdBA/LynEW4Quiv4ium6kDTlGXM="
+          "hash": "hgWiHXgIJ03sNgQX9dKMPpZdbg1hjN8d/hJxJnlJBhU="
         }
       },
       "is_incremental": false,
@@ -1092,7 +1116,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.State.html",
-          "hash": "mQeEtH4yL+0dUTUh/mPPiIjJyOB3sJnnlXM+5zsr5Ds="
+          "hash": "kwSfhcugcJesZ3LKcKX8kjs7Zuiy2V7WsRyUjvXIHHA="
         }
       },
       "is_incremental": false,
@@ -1104,7 +1128,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.ChebGonazMinion.html",
-          "hash": "tGf3jo+y4uQWN23/xa4Wxf3s0mD9n6Nx9hr6HAtJ49w="
+          "hash": "jAKAet2pktEKAEhxxEsfdE/t2OYmyb8mR89QvquK9Hw="
         }
       },
       "is_incremental": false,
@@ -1116,7 +1140,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.FreshMinion.html",
-          "hash": "9w97f3ZNFSgZnpno/uMsa0AODzV7dhCEhJ46BvNJoLk="
+          "hash": "wbg2zYukiDz/ZzGOxldfc4mUGJOa6lHW+WQwRwkaweY="
         }
       },
       "is_incremental": false,
@@ -1128,7 +1152,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.NukeRock.html",
-          "hash": "+8Cep0ADjQ2i6g2uwRsTiZulgJ5YtQw7wjfWOZ0uX0o="
+          "hash": "88t19M0eDcZntJretGDlMyF0myjIRuSCCLV7PtGv9Uc="
         }
       },
       "is_incremental": false,
@@ -1140,7 +1164,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Minions.NukeTree.html",
-          "hash": "FFZX8UDMyb4mCNLludRlGGxgrPAUOZ5zDTGhFLt8Tig="
+          "hash": "92Cy+v4oHbqZ/GezhNK2wp1X7Su2iaPHUwCYUrqcrmc="
         }
       },
       "is_incremental": false,
@@ -1164,7 +1188,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ChebsValheimLibrary.Structures.Structure.html",
-          "hash": "UI/JjIj+jrjb/D3m8SV5qTni87VT+Kg2HH7WlxJ/hcU="
+          "hash": "O20fH/j7j7J3/O1D6gGttEkm6XHgtvqtq1I+sieSw6o="
         }
       },
       "is_incremental": false,
@@ -1200,7 +1224,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "fbLtlIxDoYgIl5DcJQmfR906PxhZYBjKa9i3Ts3X5LY="
+          "hash": "YI4BxDc+7XuPz8n/N3kvBKfuvlarwmATVBJ1J667K/c="
         }
       },
       "is_incremental": false,
@@ -1223,11 +1247,11 @@
     {
       "status": {
         "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
         "skipped_file_count": 0,
-        "full_build_reason_code": "ForceRebuild"
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
@@ -1239,7 +1263,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 93,
+          "total_file_count": 95,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
@@ -1254,7 +1278,7 @@
     {
       "status": {
         "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
