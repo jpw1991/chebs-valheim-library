@@ -521,7 +521,7 @@ namespace ChebsValheimLibrary.Minions
                     characterDrop.m_drops.Add(new CharacterDrop.Drop
                     {
                         m_prefab = requiredItemPrefab,
-                        m_onePerPlayer = true,
+                        m_onePerPlayer = false,
                         m_amountMin = itemAmountRequired,
                         m_amountMax = itemAmountRequired,
                         m_chance = 1f
