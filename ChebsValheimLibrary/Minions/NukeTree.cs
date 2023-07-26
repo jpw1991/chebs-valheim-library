@@ -11,7 +11,7 @@ namespace ChebsValheimLibrary.Minions
         /// <summary>
         /// How long to wait before nuking the tree.
         /// </summary>
-        public const float NukeAfter = 60f;
+        public const float NukeAfter = 120f;
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(NukeAfter);

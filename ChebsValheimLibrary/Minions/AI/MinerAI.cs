@@ -20,39 +20,46 @@ namespace ChebsValheimLibrary.Minions.AI
         /// <code>rock1_mistlands,rock1_mountain,rock1_mountain_frac,rock2_heath,rock2_heath_frac,rock2_mountain,rock2_mountain_frac,Rock_3,Rock_3_frac,rock3_mountain,rock3_mountain_frac,rock3_silver,rock3_silver_frac,Rock_4,Rock_4_plains,rock4_coast,rock4_coast_frac,rock4_copper,rock4_copper_frac,rock4_forest,rock4_forest_frac,rock4_heath,rock4_heath_frac,Rock_7,Rock_destructible,rock_mistlands1,rock_mistlands1_frac,rock_mistlands2,RockDolmen_1,RockDolmen_2,RockDolmen_3,silvervein,silvervein_frac,MineRock_Tin,MineRock_Obsidian</code>
         /// </example>
         /// </summary>
-        public static string RockInternalIDsList = "";
+        public virtual string RockInternalIDsList => "";
         /// <summary>
         /// The minion's roam range -> how far it wanders when set to roaming mode in search of rocks.
         /// </summary>
-        public static float RoamRange = 0f;
+        public virtual float RoamRange => 0f;
         /// <summary>
         /// How far it is able to spot rocks from.
         /// </summary>
-        public static float LookRadius = 0f;
+        public virtual float LookRadius => 0f;
         /// <summary>
         /// How often it performs searches. Low values are worse for performance.
         /// </summary>
-        public static float UpdateDelay = 0f;
+        public virtual float UpdateDelay => 0f;
+        /// <summary>
+        /// How much damage the miner deals to rocks.
+        /// </summary>
+        public virtual float ToolDamage => 6f;
+        /// <summary>
+        /// The tool tier of the pickaxe eg. 1 = antler, 2 = bronze, 3 = iron, etc.
+        /// </summary>
+        public virtual short ToolTier => 2;
+        /// <summary>
+        /// How often the worker provides updates on what it's doing. Set to 0 for no chatting.
+        /// </summary>
+        public virtual float ChatInterval => 5f;
+        /// <summary>
+        /// How close the player must be for the NPC to talk.
+        /// </summary>
+        public virtual float ChatDistance => 5f;
         
-        private float nextCheck;
-
+        #region PrivateVariables
+        private float _nextCheck, _lastChat;
         private MonsterAI _monsterAI;
         private Humanoid _humanoid;
         private List<string> _rocksList;
-
         private string _status;
-        
         private bool _inContact;
+        #endregion
 
-        private void Awake()
-        {
-            _rocksList = RockInternalIDsList.Split(',').ToList();
-            _monsterAI = GetComponent<MonsterAI>();
-            _humanoid = GetComponent<Humanoid>();
-            _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the rocks
-            _monsterAI.m_randomMoveRange = RoamRange;
-        }
-
+        #region PublicMethods
         /// <summary>
         /// Look for any nearby rocks and if one is spotted, set it as follow target. You shouldn't need to call this
         /// because it is already called during the FixedUpdate.
@@ -95,7 +102,31 @@ namespace ChebsValheimLibrary.Minions.AI
                 if (!closest.TryGetComponent(out NukeRock _)) closest.gameObject.AddComponent<NukeRock>();
             }
         }
+
+        public void UpdateToolProperties()
+        {
+            var tool = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
+            if (tool == null)
+            {
+                Jotunn.Logger.LogError("Failed to update tool properties: tool is null");
+                return;
+            }
+            tool.m_itemData.m_shared.m_damages.m_pickaxe = ToolDamage;
+            tool.m_itemData.m_shared.m_toolTier = ToolTier;
+        }
+        #endregion
         
+        private void Awake()
+        {
+            _rocksList = RockInternalIDsList.Split(',').ToList();
+            _monsterAI = GetComponent<MonsterAI>();
+            _humanoid = GetComponent<Humanoid>();
+            _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the rocks
+            _monsterAI.m_randomMoveRange = RoamRange;
+            
+            UpdateToolProperties();
+        }
+
         private void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
@@ -109,16 +140,30 @@ namespace ChebsValheimLibrary.Minions.AI
                     return;   
                 }
                 
+                if (ChatInterval != 0 && Time.time > _lastChat + ChatInterval)
+                {
+                    _lastChat = Time.time;
+                    var playersInRange = new List<Player>();
+                    Player.GetPlayersInRange(transform.position, ChatDistance, playersInRange);
+                    if (playersInRange.Count > 0)
+                    {
+                        var targetMessage = Localization.instance.Localize("$chebgonaz_worker_target");
+                        Chat.instance.SetNpcText(gameObject, Vector3.up, 5f, 10f, "",
+                            targetMessage + $": {followTarget.gameObject.name}",
+                            false);
+                    }
+                }
+                
                 var followTargetPos = followTarget.transform.position;
                 var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
                 transform.LookAt(lookAtPos);
-                
+
                 TryAttack();
             }
             
-            if (Time.time > nextCheck)
+            if (Time.time > _nextCheck)
             {
-                nextCheck = Time.time + UpdateDelay
+                _nextCheck = Time.time + UpdateDelay
                                       + Random.value; // add a fraction of a second so that multiple
                                                       // workers don't all simultaneously scan
                 
@@ -135,21 +180,20 @@ namespace ChebsValheimLibrary.Minions.AI
         private void TryAttack()
         {
             var followTarget = _monsterAI.GetFollowTarget();
-            if (followTarget != null && _inContact)
+            if (followTarget != null && _inContact && _monsterAI.DoAttack(null, false))
             {
-                _monsterAI.DoAttack(null, false);
-
                 var destructible = followTarget.GetComponentInParent<Destructible>();
-                if (destructible != null)
+                if (destructible != null && destructible.m_minToolTier <= ToolTier)
                 {
                     var hitData = new HitData();
-                    hitData.m_damage.m_pickaxe = 25;
+                    hitData.m_damage.m_pickaxe = ToolDamage;
+                    hitData.m_toolTier = ToolTier;
                     destructible.Damage(hitData);
                     return;
                 }
 
                 var mineRock5 = followTarget.GetComponentInParent<MineRock5>();
-                if (mineRock5 != null)
+                if (mineRock5 != null && mineRock5.m_minToolTier <= ToolTier)
                 {
                     // damage all fragments
                     for (int i = 0; i < mineRock5.m_hitAreas.Count; i++)
@@ -158,9 +202,9 @@ namespace ChebsValheimLibrary.Minions.AI
                         if (hitArea.m_health > 0f)
                         {
                             var hitData = new HitData();
-                            hitData.m_damage.m_damage = 25;
+                            hitData.m_damage.m_damage = ToolDamage;
                             hitData.m_point = hitArea.m_collider.bounds.center;
-                            hitData.m_toolTier = 100;
+                            hitData.m_toolTier = ToolTier;
                             mineRock5.DamageArea(i, hitData);
                         }
                     }
@@ -168,7 +212,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 }
 
                 var mineRock = followTarget.GetComponentInParent<MineRock>();
-                if (mineRock != null)
+                if (mineRock != null && mineRock.m_minToolTier <= ToolTier)
                 {
                     // destroy all fragments
                     for (int i = 0; i < mineRock.m_hitAreas.Length; i++)
@@ -177,9 +221,9 @@ namespace ChebsValheimLibrary.Minions.AI
                         if (col.TryGetComponent(out HitArea hitArea) && hitArea.m_health > 0f)
                         {
                             var hitData = new HitData();
-                            hitData.m_damage.m_damage = hitArea.m_health;
+                            hitData.m_damage.m_damage = ToolDamage;
                             hitData.m_point = col.bounds.center;
-                            hitData.m_toolTier = 100;
+                            hitData.m_toolTier = ToolTier;
                             mineRock5.DamageArea(i, hitData);
                         }
                     }

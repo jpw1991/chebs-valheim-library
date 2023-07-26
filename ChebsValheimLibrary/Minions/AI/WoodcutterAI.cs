@@ -17,48 +17,44 @@ namespace ChebsValheimLibrary.Minions.AI
         /// <summary>
         /// The minion's roam range -> how far it wanders when set to roaming mode in search of trees.
         /// </summary>
-        public static float RoamRange = 0f;
+        public virtual float RoamRange => 0f;
         /// <summary>
         /// How far it is able to spot trees from.
         /// </summary>
-        public static float LookRadius = 0f;
+        public virtual float LookRadius => 0f;
         /// <summary>
         /// How often it performs searches. Low values are worse for performance.
         /// </summary>
-        public static float UpdateDelay = 0f;
+        public virtual float UpdateDelay => 0f;
+        /// <summary>
+        /// How much damage the woodcutter deals to trees.
+        /// </summary>
+        public virtual float ToolDamage => 6f;
+        /// <summary>
+        /// The tool tier of the axe eg. 1 = stone/flint, 2 = bronze, 3 = iron, etc.
+        /// </summary>
+        public virtual short ToolTier => 2;
+        /// <summary>
+        /// How often the worker provides updates on what it's doing. Set to 0 for no chatting.
+        /// </summary>
+        public virtual float ChatInterval => 5f;
+        /// <summary>
+        /// How close the player must be for the NPC to talk.
+        /// </summary>
+        public virtual float ChatDistance => 5f;
         
-        private float nextCheck;
-
+        #region PrivateVariables
+        private float _nextCheck, _lastChat;
         private MonsterAI _monsterAI;
         private Humanoid _humanoid;
-
-        private readonly int defaultMask = LayerMask.GetMask("Default");
-        
+        private readonly int _defaultMask = LayerMask.GetMask("Default");
         private static List<Transform> _transforms = new();
-
         private string _status;
         private bool _inContact;
         private bool _chopping;
-
-        private void Awake()
-        {
-            _monsterAI = GetComponent<MonsterAI>();
-            _humanoid = GetComponent<Humanoid>();
-            _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the wood
-            _monsterAI.m_randomMoveRange = RoamRange;
-        }
-
-        private int EquippedToolsTier()
-        {
-            var result = 2; // 2 = bronze
-            if (_humanoid != null)
-            {
-                var axeItemToolTier = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_toolTier;
-                result = axeItemToolTier ?? result;
-            }
-            return result;
-        }
-
+        #endregion
+        
+        #region PublicMethods
         /// <summary>
         /// Look for any nearby trees and if one is spotted, set it as follow target. You shouldn't need to call this
         /// because it is already called during the FixedUpdate.
@@ -78,27 +74,25 @@ namespace ChebsValheimLibrary.Minions.AI
             // Stumps: Destructible with type Tree
             // Logs: TreeLog
             var closest =
-                ChebGonazMinion.FindClosest<Transform>(transform, LookRadius, defaultMask, 
+                ChebGonazMinion.FindClosest<Transform>(transform, LookRadius, _defaultMask, 
                     a => !_transforms.Contains(a), false);
             
             // if closest turns up nothing, pick the closest from the claimed transforms list (if there's nothing else
             // to whack, may as well whack a log right next to you, even if another skeleton is already whacking it)
             if (closest == null)
             {
-                var toolTier = EquippedToolsTier();
-                
                 closest = _transforms
                     .Where(t =>
                     {
                         var destructible = t.GetComponentInParent<Destructible>();
                         if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree
-                                                 && destructible.m_minToolTier <= toolTier)
+                                                 && destructible.m_minToolTier <= ToolTier)
                             return true;
                         var treeLog = t.GetComponentInParent<TreeLog>();
-                        if (treeLog != null && treeLog.m_minToolTier <= toolTier)
+                        if (treeLog != null && treeLog.m_minToolTier <= ToolTier)
                             return true;
                         var tree = t.GetComponentInParent<TreeBase>();
-                        if (tree != null && tree.m_minToolTier <= toolTier)
+                        if (tree != null && tree.m_minToolTier <= ToolTier)
                             return true;
                         return false;
                     })
@@ -139,6 +133,29 @@ namespace ChebsValheimLibrary.Minions.AI
                 }
             }
         }
+        
+        public void UpdateToolProperties()
+        {
+            var tool = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
+            if (tool == null)
+            {
+                Logger.LogError("Failed to update tool properties: tool is null");
+                return;
+            }
+            tool.m_itemData.m_shared.m_damages.m_chop = ToolDamage;
+            tool.m_itemData.m_shared.m_toolTier = ToolTier;
+        }
+        #endregion
+
+        private void Awake()
+        {
+            _monsterAI = GetComponent<MonsterAI>();
+            _humanoid = GetComponent<Humanoid>();
+            _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the wood
+            _monsterAI.m_randomMoveRange = RoamRange;
+            
+            UpdateToolProperties();
+        }
 
         private void FixedUpdate()
         {
@@ -153,6 +170,20 @@ namespace ChebsValheimLibrary.Minions.AI
                     return;   
                 }
                 
+                if (ChatInterval != 0 && Time.time > _lastChat + ChatInterval)
+                {
+                    _lastChat = Time.time;
+                    var playersInRange = new List<Player>();
+                    Player.GetPlayersInRange(transform.position, ChatDistance, playersInRange);
+                    if (playersInRange.Count > 0)
+                    {
+                        var targetMessage = Localization.instance.Localize("$chebgonaz_worker_target");
+                        Chat.instance.SetNpcText(gameObject, Vector3.up, 5f, 10f, "",
+                            targetMessage + $": {followTarget.gameObject.name}",
+                            false);
+                    }
+                }
+                
                 var followTargetPos = followTarget.transform.position;
                 var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
                 transform.LookAt(lookAtPos);
@@ -160,9 +191,9 @@ namespace ChebsValheimLibrary.Minions.AI
                 TryAttack(lookAtPos);
             }
             
-            if (Time.time > nextCheck)
+            if (Time.time > _nextCheck)
             {
-                nextCheck = Time.time + UpdateDelay
+                _nextCheck = Time.time + UpdateDelay
                                       + Random.value; // add a fraction of a second so that multiple
                                                       // workers don't all simultaneously scan
                 
@@ -231,17 +262,9 @@ namespace ChebsValheimLibrary.Minions.AI
             }
 
             // it didn't work - make it work
-            var axeItem = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
-            if (axeItem == null)
-            {
-                _chopping = false;
-                Logger.LogError("WoodcutterAI.Chop: Woodcutter has no axe?");
-                yield break;
-            }
-
             var hitData = new HitData();
-            hitData.m_damage.m_chop = axeItem.m_itemData.m_shared.m_damages.m_chop;
-            hitData.m_toolTier = (short)axeItem.m_itemData.m_shared.m_toolTier;
+            hitData.m_damage.m_chop = ToolDamage;
+            hitData.m_toolTier = ToolTier;
             destructible?.Damage(hitData);
 
             _chopping = false;
