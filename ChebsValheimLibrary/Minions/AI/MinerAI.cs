@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Logger = Jotunn.Logger;
 using Random = UnityEngine.Random;
 
 namespace ChebsValheimLibrary.Minions.AI
@@ -21,45 +22,55 @@ namespace ChebsValheimLibrary.Minions.AI
         /// </example>
         /// </summary>
         public virtual string RockInternalIDsList => "";
+
         /// <summary>
         /// The minion's roam range -> how far it wanders when set to roaming mode in search of rocks.
         /// </summary>
         public virtual float RoamRange => 0f;
+
         /// <summary>
         /// How far it is able to spot rocks from.
         /// </summary>
         public virtual float LookRadius => 0f;
+
         /// <summary>
         /// How often it performs searches. Low values are worse for performance.
         /// </summary>
         public virtual float UpdateDelay => 0f;
+
         /// <summary>
         /// How much damage the miner deals to rocks.
         /// </summary>
         public virtual float ToolDamage => 6f;
+
         /// <summary>
         /// The tool tier of the pickaxe eg. 1 = antler, 2 = bronze, 3 = iron, etc.
         /// </summary>
         public virtual short ToolTier => 2;
+
         /// <summary>
         /// How often the worker provides updates on what it's doing. Set to 0 for no chatting.
         /// </summary>
         public virtual float ChatInterval => 5f;
+
         /// <summary>
         /// How close the player must be for the NPC to talk.
         /// </summary>
         public virtual float ChatDistance => 5f;
-        
+
         #region PrivateVariables
+
         private float _nextCheck, _lastChat;
         private MonsterAI _monsterAI;
         private Humanoid _humanoid;
         private List<string> _rocksList;
         private string _status;
         private bool _inContact;
+
         #endregion
 
         #region PublicMethods
+
         /// <summary>
         /// Look for any nearby rocks and if one is spotted, set it as follow target. You shouldn't need to call this
         /// because it is already called during the FixedUpdate.
@@ -89,7 +100,7 @@ namespace ChebsValheimLibrary.Minions.AI
                                  || c.name.Contains("copper")
                     ? 1
                     : 2));
-            
+
             // Order the list of tuples by priority first, then by distance
             var orderedPriorities = priorities.OrderBy(t => t.Item2)
                 .ThenBy(t => Vector3.Distance(transform.position, t.Item1.position));
@@ -108,14 +119,16 @@ namespace ChebsValheimLibrary.Minions.AI
             var tool = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
             if (tool == null)
             {
-                Jotunn.Logger.LogError("Failed to update tool properties: tool is null");
+                Logger.LogError("Failed to update tool properties: tool is null");
                 return;
             }
+
             tool.m_itemData.m_shared.m_damages.m_pickaxe = ToolDamage;
             tool.m_itemData.m_shared.m_toolTier = ToolTier;
         }
+
         #endregion
-        
+
         private void Awake()
         {
             _rocksList = RockInternalIDsList.Split(',').ToList();
@@ -123,7 +136,7 @@ namespace ChebsValheimLibrary.Minions.AI
             _humanoid = GetComponent<Humanoid>();
             _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the rocks
             _monsterAI.m_randomMoveRange = RoamRange;
-            
+
             UpdateToolProperties();
         }
 
@@ -134,12 +147,13 @@ namespace ChebsValheimLibrary.Minions.AI
             // if following player, suspend all worker logic
             if (followTarget != null)
             {
-                if(followTarget.TryGetComponent(out Player player))
+                if (followTarget.TryGetComponent(out Player player))
                 {
-                    _status = $"Following {player.GetPlayerName()}";
-                    return;   
+                    var followingMessage = Localization.instance.Localize("$chebgonaz_minionstatus_following");
+                    _status = $"{followingMessage} {player.GetPlayerName()}";
+                    return;
                 }
-                
+
                 if (ChatInterval != 0 && Time.time > _lastChat + ChatInterval)
                 {
                     _lastChat = Time.time;
@@ -153,25 +167,25 @@ namespace ChebsValheimLibrary.Minions.AI
                             false);
                     }
                 }
-                
+
                 var followTargetPos = followTarget.transform.position;
                 var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
                 transform.LookAt(lookAtPos);
 
                 TryAttack();
             }
-            
+
             if (Time.time > _nextCheck)
             {
                 _nextCheck = Time.time + UpdateDelay
-                                      + Random.value; // add a fraction of a second so that multiple
-                                                      // workers don't all simultaneously scan
-                
+                                       + Random.value; // add a fraction of a second so that multiple
+                // workers don't all simultaneously scan
+
                 LookForMineableObjects();
 
                 _status = _monsterAI.GetFollowTarget() != null
-                    ? $"Moving to rock ({_monsterAI.GetFollowTarget().name})."
-                    : "Can't find rocks.";
+                    ? $"{Localization.instance.Localize("$chebgonaz_worker_target")}: ({_monsterAI.GetFollowTarget().name})."
+                    : Localization.instance.Localize("$chebgonaz_worker_cantfindtarget");
 
                 _humanoid.m_name = _status;
             }
@@ -208,6 +222,7 @@ namespace ChebsValheimLibrary.Minions.AI
                             mineRock5.DamageArea(i, hitData);
                         }
                     }
+
                     return;
                 }
 
@@ -245,7 +260,7 @@ namespace ChebsValheimLibrary.Minions.AI
         {
             return Hittable(t.gameObject);
         }
-        
+
         private bool Hittable(GameObject go)
         {
             // Getting miners to hit the right stuff has been a big challenge. This is the closest thing I've been able
@@ -261,7 +276,7 @@ namespace ChebsValheimLibrary.Minions.AI
                        && destructible.m_destructibleType == DestructibleType.Default
                        && destructible.GetComponent<Container>() == null // don't attack containers
                        && destructible.GetComponent<Pickable>() == null // don't attack useful bushes
-                    )
+                   )
                    || go.GetComponentInParent<MineRock5>() != null
                    || go.GetComponentInParent<MineRock>() != null;
         }

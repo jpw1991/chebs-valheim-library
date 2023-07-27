@@ -18,32 +18,39 @@ namespace ChebsValheimLibrary.Minions.AI
         /// The minion's roam range -> how far it wanders when set to roaming mode in search of trees.
         /// </summary>
         public virtual float RoamRange => 0f;
+
         /// <summary>
         /// How far it is able to spot trees from.
         /// </summary>
         public virtual float LookRadius => 0f;
+
         /// <summary>
         /// How often it performs searches. Low values are worse for performance.
         /// </summary>
         public virtual float UpdateDelay => 0f;
+
         /// <summary>
         /// How much damage the woodcutter deals to trees.
         /// </summary>
         public virtual float ToolDamage => 6f;
+
         /// <summary>
         /// The tool tier of the axe eg. 1 = stone/flint, 2 = bronze, 3 = iron, etc.
         /// </summary>
         public virtual short ToolTier => 2;
+
         /// <summary>
         /// How often the worker provides updates on what it's doing. Set to 0 for no chatting.
         /// </summary>
         public virtual float ChatInterval => 5f;
+
         /// <summary>
         /// How close the player must be for the NPC to talk.
         /// </summary>
         public virtual float ChatDistance => 5f;
-        
+
         #region PrivateVariables
+
         private float _nextCheck, _lastChat;
         private MonsterAI _monsterAI;
         private Humanoid _humanoid;
@@ -52,9 +59,11 @@ namespace ChebsValheimLibrary.Minions.AI
         private string _status;
         private bool _inContact;
         private bool _chopping;
+
         #endregion
-        
+
         #region PublicMethods
+
         /// <summary>
         /// Look for any nearby trees and if one is spotted, set it as follow target. You shouldn't need to call this
         /// because it is already called during the FixedUpdate.
@@ -69,14 +78,14 @@ namespace ChebsValheimLibrary.Minions.AI
             if (_monsterAI.GetFollowTarget() != null) return;
 
             _transforms.RemoveAll(a => a == null); // clean trash
-            
+
             // Trees: TreeBase
             // Stumps: Destructible with type Tree
             // Logs: TreeLog
             var closest =
-                ChebGonazMinion.FindClosest<Transform>(transform, LookRadius, _defaultMask, 
+                ChebGonazMinion.FindClosest<Transform>(transform, LookRadius, _defaultMask,
                     a => !_transforms.Contains(a), false);
-            
+
             // if closest turns up nothing, pick the closest from the claimed transforms list (if there's nothing else
             // to whack, may as well whack a log right next to you, even if another skeleton is already whacking it)
             if (closest == null)
@@ -99,7 +108,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     .OrderBy(t => Vector3.Distance(t.position, transform.position))
                     .FirstOrDefault();
             }
-            
+
             if (closest != null)
             {
                 // prioritize stumps, then logs, then trees
@@ -133,7 +142,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 }
             }
         }
-        
+
         public void UpdateToolProperties()
         {
             var tool = _humanoid.m_randomWeapon?.FirstOrDefault()?.GetComponent<ItemDrop>();
@@ -142,9 +151,11 @@ namespace ChebsValheimLibrary.Minions.AI
                 Logger.LogError("Failed to update tool properties: tool is null");
                 return;
             }
+
             tool.m_itemData.m_shared.m_damages.m_chop = ToolDamage;
             tool.m_itemData.m_shared.m_toolTier = ToolTier;
         }
+
         #endregion
 
         private void Awake()
@@ -153,7 +164,7 @@ namespace ChebsValheimLibrary.Minions.AI
             _humanoid = GetComponent<Humanoid>();
             _monsterAI.m_alertRange = 1f; // don't attack unless something comes super close - focus on the wood
             _monsterAI.m_randomMoveRange = RoamRange;
-            
+
             UpdateToolProperties();
         }
 
@@ -164,12 +175,13 @@ namespace ChebsValheimLibrary.Minions.AI
             // if following player, suspend all worker logic
             if (followTarget != null)
             {
-                if(followTarget.TryGetComponent(out Player player))
+                if (followTarget.TryGetComponent(out Player player))
                 {
-                    _status = $"Following {player.GetPlayerName()}";
-                    return;   
+                    var followingMessage = Localization.instance.Localize("$chebgonaz_minionstatus_following");
+                    _status = $"{followingMessage} {player.GetPlayerName()}";
+                    return;
                 }
-                
+
                 if (ChatInterval != 0 && Time.time > _lastChat + ChatInterval)
                 {
                     _lastChat = Time.time;
@@ -183,24 +195,25 @@ namespace ChebsValheimLibrary.Minions.AI
                             false);
                     }
                 }
-                
+
                 var followTargetPos = followTarget.transform.position;
                 var lookAtPos = new Vector3(followTargetPos.x, transform.position.y, followTargetPos.z);
                 transform.LookAt(lookAtPos);
-                
+
                 TryAttack(lookAtPos);
             }
-            
+
             if (Time.time > _nextCheck)
             {
                 _nextCheck = Time.time + UpdateDelay
-                                      + Random.value; // add a fraction of a second so that multiple
-                                                      // workers don't all simultaneously scan
-                
+                                       + Random.value; // add a fraction of a second so that multiple
+                // workers don't all simultaneously scan
+
                 LookForCuttableObjects();
 
                 // do not use followTarget variable from above here -> we want to check if it changed
-                if (_monsterAI.GetFollowTarget() == null) _status = "Can't find tree.";
+                if (_monsterAI.GetFollowTarget() == null)
+                    _status = Localization.instance.Localize("$chebgonaz_worker_cantfindtarget");
 
                 _humanoid.m_name = _status;
             }
@@ -210,14 +223,14 @@ namespace ChebsValheimLibrary.Minions.AI
         {
             // a bunch of dumb stuff can be null as the game is loading, so check before proceeding
             if (_humanoid == null || _monsterAI == null) return;
-            
+
             // if already chopping, abort
             if (_chopping) return;
-            
+
             var followTarget = _monsterAI.GetFollowTarget();
-            if (followTarget != null// && _inContact)
-                 && (_inContact 
-                     || Vector3.Distance(lookAtPos, transform.position) < 1.5f))
+            if (followTarget != null // && _inContact)
+                && (_inContact
+                    || Vector3.Distance(lookAtPos, transform.position) < 1.5f))
             {
                 var destructible = followTarget.GetComponentInParent<Destructible>();
                 if (destructible != null && destructible.GetDestructibleType() == DestructibleType.Tree)
@@ -244,7 +257,7 @@ namespace ChebsValheimLibrary.Minions.AI
                 }
             }
         }
-        
+
         IEnumerator Chop(float healthBeforeAttack, IDestructible destructible, Func<float> healthAfterDamaged)
         {
             // because of how difficult it is to get a stupid axe to connect with a tree, let's just make sure the
