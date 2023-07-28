@@ -3946,6 +3946,19 @@ references:
   commentId: T:ChebsValheimLibrary.Minions.AI.MinerAI
   fullName: ChebsValheimLibrary.Minions.AI.MinerAI
   nameWithType: MinerAI
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.Awake
+  name: Awake()
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_Awake
+  commentId: M:ChebsValheimLibrary.Minions.AI.MinerAI.Awake
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.Awake()
+  nameWithType: MinerAI.Awake()
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.Awake*
+  name: Awake
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_Awake_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.MinerAI.Awake
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.Awake
+  nameWithType: MinerAI.Awake
 - uid: ChebsValheimLibrary.Minions.AI.MinerAI.ChatDistance
   name: ChatDistance
   href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_ChatDistance
@@ -3972,6 +3985,19 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.Minions.AI.MinerAI.ChatInterval
   nameWithType: MinerAI.ChatInterval
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate
+  name: FixedUpdate()
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_FixedUpdate
+  commentId: M:ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate()
+  nameWithType: MinerAI.FixedUpdate()
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate*
+  name: FixedUpdate
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_FixedUpdate_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.FixedUpdate
+  nameWithType: MinerAI.FixedUpdate
 - uid: ChebsValheimLibrary.Minions.AI.MinerAI.LookForMineableObjects
   name: LookForMineableObjects()
   href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_LookForMineableObjects
@@ -4024,6 +4050,19 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.Minions.AI.MinerAI.RockInternalIDsList
   nameWithType: MinerAI.RockInternalIDsList
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.Status
+  name: Status
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_Status
+  commentId: P:ChebsValheimLibrary.Minions.AI.MinerAI.Status
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.Status
+  nameWithType: MinerAI.Status
+- uid: ChebsValheimLibrary.Minions.AI.MinerAI.Status*
+  name: Status
+  href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_Status_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.MinerAI.Status
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.MinerAI.Status
+  nameWithType: MinerAI.Status
 - uid: ChebsValheimLibrary.Minions.AI.MinerAI.ToolDamage
   name: ToolDamage
   href: api/ChebsValheimLibrary.Minions.AI.MinerAI.html#ChebsValheimLibrary_Minions_AI_MinerAI_ToolDamage
@@ -4082,6 +4121,19 @@ references:
   commentId: T:ChebsValheimLibrary.Minions.AI.WoodcutterAI
   fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI
   nameWithType: WoodcutterAI
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake
+  name: Awake()
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_Awake
+  commentId: M:ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake()
+  nameWithType: WoodcutterAI.Awake()
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake*
+  name: Awake
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_Awake_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Awake
+  nameWithType: WoodcutterAI.Awake
 - uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.ChatDistance
   name: ChatDistance
   href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_ChatDistance
@@ -4108,6 +4160,19 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.ChatInterval
   nameWithType: WoodcutterAI.ChatInterval
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate
+  name: FixedUpdate()
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_FixedUpdate
+  commentId: M:ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate()
+  nameWithType: WoodcutterAI.FixedUpdate()
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate*
+  name: FixedUpdate
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_FixedUpdate_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.FixedUpdate
+  nameWithType: WoodcutterAI.FixedUpdate
 - uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.LookForCuttableObjects
   name: LookForCuttableObjects()
   href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_LookForCuttableObjects
@@ -4147,6 +4212,19 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.RoamRange
   nameWithType: WoodcutterAI.RoamRange
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status
+  name: Status
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_Status
+  commentId: P:ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status
+  nameWithType: WoodcutterAI.Status
+- uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status*
+  name: Status
+  href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_Status_
+  commentId: Overload:ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.Minions.AI.WoodcutterAI.Status
+  nameWithType: WoodcutterAI.Status
 - uid: ChebsValheimLibrary.Minions.AI.WoodcutterAI.ToolDamage
   name: ToolDamage
   href: api/ChebsValheimLibrary.Minions.AI.WoodcutterAI.html#ChebsValheimLibrary_Minions_AI_WoodcutterAI_ToolDamage
@@ -4576,12 +4654,6 @@ references:
   commentId: F:ChebsValheimLibrary.Minions.ChebGonazMinion.MinionOwnershipZdoKey
   fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.MinionOwnershipZdoKey
   nameWithType: ChebGonazMinion.MinionOwnershipZdoKey
-- uid: ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
-  name: minionTextGameObject
-  href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_minionTextGameObject
-  commentId: F:ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
-  fullName: ChebsValheimLibrary.Minions.ChebGonazMinion.minionTextGameObject
-  nameWithType: ChebGonazMinion.minionTextGameObject
 - uid: ChebsValheimLibrary.Minions.ChebGonazMinion.MinionWaitObjectName
   name: MinionWaitObjectName
   href: api/ChebsValheimLibrary.Minions.ChebGonazMinion.html#ChebsValheimLibrary_Minions_ChebGonazMinion_MinionWaitObjectName

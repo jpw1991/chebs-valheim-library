@@ -130,7 +130,6 @@
         <Compile Include="Minions\AI\WoodcutterAI.cs" />
         <Compile Include="Minions\FreshMinion.cs" />
         <Compile Include="Minions\ChebGonazMinion.cs" />
-        <Compile Include="Minions\MinionText.cs" />
         <Compile Include="Minions\NukeRock.cs" />
         <Compile Include="Minions\NukeTree.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

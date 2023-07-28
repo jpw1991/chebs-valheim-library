@@ -48,6 +48,15 @@ namespace ChebsValheimLibrary.Minions.AI
         /// How close the player must be for the NPC to talk.
         /// </summary>
         public virtual float ChatDistance => 5f;
+        
+        /// <summary>
+        /// The minion's displayable status. You can display it, log it, whatever you want.
+        /// </summary>
+        public string Status
+        {
+            get => _status;
+            protected set => _status = value;
+        }
 
         #region PrivateVariables
 
@@ -158,7 +167,7 @@ namespace ChebsValheimLibrary.Minions.AI
 
         #endregion
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _monsterAI = GetComponent<MonsterAI>();
             _humanoid = GetComponent<Humanoid>();
@@ -168,7 +177,7 @@ namespace ChebsValheimLibrary.Minions.AI
             UpdateToolProperties();
         }
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             var followTarget = _monsterAI.GetFollowTarget();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using ChebsValheimLibrary.Common;
+using TMPro;
 using UnityEngine;
 using Logger = Jotunn.Logger;
 
@@ -113,8 +114,38 @@ namespace ChebsValheimLibrary.Minions
             BlackMetal,
         }
 
-        protected GameObject minionTextGameObject;
-        //protected MinionText minionText;
+        // #region StatusText
+        // //protected GameObject minionTextGameObject;
+        // //protected MinionText minionText;
+        // protected Chat.NpcText _statusText;
+        //
+        // public Chat.NpcText StatusText
+        // {
+        //     get
+        //     {
+        //         if (_statusText == null)
+        //         {
+        //             _statusText = new Chat.NpcText();
+        //             _statusText.m_topic = topic;
+        //             _statusText.m_text = Status;
+        //             _statusText.m_go = gameObject;
+        //             _statusText.m_gui = Instantiate(Chat.instance.m_npcTextBase, transform);
+        //             _statusText.m_gui.SetActive(true);
+        //             _statusText.m_animator = _statusText.m_gui.GetComponent<Animator>();
+        //             _statusText.m_topicField = _statusText.m_gui.transform.Find("Topic").GetComponent<TextMeshProUGUI>();
+        //             _statusText.m_textField = _statusText.m_gui.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        //             _statusText.m_ttl = 5f;
+        //             _statusText.m_timeout = 5f > 0.0;
+        //             _statusText.m_offset = offset;
+        //             _statusText.m_cullDistance = cullDistance;
+        //             _statusText.UpdateText();
+        //         }
+        //
+        //         return _statusText;
+        //     }
+        // }
+        //
+        // #endregion
 
         /// <summary>
         /// Whether the minion can be commanded with E.
