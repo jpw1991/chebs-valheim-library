@@ -65,6 +65,27 @@
         <Reference Include="assembly_valheim" Publicize="true">
           <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
         </Reference>
+        <Reference Include="BepInEx">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\BepInEx\core\BepInEx.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.AssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.ParticleSystemModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Physics2DModule">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.Physics2DModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Base.cs" />

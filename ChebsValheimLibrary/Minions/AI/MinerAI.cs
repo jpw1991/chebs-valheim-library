@@ -257,12 +257,12 @@ namespace ChebsValheimLibrary.Minions.AI
 
         private void OnCollisionEnter(Collision collision)
         {
-            _inContact = Hittable(collision.gameObject);
+            _inContact = Hittable(collision?.gameObject);
         }
 
         private void OnCollisionExit(Collision other)
         {
-            _inContact = Hittable(other.gameObject);
+            _inContact = Hittable(other?.gameObject);
         }
 
         private bool Hittable(Transform t)
@@ -275,6 +275,7 @@ namespace ChebsValheimLibrary.Minions.AI
             // Getting miners to hit the right stuff has been a big challenge. This is the closest thing I've been able
             // to come up with. For some reason, checking layers isn't so reliable.
             // History of most of it can be seen here: https://github.com/jpw1991/chebs-necromancy/issues/109
+            if (go == null) return false;
             var destructible = go.GetComponentInParent<Destructible>();
             return _rocksList.FirstOrDefault(rocksListName =>
                    {

@@ -294,12 +294,12 @@ namespace ChebsValheimLibrary.Minions.AI
 
         private void OnCollisionEnter(Collision collision)
         {
-            _inContact = Hittable(collision.gameObject);
+            _inContact = Hittable(collision?.gameObject);
         }
 
         private void OnCollisionExit(Collision other)
         {
-            _inContact = Hittable(other.gameObject);
+            _inContact = Hittable(other?.gameObject);
         }
 
         private bool Hittable(GameObject go)
