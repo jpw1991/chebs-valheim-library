@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
+using Jotunn.Managers;
 using Logger = Jotunn.Logger;
-using Random = UnityEngine.Random;
 
 namespace ChebsValheimLibrary.Minions.AI
 {
@@ -158,7 +158,7 @@ namespace ChebsValheimLibrary.Minions.AI
             {
                 if (followTarget.TryGetComponent(out Player player))
                 {
-                    var followingMessage = Localization.instance.Localize("$chebgonaz_minionstatus_following");
+                    var followingMessage = LocalizationManager.Instance.TryTranslate("$chebgonaz_minionstatus_following");
                     _status = $"{followingMessage} {player.GetPlayerName()}";
                     return;
                 }
@@ -170,7 +170,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     Player.GetPlayersInRange(transform.position, ChatDistance, playersInRange);
                     if (playersInRange.Count > 0)
                     {
-                        var targetMessage = Localization.instance.Localize("$chebgonaz_worker_target");
+                        var targetMessage = LocalizationManager.Instance.TryTranslate("$chebgonaz_worker_target");
                         Chat.instance.SetNpcText(gameObject, Vector3.up, 5f, 10f, "",
                             targetMessage + $": {followTarget.gameObject.name}",
                             false);
@@ -187,14 +187,14 @@ namespace ChebsValheimLibrary.Minions.AI
             if (Time.time > _nextCheck)
             {
                 _nextCheck = Time.time + UpdateDelay
-                                       + Random.value; // add a fraction of a second so that multiple
+                                       + UnityEngine.Random.value; // add a fraction of a second so that multiple
                 // workers don't all simultaneously scan
 
                 LookForMineableObjects();
 
                 _status = _monsterAI.GetFollowTarget() != null
-                    ? $"{Localization.instance.Localize("$chebgonaz_worker_target")}: ({_monsterAI.GetFollowTarget().name})."
-                    : Localization.instance.Localize("$chebgonaz_worker_cantfindtarget");
+                    ? $"{LocalizationManager.Instance.TryTranslate("$chebgonaz_worker_target")}: ({_monsterAI.GetFollowTarget().name})."
+                    : LocalizationManager.Instance.TryTranslate("$chebgonaz_worker_cantfindtarget");
 
                 _humanoid.m_name = _status;
             }

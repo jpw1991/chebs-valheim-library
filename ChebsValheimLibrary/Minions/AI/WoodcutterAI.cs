@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Jotunn.Managers;
 using UnityEngine;
 using Logger = Jotunn.Logger;
 using Random = UnityEngine.Random;
@@ -186,7 +187,7 @@ namespace ChebsValheimLibrary.Minions.AI
             {
                 if (followTarget.TryGetComponent(out Player player))
                 {
-                    var followingMessage = Localization.instance.Localize("$chebgonaz_minionstatus_following");
+                    var followingMessage = LocalizationManager.Instance.TryTranslate("$chebgonaz_minionstatus_following");
                     _status = $"{followingMessage} {player.GetPlayerName()}";
                     return;
                 }
@@ -198,7 +199,7 @@ namespace ChebsValheimLibrary.Minions.AI
                     Player.GetPlayersInRange(transform.position, ChatDistance, playersInRange);
                     if (playersInRange.Count > 0)
                     {
-                        var targetMessage = Localization.instance.Localize("$chebgonaz_worker_target");
+                        var targetMessage = LocalizationManager.Instance.TryTranslate("$chebgonaz_worker_target");
                         Chat.instance.SetNpcText(gameObject, Vector3.up, 5f, 10f, "",
                             targetMessage + $": {followTarget.gameObject.name}",
                             false);
@@ -222,7 +223,7 @@ namespace ChebsValheimLibrary.Minions.AI
 
                 // do not use followTarget variable from above here -> we want to check if it changed
                 if (_monsterAI.GetFollowTarget() == null)
-                    _status = Localization.instance.Localize("$chebgonaz_worker_cantfindtarget");
+                    _status = LocalizationManager.Instance.TryTranslate("$chebgonaz_worker_cantfindtarget");
 
                 _humanoid.m_name = _status;
             }
