@@ -1,0 +1,89 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - build-*
+
+env:
+  name: ChebsThrownWeapons
+  jsonf: manifest.json
+  bepinexdl: https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_unix_5.4.21.0.zip
+  fullname: Joshua Paul Woods
+  email: jpw1991@gmail.com
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '7.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      
+      - name: Get version
+        run: |
+          version="$(cut -d'_' -f2 <<<"${{github.ref}}")"
+          echo "VERSION=${version}" >> $GITHUB_ENV
+
+      - name: Install NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Install dependencies
+        run: |
+          dotnet restore
+          nuget restore ChebsValheimLibrary/packages.config
+          dotnet tool restore
+      - name: Delete old Valheim directory
+        run: |
+          rm -rdf /home/runner/.local/share/Steam/steamapps/common/Valheim
+      - name: Download and install SteamCMD (64-bit)
+        run: |
+          mkdir steamcmd
+          cd steamcmd
+          wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+          tar -xvzf steamcmd_linux.tar.gz
+          cd ..
+      - name: Install Valheim
+        run: |
+          ./steamcmd/steamcmd.sh +force_install_dir /home/runner/.local/share/Steam/steamapps/common/Valheim +login anonymous +app_update 896660 validate +exit
+      - name: Install BepInEx
+        run: |
+          mv /home/runner/.local/share/Steam/steamapps/common/Valheim/valheim_server_Data/ /home/runner/.local/share/Steam/steamapps/common/Valheim/valheim_Data/
+          wget -O BepInEx.zip ${{ env.bepinexdl }}
+          unzip BepInEx.zip -d ~/BepInEx
+          mv ~/BepInEx/* /home/runner/.local/share/Steam/steamapps/common/Valheim/
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Package
+        run: |
+          ./publish_release.sh ${{env.VERSION}}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: thunderstore-package-artifact
+          path: ${{ env.name }}/bin/Release/${{ env.name }}.${{ env.VERSION }}.zip
+      - name: Set up Git user
+        run: |
+          git config --global user.name "${{env.fullname}}"
+          git config --global user.email "${{env.email}}"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.VERSION }}
+          release_name: Release ${{ env.VERSION }}
+          body: ${{github.event.workflow_run.head_commit.message}}
+          draft: false
+          prerelease: false

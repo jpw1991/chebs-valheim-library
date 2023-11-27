@@ -381,3 +381,4 @@ Environment.props
 /ChebsValheimLibrary/bin/
 *.md.backup
 /ChebsValheimLibrary/log.txt
+/Package
