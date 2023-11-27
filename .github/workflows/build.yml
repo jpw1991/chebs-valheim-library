@@ -3,9 +3,9 @@ name: build
 on:
   push:
     branches:
-      - ['master']
+      - master
     tags:
-      - 'build-*'
+      - build-*
 
 env:
   name: ChebsThrownWeapons
