@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: |
           dotnet restore
-          nuget restore ChebsValheimLibrary/packages.config -PackagesDirectory
+          nuget restore -SolutionDirectory ChebsValheimLibrary/packages.config
           dotnet tool restore
       - name: Delete old Valheim directory
         run: |
