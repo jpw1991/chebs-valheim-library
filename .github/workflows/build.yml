@@ -61,6 +61,14 @@ jobs:
           wget -O BepInEx.zip ${{ env.bepinexdl }}
           unzip BepInEx.zip -d ~/BepInEx
           mv ~/BepInEx/* /home/runner/.local/share/Steam/steamapps/common/Valheim/
+      - name: Replace paths inside csproj
+        run: |
+          oldstring="..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed"
+          newstring="..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed"
+          find . -not -path '*/.git/*' -type f -exec sed -i "s/$oldstring/$newstring/g" {} +
+          oldbepinex="..\..\..\Downloads\BepInEx_unix_5.4.22.0\BepInEx\core\BepInEx.dll"
+          newbepinex="..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll"
+          find . -not -path '*/.git/*' -type f -exec sed -i "s/$oldbepinex/$newbepinex/g" {} +
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Package

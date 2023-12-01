@@ -16,7 +16,7 @@
     <PropertyGroup>
         <Title>ChebsValheimLibrary</Title>
         <Description>A library which contains shared classes and things required by all my mods.</Description>
-        <Version>2.4.0</Version>
+        <Version>2.4.1</Version>
         <ReleaseNotes>Initial</ReleaseNotes>
         <Authors>Joshua Paul Woods</Authors>
         <Owners>Joshua Paul Woods</Owners>
@@ -66,25 +66,25 @@
           <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\BepInEx\core\BepInEx.dll</HintPath>
+          <HintPath>..\..\..\Downloads\BepInEx_unix_5.4.22.0\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
-            <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.AssetBundleModule.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ParticleSystemModule">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.ParticleSystemModule.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.Physics2DModule">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.Physics2DModule.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\unstripped_corlib\UnityEngine.PhysicsModule.dll</HintPath>
+          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -170,7 +170,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="HarmonyX" Version="2.10.2" />
-      <PackageReference Include="JotunnLib" Version="2.14.3" />
+      <PackageReference Include="JotunnLib" Version="2.15.0" />
       <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -180,7 +180,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Mono.Cecil" Version="0.11.5" />
-      <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.7.0">
+      <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.8.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
