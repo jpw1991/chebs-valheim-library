@@ -34,14 +34,6 @@ jobs:
           version="$(cut -d'_' -f2 <<<"${{github.ref}}")"
           echo "VERSION=${version}" >> $GITHUB_ENV
 
-      - name: Install NuGet
-        uses: nuget/setup-nuget@v1
-
-      - name: Install dependencies
-        run: |
-          dotnet restore
-          nuget restore -SolutionDirectory ChebsValheimLibrary/packages.config
-          dotnet tool restore
       - name: Delete old Valheim directory
         run: |
           rm -rdf /home/runner/.local/share/Steam/steamapps/common/Valheim
@@ -69,6 +61,14 @@ jobs:
           oldbepinex="..\..\..\Downloads\BepInEx_unix_5.4.22.0\BepInEx\core\BepInEx.dll"
           newbepinex="..\..\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll"
           find . -not -path '*/.git/*' -type f -exec sed -i "s/$oldbepinex/$newbepinex/g" {} +
+      - name: Install NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Install dependencies
+        run: |
+          dotnet restore
+          nuget restore -SolutionDirectory ChebsValheimLibrary/packages.config
+          dotnet tool restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Package
