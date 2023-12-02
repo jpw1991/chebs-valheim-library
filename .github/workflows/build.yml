@@ -14,9 +14,6 @@ env:
   name: ChebsValheimLibrary
   jsonf: manifest.json
   bepinexdl: https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_unix_5.4.21.0.zip
-  fullname: Joshua Paul Woods
-  email: jpw1991@gmail.com
-
 
 jobs:
   build:
@@ -58,8 +55,8 @@ jobs:
           mv ~/BepInEx/* /home/runner/.local/share/Steam/steamapps/common/Valheim/
       - name: Replace paths inside csproj
         run: |
-          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\.local)/\\\\home\\\runner\\\.local/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
-          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\Downloads\\\BepInEx_unix_5\.4\.22\.0)/\\\\home\\\runner\\\.local\\\share\\\Steam\\\steamapps\\\common\\\Valheim/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\.local)/\\\\home\\\runner\\\.local/g" ${{env.name}}/${{env.name}}.csproj
+          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\Downloads\\\BepInEx_unix_5\.4\.22\.0)/\\\\home\\\runner\\\.local\\\share\\\Steam\\\steamapps\\\common\\\Valheim/g" ${{env.name}}/${{env.name}}.csproj
       - name: Install NuGet
         uses: nuget/setup-nuget@v1
       - name: Manual install Jotunn
@@ -68,18 +65,18 @@ jobs:
           wget https://github.com/Valheim-Modding/Jotunn/releases/download/v2.15.0/Jotunn.dll
           mv Jotunn.dll /home/runner
           refcontent='<Reference Include="Jotunn"><HintPath>\\home\\runner\\Jotunn.dll</HintPath></Reference>'
-          sed -i '/<Reference\sInclude="UnityEngine.PhysicsModule">/i\'"$refcontent" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i '/<Reference\sInclude="UnityEngine.PhysicsModule">/i\'"$refcontent" ${{env.name}}/${{env.name}}.csproj
       - name: Confirm existence of critical files
         run : |
           for test in "BepInEx/core/BepInEx.dll" "valheim_Data/Managed/assembly_guiutils.dll" "valheim_Data/Managed/assembly_postprocessing.dll" "valheim_Data/Managed/assembly_utils.dll" "valheim_Data/Managed/assembly_valheim.dll" "valheim_Data/Managed/UnityEngine.dll" "valheim_Data/Managed/UnityEngine.AssetBundleModule.dll" "valheim_Data/Managed/UnityEngine.CoreModule.dll" "valheim_Data/Managed/UnityEngine.ParticleSystemModule.dll" "valheim_Data/Managed/UnityEngine.Physics2DModule.dll" "valheim_Data/Managed/UnityEngine.PhysicsModule.dll"; do
               [ ! -f "/home/runner/.local/share/Steam/steamapps/common/Valheim/$test" ] && echo "$test not found!"
           done
           [ ! -f "/home/runner/Jotunn.dll" ] && echo "Jotunn.dll not found!"
-          cat ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          cat ${{env.name}}/${{env.name}}.csproj
       - name: Install dependencies
         run: |
           dotnet restore
-          nuget restore -SolutionDirectory ChebsValheimLibrary/packages.config
+          nuget restore -SolutionDirectory ${{env.name}}/packages.config
           dotnet tool restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
@@ -92,11 +89,6 @@ jobs:
         with:
           name: thunderstore-package-artifact
           path: ${{ env.name }}/bin/Release/${{ env.name }}.${{ env.VERSION }}.zip
-      - name: Set up Git user
-        run: |
-          git config --global user.name "${{env.fullname}}"
-          git config --global user.email "${{env.email}}"
-
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
