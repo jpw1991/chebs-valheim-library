@@ -7,29 +7,13 @@ assignees: ''
 
 ---
 
-# Describe the bug
+Thanks for taking the time to report a bug. Please don't forget to include your **log file** and **config file** so that I can assist you properly.
 
-A clear and concise description of what the bug is.
+### Where are my files?
 
-# To Reproduce (if applicable)
-
-Steps to reproduce the bug. For example:
-1. Interact with skeleton using E
-2. Skeleton blows up
-3. See error
-
-# Expected behavior (if applicable)
-
-A clear and concise description of what you expected to happen. For example: Skeleton should not blow up.
-
-# Screenshots (if applicable)
-
-If applicable, add screenshots to help explain your problem.
-
-# Desktop
-
-If you can, please complete the following information:
-
- - OS: [e.g. Linux, Windows, OS X]
- - Mod version
- - Game version
+File | Method | Location
+--- | --- | ---
+Log | Manual install | `Steam/steamapps/common/Valheim/BepInEx/LogOutput.log`
+Log | R2modmanager | Settings->Debugging->Copy log file contents to clipboard
+Config | Manual install | `Steam/steamapps/common/Valheim/BepInEx/config/com.chebgonaz...`
+Config | R2modmanager | Settings->Locations->Browse profile data
