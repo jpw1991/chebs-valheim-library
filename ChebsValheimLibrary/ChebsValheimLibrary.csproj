@@ -66,7 +66,7 @@
           <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx">
-          <HintPath>..\..\..\Downloads\BepInEx_unix_5.4.22.0\BepInEx\core\BepInEx.dll</HintPath>
+          <HintPath>\home\runner\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
             <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>

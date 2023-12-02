@@ -55,7 +55,8 @@ jobs:
           mv ~/BepInEx/* /home/runner/.local/share/Steam/steamapps/common/Valheim/
       - name: Replace paths inside csproj
         run: |
-          sed -i -E "s/(\.\.\\\\.\.\\\\.\.\\\.local)/\\\\home\\runner\\\.local/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\.local)/\\\\home\\\runner\\\.local/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i -E "s/(\.\.\\\.\.\\\.\.\\\Downloads\\\BepInEx_unix_5\.4\.22\.0)/\\\\home\\\runner\\\.local\\\share\\\Steam\\\steamapps\\\common\\\Valheim/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
       - name: Install NuGet
         uses: nuget/setup-nuget@v1
       - name: Confirm existence of critical files
