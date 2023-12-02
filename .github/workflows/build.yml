@@ -55,7 +55,7 @@ jobs:
           mv ~/BepInEx/* /home/runner/.local/share/Steam/steamapps/common/Valheim/
       - name: Replace paths inside csproj
         run: |
-          sed -i -E "s/(\.\.\\\.local)/\.\.\\\.\.\\\.\.\\\.\.\\\.\.\\\.local/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i -E "s/(\.\.\\\.local)/\\home\\runner\\\.local/g" ChebsValheimLibrary/ChebsValheimLibrary.csproj
       - name: Install NuGet
         uses: nuget/setup-nuget@v1
 
