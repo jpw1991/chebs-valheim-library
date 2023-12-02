@@ -108,3 +108,4 @@ jobs:
           body: ${{github.event.workflow_run.head_commit.message}}
           draft: false
           prerelease: false
+          artifacts: Package/*
