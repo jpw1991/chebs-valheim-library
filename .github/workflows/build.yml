@@ -31,7 +31,7 @@ jobs:
       
       - name: Get version
         run: |
-          version="$(grep -o 'CurrentVersion = new(\"[.0-9]\+' ChebsValheimLibrary/Base.cs | cut -d '"' -f 2")"
+          version="$(grep -o 'CurrentVersion = new(\"[.0-9]\+' ChebsValheimLibrary/Base.cs | cut -d '"' -f 2)"
           echo "VERSION=${version}" >> $GITHUB_ENV
 
       - name: Delete old Valheim directory
