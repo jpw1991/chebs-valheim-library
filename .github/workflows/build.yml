@@ -65,7 +65,7 @@ jobs:
           wget https://github.com/Valheim-Modding/Jotunn/releases/download/v2.15.0/Jotunn.dll
           mv Jotunn.dll /home/runner
           refcontent='<Reference Include="Jotunn"><HintPath>\\home\\runner\\Jotunn.dll</HintPath></Reference>'
-          sed '/<\/ItemGroup>/i\'"$refcontent" ChebsValheimLibrary/ChebsValheimLibrary.csproj
+          sed -i '/<Reference\sInclude="UnityEngine.PhysicsModule">/i\'"$refcontent" ChebsValheimLibrary/ChebsValheimLibrary.csproj
       - name: Confirm existence of critical files
         run : |
           for test in "BepInEx/core/BepInEx.dll" "valheim_Data/Managed/assembly_guiutils.dll" "valheim_Data/Managed/assembly_postprocessing.dll" "valheim_Data/Managed/assembly_utils.dll" "valheim_Data/Managed/assembly_valheim.dll" "valheim_Data/Managed/UnityEngine.dll" "valheim_Data/Managed/UnityEngine.AssetBundleModule.dll" "valheim_Data/Managed/UnityEngine.CoreModule.dll" "valheim_Data/Managed/UnityEngine.ParticleSystemModule.dll" "valheim_Data/Managed/UnityEngine.Physics2DModule.dll" "valheim_Data/Managed/UnityEngine.PhysicsModule.dll"; do
