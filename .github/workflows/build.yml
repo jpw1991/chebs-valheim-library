@@ -8,7 +8,7 @@ on:
       - build-*
 
 env:
-  name: ChebsThrownWeapons
+  name: ChebsValheimLibrary
   jsonf: manifest.json
   bepinexdl: https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_unix_5.4.21.0.zip
   fullname: Joshua Paul Woods
@@ -31,7 +31,7 @@ jobs:
       
       - name: Get version
         run: |
-          version="$(cut -d'_' -f2 <<<"${{github.ref}}")"
+          version="$(grep -o 'CurrentVersion = new(\"[.0-9]\+' ChebsValheimLibrary/Base.cs | cut -d '"' -f 2")"
           echo "VERSION=${version}" >> $GITHUB_ENV
 
       - name: Delete old Valheim directory
@@ -82,6 +82,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Package
         run: |
+          [ ! -f "/publish_release.sh" ] && echo "publish_release.sh not found!"
           ./publish_release.sh ${{env.VERSION}}
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
