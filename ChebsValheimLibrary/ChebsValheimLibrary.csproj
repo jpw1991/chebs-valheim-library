@@ -16,7 +16,7 @@
     <PropertyGroup>
         <Title>ChebsValheimLibrary</Title>
         <Description>A library which contains shared classes and things required by all my mods.</Description>
-        <Version>2.4.1</Version>
+        <Version>2.5.0</Version>
         <ReleaseNotes>Initial</ReleaseNotes>
         <Authors>Joshua Paul Woods</Authors>
         <Owners>Joshua Paul Woods</Owners>
@@ -154,6 +154,7 @@
         <Compile Include="Minions\NukeRock.cs" />
         <Compile Include="Minions\NukeTree.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="PvP\PvPManager.cs" />
         <Compile Include="Structures\Structure.cs" />
     </ItemGroup>
     <ItemGroup>

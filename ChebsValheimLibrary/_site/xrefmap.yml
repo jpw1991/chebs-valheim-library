@@ -4844,6 +4844,79 @@ references:
   commentId: F:ChebsValheimLibrary.Minions.NukeTree.NukeAfter
   fullName: ChebsValheimLibrary.Minions.NukeTree.NukeAfter
   nameWithType: NukeTree.NukeAfter
+- uid: ChebsValheimLibrary.PvP
+  name: ChebsValheimLibrary.PvP
+  href: api/ChebsValheimLibrary.PvP.html
+  commentId: N:ChebsValheimLibrary.PvP
+  fullName: ChebsValheimLibrary.PvP
+  nameWithType: ChebsValheimLibrary.PvP
+- uid: ChebsValheimLibrary.PvP.PvPManager
+  name: PvPManager
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html
+  commentId: T:ChebsValheimLibrary.PvP.PvPManager
+  fullName: ChebsValheimLibrary.PvP.PvPManager
+  nameWithType: PvPManager
+- uid: ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC
+  name: ConfigureRPC()
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_ConfigureRPC
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC
+  fullName: ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC()
+  nameWithType: PvPManager.ConfigureRPC()
+- uid: ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC*
+  name: ConfigureRPC
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_ConfigureRPC_
+  commentId: Overload:ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.PvP.PvPManager.ConfigureRPC
+  nameWithType: PvPManager.ConfigureRPC
+- uid: ChebsValheimLibrary.PvP.PvPManager.Friendly(System.String,System.String)
+  name: Friendly(String, String)
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_Friendly_System_String_System_String_
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.Friendly(System.String,System.String)
+  fullName: ChebsValheimLibrary.PvP.PvPManager.Friendly(System.String, System.String)
+  nameWithType: PvPManager.Friendly(String, String)
+- uid: ChebsValheimLibrary.PvP.PvPManager.Friendly*
+  name: Friendly
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_Friendly_
+  commentId: Overload:ChebsValheimLibrary.PvP.PvPManager.Friendly
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.PvP.PvPManager.Friendly
+  nameWithType: PvPManager.Friendly
+- uid: ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends
+  name: GetPlayerFriends()
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_GetPlayerFriends
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends
+  fullName: ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends()
+  nameWithType: PvPManager.GetPlayerFriends()
+- uid: ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends*
+  name: GetPlayerFriends
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_GetPlayerFriends_
+  commentId: Overload:ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.PvP.PvPManager.GetPlayerFriends
+  nameWithType: PvPManager.GetPlayerFriends
+- uid: ChebsValheimLibrary.PvP.PvPManager.HeavyLogging
+  name: HeavyLogging
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_HeavyLogging
+  commentId: F:ChebsValheimLibrary.PvP.PvPManager.HeavyLogging
+  fullName: ChebsValheimLibrary.PvP.PvPManager.HeavyLogging
+  nameWithType: PvPManager.HeavyLogging
+- uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})
+  name: UpdatePlayerFriendsDict(List<String>)
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})
+  name.vb: UpdatePlayerFriendsDict(List(Of String))
+  fullName: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List<System.String>)
+  fullName.vb: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List(Of System.String))
+  nameWithType: PvPManager.UpdatePlayerFriendsDict(List<String>)
+  nameWithType.vb: PvPManager.UpdatePlayerFriendsDict(List(Of String))
+- uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict*
+  name: UpdatePlayerFriendsDict
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_
+  commentId: Overload:ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict
+  nameWithType: PvPManager.UpdatePlayerFriendsDict
 - uid: ChebsValheimLibrary.Structures
   name: ChebsValheimLibrary.Structures
   href: api/ChebsValheimLibrary.Structures.html

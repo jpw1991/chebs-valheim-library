@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Weather
+    <title>Namespace ChebsValheimLibrary.PvP
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Weather
+    <meta name="title" content="Namespace ChebsValheimLibrary.PvP
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,48 +68,30 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="ChebsValheimLibrary.Common.Weather">
+            <article class="content wrap" id="_content" data-uid="ChebsValheimLibrary.PvP">
   
-  
-  <h1 id="ChebsValheimLibrary_Common_Weather" data-uid="ChebsValheimLibrary.Common.Weather" class="text-break">Class Weather
+  <h1 id="ChebsValheimLibrary_PvP" data-uid="ChebsValheimLibrary.PvP" class="text-break">Namespace ChebsValheimLibrary.PvP
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Weather</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ChebsValheimLibrary.Common.html">ChebsValheimLibrary.Common</a></h6>
-  <h6><strong>Assembly</strong>: ChebsValheimLibrary.dll</h6>
-  <h5 id="ChebsValheimLibrary_Common_Weather_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Weather</code></pre>
-  </div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="ChebsValheimLibrary.PvP.PvPManager.html">PvPManager</a></h4>
+      <section><p>Clients send their PvP wishes to the server and the server receives them, stores them, and sends the information
+back (including the other player&apos;s settings). This way all clients are informed by the server of each others&apos;
+PvP settings.</p>
+<pre><code>                  ┌───────────┐
+                  │ Client 1  │
+                  └──────┬────┘
+                      ▲  │
+                      │  ▼
+┌────┐     ┌──────┐  ┌┴───┐
+│Ally├────►│Server│  │RPC ├───►┌───────────┐
+│File│     │      ├──┤    │    │ Client 2  │
+│    │◄────┤      │  │    │◄───┴───────────┘
+└────┘     └──────┘  └────┘</code></pre>
+</section>
 </article>
           </div>
           
@@ -117,12 +99,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_Common_Weather.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.Common.Weather%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/Common/Weather.cs/#L3" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

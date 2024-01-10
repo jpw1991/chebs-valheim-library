@@ -884,11 +884,11 @@ namespace ChebsValheimLibrary.Minions
         /// An example of a Neckro Gatherer minion finding nearby containers.
         /// <code>
         /// var closestContainer = FindClosest&lt;Container&gt;(transform, DropoffPointRadius.Value, pieceMask,
-        ///     c => c.m_piece != null
-        ///     && c.m_piece.IsPlacedByPlayer() 
-        ///     && allowedContainers.Contains(c.m_piece.m_nview.GetPrefabName())
-        ///     && c.GetInventory() != null
-        ///     && c.GetInventory().GetEmptySlots() > 0, true);
+        ///     c =&gt; c.m_piece != null
+        ///     &amp;&amp; c.m_piece.IsPlacedByPlayer() 
+        ///     &amp;&amp; allowedContainers.Contains(c.m_piece.m_nview.GetPrefabName())
+        ///     &amp;&amp; c.GetInventory() != null
+        ///     &amp;&amp; c.GetInventory().GetEmptySlots() &gt; 0, true);
         /// </code>
         /// </example>
         /// </summary>

@@ -240,10 +240,10 @@ namespace ChebsValheimLibrary.Items
         /// public override void DoOnUpdate()
         /// {
         ///     if (SpawnWraith.Value
-        ///         && ZInput.instance != null
-        ///         && global::Player.m_localPlayer != null)
+        ///         &amp;&amp; ZInput.instance != null
+        ///         &amp;&amp; global::Player.m_localPlayer != null)
         ///     {
-        ///         if (Time.time > DoOnUpdateDelay)
+        ///         if (Time.time &gt; DoOnUpdateDelay)
         ///         {
         ///             GuardianWraithStuff();
         ///

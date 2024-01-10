@@ -1256,7 +1256,17 @@ items remain in the inventory.</p>
   </span>
   <a id="ChebsValheimLibrary_Minions_ChebGonazMinion_FindClosest_" data-uid="ChebsValheimLibrary.Minions.ChebGonazMinion.FindClosest*"></a>
   <h4 id="ChebsValheimLibrary_Minions_ChebGonazMinion_FindClosest__1_UnityEngine_Transform_System_Single_System_Int32_System_Func___0_System_Boolean__System_Boolean_" data-uid="ChebsValheimLibrary.Minions.ChebGonazMinion.FindClosest``1(UnityEngine.Transform,System.Single,System.Int32,System.Func{``0,System.Boolean},System.Boolean)">FindClosest&lt;T&gt;(Transform, Single, Int32, Func&lt;T, Boolean&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Find the closest object of a type and return it
+<example>
+An example of a Neckro Gatherer minion finding nearby containers.<p>
+<pre><code>var closestContainer = FindClosest&lt;Container>(transform, DropoffPointRadius.Value, pieceMask,
+    c => c.m_piece != null
+    &amp;&amp; c.m_piece.IsPlacedByPlayer() 
+    &amp;&amp; allowedContainers.Contains(c.m_piece.m_nview.GetPrefabName())
+    &amp;&amp; c.GetInventory() != null
+    &amp;&amp; c.GetInventory().GetEmptySlots() > 0, true);</code></pre>
+<p></example></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
