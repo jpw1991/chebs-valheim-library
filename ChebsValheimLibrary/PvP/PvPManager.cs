@@ -39,7 +39,7 @@ namespace ChebsValheimLibrary.PvP
 
         private static string AllyFileName => $"{ZNet.instance.GetWorldName()}.ChebsValheimLibrary.PvP.json";
 
-        private static Tuple<string, Dictionary<string, List<string>>> _playerFriends;
+        private static Dictionary<string, List<string>> _playerFriends;
 
         private static Dictionary<string, List<string>> PlayerFriends
         {
@@ -47,13 +47,17 @@ namespace ChebsValheimLibrary.PvP
             // will be read again. It also ensures no mismatch can be made
             get
             {
-                _playerFriends ??= new Tuple<string, Dictionary<string, List<string>>>(ZNet.instance.GetWorldName(),
-                    ReadAllyFile());
+                var isServer = ZNet.instance.IsServerInstance() || ZNet.instance.IsLocalInstance();
 
-                return _playerFriends.Item2;
+                if (isServer && _playerFriends == null)
+                {
+                    _playerFriends = new Dictionary<string, List<string>>();
+                    _playerFriends = ReadAllyFile();
+                }
+
+                return _playerFriends;
             }
-            set => _playerFriends =
-                new Tuple<string, Dictionary<string, List<string>>>(ZNet.instance.GetWorldName(), value);
+            set => _playerFriends = value;
         }
 
         /// <summary>
@@ -61,7 +65,8 @@ namespace ChebsValheimLibrary.PvP
         /// </summary>
         public static List<string> GetPlayerFriends()
         {
-            return PlayerFriends.TryGetValue(Player.m_localPlayer.GetPlayerName(), out List<string> friends)
+            return PlayerFriends != null
+                   && PlayerFriends.TryGetValue(Player.m_localPlayer.GetPlayerName(), out List<string> friends)
                 ? friends
                 : new List<string>();
         }
@@ -80,7 +85,8 @@ namespace ChebsValheimLibrary.PvP
         /// </summary>
         public static bool Friendly(string minionMasterA, string minionMasterB)
         {
-            return PlayerFriends.TryGetValue(minionMasterA, out List<string> friends)
+            return PlayerFriends != null
+                   && PlayerFriends.TryGetValue(minionMasterA, out List<string> friends)
                    && friends.Contains(minionMasterB);
         }
 
@@ -97,6 +103,10 @@ namespace ChebsValheimLibrary.PvP
         private static void UpdateAllyFile(string content)
         {
             // only used by server, clients just use their in-memory dictionary.
+            // if (ZNet.instance == null) return;
+            // var isServer = ZNet.instance.IsServerInstance() || ZNet.instance.IsLocalInstance();
+            // if (!isServer) return;
+            
             var filePath = Path.Combine(Environment.GetFolderPath(
                 Environment.SpecialFolder.ApplicationData), AllyFileName);
 
@@ -206,7 +216,8 @@ namespace ChebsValheimLibrary.PvP
         private static IEnumerator PvP_RPCServerReceive(long sender, ZPackage package)
         {
             if (ZNet.instance == null) yield return null;
-            if (ZNet.instance.IsServerInstance() || ZNet.instance.IsLocalInstance())
+            var isServer = ZNet.instance.IsServerInstance() || ZNet.instance.IsLocalInstance();
+            if (isServer)
             {
                 var payload = package.GetArray();
                 var payloadDecoded = Encoding.UTF8.GetString(payload);
@@ -241,7 +252,7 @@ namespace ChebsValheimLibrary.PvP
                         Logger.LogMessage(
                             $"PvP_RPCServerReceive {UpdateDictString} sending to all peers: {returnPayload}");
                     _pvPrpc.SendPackage(ZNet.instance.m_peers, new ZPackage(Encoding.UTF8.GetBytes(returnPayload)));
-
+                    
                     UpdateAllyFile(serializedDict);
                 }
             }
