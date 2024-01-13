@@ -61,6 +61,17 @@ namespace ChebsValheimLibrary.PvP
         }
 
         /// <summary>
+        /// Make an initial request of the friends list. Best used when a player first connects to a server.
+        /// </summary>
+        public static void InitialFriendsListRequest()
+        {
+            if (!ZNet.instance.IsClientInstance() && !ZNet.instance.IsLocalInstance()) return;
+            var package =
+                new ZPackage(Encoding.UTF8.GetBytes(GetDictString + " " + Player.m_localPlayer.GetPlayerID()));
+            _pvPrpc.SendPackage(ZRoutedRpc.instance.GetServerPeerID(), package);
+        }
+
+        /// <summary>
         /// Get a list of the local player's friends.
         /// </summary>
         public static List<string> GetPlayerFriends()

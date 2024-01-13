@@ -4901,6 +4901,19 @@ references:
   commentId: F:ChebsValheimLibrary.PvP.PvPManager.HeavyLogging
   fullName: ChebsValheimLibrary.PvP.PvPManager.HeavyLogging
   nameWithType: PvPManager.HeavyLogging
+- uid: ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest
+  name: InitialFriendsListRequest()
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_InitialFriendsListRequest
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest
+  fullName: ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest()
+  nameWithType: PvPManager.InitialFriendsListRequest()
+- uid: ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest*
+  name: InitialFriendsListRequest
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_InitialFriendsListRequest_
+  commentId: Overload:ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest
+  isSpec: "True"
+  fullName: ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest
+  nameWithType: PvPManager.InitialFriendsListRequest
 - uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})
   name: UpdatePlayerFriendsDict(List<String>)
   href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__

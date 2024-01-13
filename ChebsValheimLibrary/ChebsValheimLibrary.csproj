@@ -16,7 +16,7 @@
     <PropertyGroup>
         <Title>ChebsValheimLibrary</Title>
         <Description>A library which contains shared classes and things required by all my mods.</Description>
-        <Version>2.5.1</Version>
+        <Version>2.5.2</Version>
         <ReleaseNotes>Initial</ReleaseNotes>
         <Authors>Joshua Paul Woods</Authors>
         <Owners>Joshua Paul Woods</Owners>
