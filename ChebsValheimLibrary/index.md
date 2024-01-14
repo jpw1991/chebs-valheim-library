@@ -16,6 +16,8 @@ A library which contains shared classes and things required by all my mods. You'
 - Worker minion AIs for:
 	+ Woodcutting
 	+ Mining
+- PvP
+	+ Via the PvP manager, friends/allies are remembered server-side and sent to clients when needed.
 
 ## Requirements
 
