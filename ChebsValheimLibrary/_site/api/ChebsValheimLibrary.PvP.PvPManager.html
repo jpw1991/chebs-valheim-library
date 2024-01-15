@@ -281,13 +281,13 @@ For a real working example, please look at the Cheb&apos;s Mercenaries or Cheb&a
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/new/master/apiSpec/new?filename=ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__Player_.md&amp;value=---%0Auid%3A%20ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List%7BSystem.String%7D%2CPlayer)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/PvP/PvPManager.cs/#L210">View Source</a>
+    <a href="https://github.com/jpw1991/chebs-valheim-library/blob/master/ChebsValheimLibrary/PvP/PvPManager.cs/#L211">View Source</a>
   </span>
   <a id="ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_" data-uid="ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict*"></a>
-  <h4 id="ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__" data-uid="ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})">UpdatePlayerFriendsDict(List&lt;String&gt;)</h4>
+  <h4 id="ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__Player_" data-uid="ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String},Player)">UpdatePlayerFriendsDict(List&lt;String&gt;, Player)</h4>
   <div class="markdown level1 summary"><p>Update the server&apos;s dictionary of PvP friends for the local player.
 <example>
 Snippet taken from Cheb&apos;s Mercenaries command for adding a friend via console.<p>
@@ -306,7 +306,7 @@ PvPManager.UpdatePlayerFriendsDict(friends);</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UpdatePlayerFriendsDict(List&lt;string&gt; list)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UpdatePlayerFriendsDict(List&lt;string&gt; list, Player player = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -321,6 +321,11 @@ PvPManager.UpdatePlayerFriendsDict(friends);</code></pre>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">list</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Player</span></td>
+        <td><span class="parametername">player</span></td>
         <td></td>
       </tr>
     </tbody>

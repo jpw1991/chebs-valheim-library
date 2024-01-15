@@ -4914,15 +4914,15 @@ references:
   isSpec: "True"
   fullName: ChebsValheimLibrary.PvP.PvPManager.InitialFriendsListRequest
   nameWithType: PvPManager.InitialFriendsListRequest
-- uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})
-  name: UpdatePlayerFriendsDict(List<String>)
-  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__
-  commentId: M:ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String})
-  name.vb: UpdatePlayerFriendsDict(List(Of String))
-  fullName: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List<System.String>)
-  fullName.vb: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List(Of System.String))
-  nameWithType: PvPManager.UpdatePlayerFriendsDict(List<String>)
-  nameWithType.vb: PvPManager.UpdatePlayerFriendsDict(List(Of String))
+- uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String},Player)
+  name: UpdatePlayerFriendsDict(List<String>, Player)
+  href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_System_Collections_Generic_List_System_String__Player_
+  commentId: M:ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List{System.String},Player)
+  name.vb: UpdatePlayerFriendsDict(List(Of String), Player)
+  fullName: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List<System.String>, Player)
+  fullName.vb: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict(System.Collections.Generic.List(Of System.String), Player)
+  nameWithType: PvPManager.UpdatePlayerFriendsDict(List<String>, Player)
+  nameWithType.vb: PvPManager.UpdatePlayerFriendsDict(List(Of String), Player)
 - uid: ChebsValheimLibrary.PvP.PvPManager.UpdatePlayerFriendsDict*
   name: UpdatePlayerFriendsDict
   href: api/ChebsValheimLibrary.PvP.PvPManager.html#ChebsValheimLibrary_PvP_PvPManager_UpdatePlayerFriendsDict_

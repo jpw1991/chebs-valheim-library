@@ -207,19 +207,21 @@ namespace ChebsValheimLibrary.PvP
         /// </example>
         /// </summary>
         /// <param name="list"></param>
-        public static void UpdatePlayerFriendsDict(List<string> list)
+        /// <param name="player"></param>
+        public static void UpdatePlayerFriendsDict(List<string> list, Player player = null)
         {
-            UpdatePlayerFriendsDict(string.Join(",", list.Select(s => s.Trim())));
+            UpdatePlayerFriendsDict(string.Join(",", list.Select(s => s.Trim())), player);
         }
 
-        private static void UpdatePlayerFriendsDict(string list)
+        private static void UpdatePlayerFriendsDict(string list, Player player = null)
         {
-            if (Player.m_localPlayer == null)
+            if (player == null) player = Player.m_localPlayer;
+            if (player == null)
             {
                 Logger.LogWarning($"UpdatePlayerFriendsDict m_localPlayer is null");
                 return;
             }
-            var content = $"{UpdateDictString};{Player.m_localPlayer.GetPlayerName()};{list}";
+            var content = $"{UpdateDictString};{player.GetPlayerName()};{list}";
             var package = new ZPackage(Encoding.UTF8.GetBytes(content));
             _pvPrpc.SendPackage(ZRoutedRpc.instance.GetServerPeerID(), package);
         }
