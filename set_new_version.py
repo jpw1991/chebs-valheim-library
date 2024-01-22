@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
 # There's too many places where the version has to be set, so I've made a little script to do it for me each time.
-#
-# Locations (why):
-# - AssemblyInfo.cs (for assembly versioning):
-#   + AssemblyVersion("2.0.0.0")
-#   + AssemblyFileVersion("2.0.0.0")
-#
-# - Base.cs (for DLL checking):
-#   + CurrentVersion = new("2.0.0");
-#
-# - ChebsValheimLibrary.csproj (for nuget package)
-#   + <Version>2.0.0</Version>
 
 import argparse
 import os.path
@@ -48,18 +37,15 @@ if __name__ == '__main__':
         sys.exit(1)
 
     file_pattern_replacements = [
-        FilePatternReplacement('ChebsValheimLibrary/Properties/AssemblyInfo.cs',
-                               'AssemblyVersion\\([".0-9]+\\)',
-                               f'AssemblyVersion("{version}.0")'),
-        FilePatternReplacement('ChebsValheimLibrary/Properties/AssemblyInfo.cs',
-                               'AssemblyFileVersion\\([".0-9]+\\)',
-                               f'AssemblyFileVersion("{version}.0")'),
         FilePatternReplacement('ChebsValheimLibrary/Base.cs',
                                'CurrentVersion = new\\([".0-9]+\\)',
                                f'CurrentVersion = new("{version}")'),
         FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary.csproj',
-                               '<Version>[".0-9]+',
-                               f"<Version>{version}"),
+                               '<Version>[0-9.]+<\/Version>',
+                               f'<Version>{version}.0</Version>'),
+        FilePatternReplacement('ChebsValheimLibrary/ChebsValheimLibrary.csproj',
+                               '<FileVersion>[0-9.]+<\/FileVersion>',
+                               f'<FileVersion>{version}.0</FileVersion>'),
     ]
 
     errors = [x.replace() for x in file_pattern_replacements]
