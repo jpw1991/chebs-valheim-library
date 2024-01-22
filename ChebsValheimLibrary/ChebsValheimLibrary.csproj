@@ -1,208 +1,101 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{1E536FEC-8273-41BD-A291-89E47BF776B9}</ProjectGuid>
-        <OutputType>Library</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ChebsValheimLibrary</RootNamespace>
-        <AssemblyName>ChebsValheimLibrary</AssemblyName>
-        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
-        <LangVersion>latest</LangVersion>
+        <TargetFramework>net48</TargetFramework>
+        <RootNamespace>ChebsNecromancy</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+
+        <!-- Assembly Attributes -->
+        <AssemblyTitle>Cheb's Necromancy</AssemblyTitle>
+        <AssemblyDescription>Cheb's Necromancy adds Necromancy to Valheim via craftable wands and structures. Minions will follow you, guard your base, and perform menial tasks.</AssemblyDescription>
+        <AssemblyConfiguration>Release</AssemblyConfiguration>
+        <AssemblyCompany>Cheb Gonaz</AssemblyCompany>
+        <AssemblyProduct>Cheb's Necromancy</AssemblyProduct>
+        <AssemblyCopyright>Copyright © 2022</AssemblyCopyright>
+        <AssemblyCulture>en</AssemblyCulture>
+
+        <!-- ComVisible and Guid -->
+        <ComVisible>false</ComVisible>
+        <Guid>e3243d22-4307-4008-ba36-9f326008cde5</Guid>
+
+        <!-- Version Information -->
+        <Version>2.5.4.0</Version>
+        <FileVersion>2.5.4.0</FileVersion>
+
+        <!-- Custom IgnoresAccessChecksToAttribute -->
+        <IgnoresAccessChecksToAttributes>
+            assembly_guiutils;assembly_utils;assembly_valheim
+        </IgnoresAccessChecksToAttributes>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
-    <PropertyGroup>
-        <Title>ChebsValheimLibrary</Title>
-        <Description>A library which contains shared classes and things required by all my mods.</Description>
-        <Version>2.5.3</Version>
-        <ReleaseNotes>Initial</ReleaseNotes>
-        <Authors>Joshua Paul Woods</Authors>
-        <Owners>Joshua Paul Woods</Owners>
-        <Copyright>Public Domain</Copyright>
-        <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/jpw1991/chebs-valheim-library</RepositoryUrl>
-        <PackageOutputPath>bin\Package</PackageOutputPath>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-    </PropertyGroup>
+
     <ItemGroup>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="HarmonyX" Version="2.10.2"/>
+        <PackageReference Include="JotunnLib" Version="2.16.2"/>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.ValueTuple" Version="4.5.0"/>
+
         <None Include="..\LICENSE" Pack="true" PackagePath=""/>
-    </ItemGroup>
-    <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath=""/>
-    </ItemGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <ItemGroup>
-        <Reference Include="Microsoft.CSharp" />
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="assembly_guiutils" Publicize="true">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_postprocessing" Publicize="true">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_postprocessing.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_utils" Publicize="true">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
-        </Reference>
-        <Reference Include="assembly_valheim" Publicize="true">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
-        </Reference>
+
         <Reference Include="BepInEx">
-          <HintPath>\home\runner\.local\share\Steam\steamapps\common\Valheim\BepInEx\core\BepInEx.dll</HintPath>
+            <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
+
         <Reference Include="UnityEngine">
             <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ParticleSystemModule">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.Physics2DModule">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+
+        <Reference Include="assembly_valheim" Publicize="true">
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
+        </Reference>
+        <Reference Include="assembly_utils" Publicize="true">
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
+        </Reference>
+        <Reference Include="assembly_guiutils" Publicize="true">
+            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
         </Reference>
     </ItemGroup>
-    <ItemGroup>
-        <Compile Include="Base.cs" />
-        <Compile Include="Common\ChebsRecipe.cs" />
-        <Compile Include="Common\InternalName.cs" />
-        <Compile Include="Common\MemoryConfigEntry.cs" />
-        <Compile Include="Common\Weather.cs" />
-        <Compile Include="Items\Armor\BlackMetal\BlackIronChest.cs" />
-        <Compile Include="Items\Armor\BlackMetal\BlackIronHelmet.cs" />
-        <Compile Include="Items\Armor\BlackMetal\BlackIronLegs.cs" />
-        <Compile Include="Items\Armor\BlackMetal\SkeletonHelmetBlackIron.cs" />
-        <Compile Include="Items\Armor\BlackMetal\SkeletonHelmetBlackIronPoison.cs" />
-        <Compile Include="Items\Armor\Bronze\SkeletonHelmetBronze.cs" />
-        <Compile Include="Items\Armor\Bronze\SkeletonHelmetBronzePoison.cs" />
-        <Compile Include="Items\Armor\Iron\SkeletonHelmetIron.cs" />
-        <Compile Include="Items\Armor\Iron\SkeletonHelmetIronPoison.cs" />
-        <Compile Include="Items\Armor\Leather\Lox\HelmetLeatherLox.cs" />
-        <Compile Include="Items\Armor\Leather\Lox\SkeletonArmorLeatherChestLox.cs" />
-        <Compile Include="Items\Armor\Leather\Lox\SkeletonArmorLeatherLegsLox.cs" />
-        <Compile Include="Items\Armor\Leather\Lox\SkeletonHelmetLeatherLox.cs" />
-        <Compile Include="Items\Armor\Leather\Lox\SkeletonHelmetLeatherPoisonLox.cs" />
-        <Compile Include="Items\Armor\Leather\SkeletonHelmetLeather.cs" />
-        <Compile Include="Items\Armor\Leather\SkeletonHelmetLeatherPoison.cs" />
-        <Compile Include="Items\Armor\Leather\Troll\HelmetLeatherTroll.cs" />
-        <Compile Include="Items\Armor\Leather\Troll\SkeletonArmorLeatherChestTroll.cs" />
-        <Compile Include="Items\Armor\Leather\Troll\SkeletonArmorLeatherLegsTroll.cs" />
-        <Compile Include="Items\Armor\Leather\Troll\SkeletonHelmetLeatherPoisonTroll.cs" />
-        <Compile Include="Items\Armor\Leather\Troll\SkeletonHelmetLeatherTroll.cs" />
-        <Compile Include="Items\Armor\Leather\Wolf\HelmetLeatherWolf.cs" />
-        <Compile Include="Items\Armor\Leather\Wolf\SkeletonArmorLeatherChestWolf.cs" />
-        <Compile Include="Items\Armor\Leather\Wolf\SkeletonArmorLeatherLegsWolf.cs" />
-        <Compile Include="Items\Armor\Leather\Wolf\SkeletonHelmetLeatherPoisonWolf.cs" />
-        <Compile Include="Items\Armor\Leather\Wolf\SkeletonHelmetLeatherWolf.cs" />
-        <Compile Include="Items\Armor\Mage\SkeletonMageCirclet.cs" />
-        <Compile Include="Items\Item.cs" />
-        <Compile Include="Items\Tools\SkeletonPickaxe.cs" />
-        <Compile Include="Items\Tools\SkeletonWoodAxe.cs" />
-        <Compile Include="Items\Weapons\BlackMetal\SkeletonAxeBlackMetal.cs" />
-        <Compile Include="Items\Weapons\BlackMetal\SkeletonMaceBlackMetal.cs" />
-        <Compile Include="Items\Weapons\BlackMetal\SkeletonSwordBlackMetal.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBow.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBow2.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBow3.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBowFire.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBowFrost.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBowPoison.cs" />
-        <Compile Include="Items\Weapons\Bows\SkeletonBowSilver.cs" />
-        <Compile Include="Items\Weapons\Bronze\SkeletonAxeBronze.cs" />
-        <Compile Include="Items\Weapons\Bronze\SkeletonMaceBronze.cs" />
-        <Compile Include="Items\Weapons\Bronze\SkeletonSwordBronze.cs" />
-        <Compile Include="Items\Weapons\Iron\SkeletonAxe.cs" />
-        <Compile Include="Items\Weapons\Iron\SkeletonMaceIron.cs" />
-        <Compile Include="Items\Weapons\Iron\SkeletonSwordIron.cs" />
-        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel1.cs" />
-        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel2.cs" />
-        <Compile Include="Items\Weapons\Mage\SkeletonFireballLevel3.cs" />
-        <Compile Include="Items\Weapons\Needle\SkeletonMaceNeedle.cs" />
-        <Compile Include="Items\Weapons\Poison\SkeletonMace.cs" />
-        <Compile Include="Items\Weapons\Poison\SkeletonMace2.cs" />
-        <Compile Include="Items\Weapons\Poison\SkeletonMace3.cs" />
-        <Compile Include="Items\Weapons\Wood\SkeletonClub.cs" />
-        <Compile Include="Minions\AI\MinerAI.cs" />
-        <Compile Include="Minions\AI\WoodcutterAI.cs" />
-        <Compile Include="Minions\FreshMinion.cs" />
-        <Compile Include="Minions\ChebGonazMinion.cs" />
-        <Compile Include="Minions\NukeRock.cs" />
-        <Compile Include="Minions\NukeTree.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="PvP\PvPManager.cs" />
-        <Compile Include="Structures\Structure.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="api\index.md" />
-      <Content Include="index.md" />
-    </ItemGroup>
-    <ItemGroup>
-      <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="docfx.console" Version="2.59.4">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="HarmonyX" Version="2.10.2" />
-      <PackageReference Include="JotunnLib" Version="2.15.0" />
-      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Mono.Cecil" Version="0.11.5" />
-      <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.8.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
+
+    <!-- Custom target to generate AssemblyInfo.cs during build -->
+    <Target Name="GenerateAssemblyInfo" BeforeTargets="BeforeBuild">
+        <WriteLinesToFile File="$(IntermediateOutputPath)AssemblyInfo.cs" Lines="@(_GenerateAssemblyInfo)" Overwrite="true" Encoding="UTF-8"/>
     </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
+
+    <!-- Define the content of the generated AssemblyInfo.cs -->
+    <ItemGroup>
+        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_guiutils&quot;)]"/>
+        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_utils&quot;)]"/>
+        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_valheim&quot;)]"/>
+    </ItemGroup>
 
 </Project>
