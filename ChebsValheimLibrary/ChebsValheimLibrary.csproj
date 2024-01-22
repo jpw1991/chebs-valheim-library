@@ -28,6 +28,15 @@
             assembly_guiutils;assembly_utils;assembly_valheim
         </IgnoresAccessChecksToAttributes>
         <LangVersion>default</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Cheb's Valheim Library</Title>
+        <Authors>Joshua Paul Woods</Authors>
+        <Description>A library which contains shared classes and things required by all my mods.</Description>
+        <Copyright>Public Domain</Copyright>
+        <PackageProjectUrl>https://github.com/jpw1991/chebs-valheim-library</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/jpw1991/chebs-valheim-library/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/jpw1991/chebs-valheim-library</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
