@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ChebsValheimLibrary.Items;
+﻿using ChebsValheimLibrary.Items;
 using ChebsValheimLibrary.Items.Armor.BlackMetal;
 using ChebsValheimLibrary.Items.Armor.Bronze;
 using ChebsValheimLibrary.Items.Armor.Iron;
@@ -26,7 +25,7 @@ namespace ChebsValheimLibrary
 {
     public class Base
     {
-        public static readonly System.Version CurrentVersion = new("2.5.4");
+        public static readonly System.Version CurrentVersion = new("2.6.0");
 
         public static bool VersionCheck(System.Version version, out string message)
         {

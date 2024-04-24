@@ -259,19 +259,21 @@ namespace ChebsValheimLibrary.Items
             // Coroutines cause problems and this is not a Monobehaviour, but we may still want some stuff to
             // happen during update.
         }
+
         /// <summary>
         /// To be used when loading the item's prefab from an asset bundle. It will generate and return the Jotunn
         /// CustomItem object or null on error.
         /// </summary>
         /// <param name="prefab">The prefab from the bundle.</param>
+        /// <param name="fixReference">Jotunn's fix reference.</param>
         /// <returns></returns>
-        public virtual CustomItem GetCustomItemFromPrefab(GameObject prefab)
+        public virtual CustomItem GetCustomItemFromPrefab(GameObject prefab, bool fixReference=true)
         {
             var config = new ItemConfig();
             config.Name = NameLocalization;
             config.Description = DescriptionLocalization;
 
-            var customItem = new CustomItem(prefab, false, config);
+            var customItem = new CustomItem(prefab, fixReference, config);
             if (customItem.ItemPrefab == null)
             {
                 Logger.LogError($"GetCustomItemFromPrefab: {PrefabName}'s ItemPrefab is null!");

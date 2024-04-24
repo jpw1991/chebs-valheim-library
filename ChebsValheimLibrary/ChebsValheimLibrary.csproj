@@ -2,16 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
-        <RootNamespace>ChebsNecromancy</RootNamespace>
+        <RootNamespace>ChebsValheimLibrary</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
 
         <!-- Assembly Attributes -->
-        <AssemblyTitle>Cheb's Necromancy</AssemblyTitle>
-        <AssemblyDescription>Cheb's Necromancy adds Necromancy to Valheim via craftable wands and structures. Minions will follow you, guard your base, and perform menial tasks.</AssemblyDescription>
+        <AssemblyTitle>Cheb's Valheim Library</AssemblyTitle>
+        <AssemblyDescription>A library which contains shared classes and things required by all my mods.</AssemblyDescription>
         <AssemblyConfiguration>Release</AssemblyConfiguration>
         <AssemblyCompany>Cheb Gonaz</AssemblyCompany>
-        <AssemblyProduct>Cheb's Necromancy</AssemblyProduct>
+        <AssemblyProduct>Cheb's Valheim Library</AssemblyProduct>
         <AssemblyCopyright>Copyright © 2022</AssemblyCopyright>
         <AssemblyCulture>en</AssemblyCulture>
 
@@ -20,8 +20,8 @@
         <Guid>e3243d22-4307-4008-ba36-9f326008cde5</Guid>
 
         <!-- Version Information -->
-        <Version>2.5.4.0</Version>
-        <FileVersion>2.5.4.0</FileVersion>
+        <Version>2.6.0.0</Version>
+        <FileVersion>2.6.0.0</FileVersion>
 
         <!-- Custom IgnoresAccessChecksToAttribute -->
         <IgnoresAccessChecksToAttributes>
@@ -34,18 +34,19 @@
         <Description>A library which contains shared classes and things required by all my mods.</Description>
         <Copyright>Public Domain</Copyright>
         <PackageProjectUrl>https://github.com/jpw1991/chebs-valheim-library</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/jpw1991/chebs-valheim-library/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <RepositoryUrl>https://github.com/jpw1991/chebs-valheim-library</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="HarmonyX" Version="2.10.2"/>
-        <PackageReference Include="JotunnLib" Version="2.16.2"/>
+        <PackageReference Include="HarmonyX" Version="2.12.0" />
+        <PackageReference Include="JotunnLib" Version="2.19.3" />
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -105,6 +106,9 @@
         <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_guiutils&quot;)]"/>
         <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_utils&quot;)]"/>
         <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_valheim&quot;)]"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Properties\" />
     </ItemGroup>
 
 </Project>

@@ -45,7 +45,7 @@ namespace ChebsValheimLibrary.Common
             piece.m_resources = newRequirements.ToArray();
         }
 
-        public CustomPiece GetCustomPieceFromPrefab(GameObject prefab, Sprite icon)
+        public CustomPiece GetCustomPieceFromPrefab(GameObject prefab, Sprite icon, bool fixReference=true)
         {
             PieceConfig config = new()
             {
@@ -71,12 +71,7 @@ namespace ChebsValheimLibrary.Common
             config.PieceTable = PieceTable;
             config.Category = PieceCategory;
 
-            CustomPiece customPiece = new(prefab, false, config);
-            if (customPiece == null)
-            {
-                Logger.LogError($"AddCustomPieces: {PrefabName}'s CustomPiece is null!");
-                return null;
-            }
+            CustomPiece customPiece = new(prefab, fixReference, config);
             if (customPiece.PiecePrefab == null)
             {
                 Logger.LogError($"AddCustomPieces: {PrefabName}'s PiecePrefab is null!");
