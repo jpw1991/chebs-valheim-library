@@ -20,8 +20,8 @@
         <Guid>e3243d22-4307-4008-ba36-9f326008cde5</Guid>
 
         <!-- Version Information -->
-        <Version>2.6.0.0</Version>
-        <FileVersion>2.6.0.0</FileVersion>
+        <Version>2.6.1.0</Version>
+        <FileVersion>2.6.1.0</FileVersion>
 
         <!-- Custom IgnoresAccessChecksToAttribute -->
         <IgnoresAccessChecksToAttributes>
@@ -45,13 +45,8 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="HarmonyX" Version="2.12.0" />
         <PackageReference Include="JotunnLib" Version="2.19.3" />
-        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="System.ValueTuple" Version="4.5.0"/>
+<!--        <PackageReference Include="System.ValueTuple" Version="4.5.0"/>-->
 
         <None Include="..\LICENSE" Pack="true" PackagePath=""/>
         <None Include="..\README.md" Pack="true" PackagePath=""/>
@@ -60,30 +55,30 @@
             <HintPath>..\..\..\.config\r2modmanPlus-local\Valheim\profiles\cheb-development\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
 
-        <Reference Include="UnityEngine">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.AssetBundleModule">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.ParticleSystemModule">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.Physics2DModule">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.PhysicsModule">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
-        </Reference>
-        <Reference Include="Unity.TextMeshPro">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
-        </Reference>
+<!--        <Reference Include="UnityEngine">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.AssetBundleModule">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.CoreModule">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.ParticleSystemModule">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.Physics2DModule">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.PhysicsModule">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="UnityEngine.UI">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>-->
+<!--        </Reference>-->
+<!--        <Reference Include="Unity.TextMeshPro">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>-->
+<!--        </Reference>-->
 
         <Reference Include="assembly_valheim" Publicize="true">
             <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_valheim.dll</HintPath>
@@ -91,24 +86,24 @@
         <Reference Include="assembly_utils" Publicize="true">
             <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_utils.dll</HintPath>
         </Reference>
-        <Reference Include="assembly_guiutils" Publicize="true">
-            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>
-        </Reference>
+<!--        <Reference Include="assembly_guiutils" Publicize="true">-->
+<!--            <HintPath>..\..\..\.local\share\Steam\steamapps\common\Valheim\valheim_Data\Managed\assembly_guiutils.dll</HintPath>-->
+<!--        </Reference>-->
     </ItemGroup>
 
     <!-- Custom target to generate AssemblyInfo.cs during build -->
-    <Target Name="GenerateAssemblyInfo" BeforeTargets="BeforeBuild">
-        <WriteLinesToFile File="$(IntermediateOutputPath)AssemblyInfo.cs" Lines="@(_GenerateAssemblyInfo)" Overwrite="true" Encoding="UTF-8"/>
-    </Target>
+<!--    <Target Name="GenerateAssemblyInfo" BeforeTargets="BeforeBuild">-->
+<!--        <WriteLinesToFile File="$(IntermediateOutputPath)AssemblyInfo.cs" Lines="@(_GenerateAssemblyInfo)" Overwrite="true" Encoding="UTF-8"/>-->
+<!--    </Target>-->
 
-    <!-- Define the content of the generated AssemblyInfo.cs -->
-    <ItemGroup>
-        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_guiutils&quot;)]"/>
-        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_utils&quot;)]"/>
-        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_valheim&quot;)]"/>
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Properties\" />
-    </ItemGroup>
+<!--    &lt;!&ndash; Define the content of the generated AssemblyInfo.cs &ndash;&gt;-->
+<!--&lt;!&ndash;    <ItemGroup>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_guiutils&quot;)]"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_utils&quot;)]"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <_GenerateAssemblyInfo Include="[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute(&quot;assembly_valheim&quot;)]"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ItemGroup>&ndash;&gt;-->
+<!--    <ItemGroup>-->
+<!--      <Folder Include="Properties\" />-->
+<!--    </ItemGroup>-->
 
 </Project>
