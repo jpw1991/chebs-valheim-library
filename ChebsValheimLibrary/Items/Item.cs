@@ -4,6 +4,7 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
 using ChebsValheimLibrary.Common;
+using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
